@@ -1,0 +1,493 @@
+local UI = loadstring(game:HttpGet("https://xan.bar/init.lua"))()
+
+local Window = UI.New({
+    Title = "Clown Killing\nReborn",
+    Theme = "Default"
+})
+
+local Main = Window:AddTab("General", UI.Icons.Render)
+Main:AddSection("Features")
+
+local Players = game:GetService("Players")
+local localPlayer = Players.LocalPlayer
+
+local clownLoop = false
+Main:AddToggle("Show Clown", { Default = false }, function(enabled)
+    if enabled then
+        clownLoop = true
+        task.spawn(function()
+            while clownLoop do
+                for _, player in ipairs(Players:GetPlayers()) do
+                    if player.Team and player.Team.Name == "Clown" then
+                        local char = player.Character
+                        local hrp = char and char:FindFirstChild("HumanoidRootPart")
+                        if char and hrp and not char:FindFirstChild("ClownBillboard") then
+                            local billboard = Instance.new("BillboardGui")
+                            billboard.Name = "ClownBillboard"
+                            billboard.Size = UDim2.new(1, 50, 1, 50)
+                            billboard.Adornee = hrp
+                            billboard.AlwaysOnTop = true
+                            billboard.Parent = char
+
+                            local label = Instance.new("TextLabel")
+                            label.Size = UDim2.new(1, 0, 1, 0)
+                            label.BackgroundTransparency = 1
+                            label.TextStrokeTransparency = 0
+                            label.Font = Enum.Font.Roboto
+                            label.Text = "Clown"
+                            label.TextColor3 = Color3.fromRGB(225, 6, 0)
+                            label.TextScaled = true
+                            label.Parent = billboard
+                        end
+                    end
+                end
+                task.wait(1)
+            end
+        end)
+    else
+        clownLoop = false
+        for _, player in ipairs(Players:GetPlayers()) do
+            local char = player.Character
+            local bb = char and char:FindFirstChild("ClownBillboard")
+            if bb then bb:Destroy() end
+        end
+    end
+end)
+
+local clownHighlightLoop = false
+Main:AddToggle("Highlight Clown", { Default = false }, function(enabled)
+    if enabled then
+        clownHighlightLoop = true
+        task.spawn(function()
+            while clownHighlightLoop do
+                for _, player in ipairs(Players:GetPlayers()) do
+                    if player.Team and player.Team.Name == "Clown" then
+                        local char = player.Character
+                        if char and not char:FindFirstChild("ClownHighlight") then
+                            local hl = Instance.new("Highlight")
+                            hl.Name = "ClownHighlight"
+                            hl.FillColor = Color3.fromRGB(0, 0, 0)
+                            hl.OutlineColor = Color3.fromRGB(255, 0, 0)
+                            hl.FillTransparency = 1
+                            hl.OutlineTransparency = 0
+                            hl.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
+                            hl.Adornee = char
+                            hl.Parent = char
+                        end
+                    end
+                end
+                task.wait(1)
+            end
+        end)
+    else
+        clownHighlightLoop = false
+        for _, player in ipairs(Players:GetPlayers()) do
+            local char = player.Character
+            local hl = char and char:FindFirstChild("ClownHighlight")
+            if hl then hl:Destroy() end
+        end
+    end
+end)
+
+local victimLoop = false
+Main:AddToggle("Show Victims", { Default = false }, function(enabled)
+    if enabled then
+        victimLoop = true
+        task.spawn(function()
+            while victimLoop do
+                for _, player in ipairs(Players:GetPlayers()) do
+                    if player ~= localPlayer and player.Team and player.Team.Name == "Victims" then
+                        local char = player.Character
+                        local head = char and char:FindFirstChild("Head")
+                        if head and not char:FindFirstChild("VictimBillboard") then
+                            local billboard = Instance.new("BillboardGui")
+                            billboard.Name = "VictimBillboard"
+                            billboard.Size = UDim2.new(1, 50, 1, 50)
+                            billboard.Adornee = head
+                            billboard.AlwaysOnTop = true
+                            billboard.Parent = char
+
+                            local label = Instance.new("TextLabel")
+                            label.Size = UDim2.new(1, 0, 1, 0)
+                            label.BackgroundTransparency = 1
+                            label.TextStrokeTransparency = 0
+                            label.Text = "Victim"
+                            label.TextColor3 = Color3.fromRGB(125, 249, 255)
+                            label.TextScaled = true
+                            label.Font = Enum.Font.Roboto
+                            label.Parent = billboard
+                        end
+                    end
+                end
+                task.wait(1)
+            end
+        end)
+    else
+        victimLoop = false
+        for _, player in ipairs(Players:GetPlayers()) do
+            if player ~= localPlayer then
+                local char = player.Character
+                local bb = char and char:FindFirstChild("VictimBillboard")
+                if bb then bb:Destroy() end
+            end
+        end
+    end
+end)
+
+local victimHighlightLoop = false
+Main:AddToggle("Highlight Victims", { Default = false }, function(enabled)
+    if enabled then
+        victimHighlightLoop = true
+        task.spawn(function()
+            while victimHighlightLoop do
+                for _, player in ipairs(Players:GetPlayers()) do
+                    if player ~= localPlayer and player.Team and player.Team.Name == "Victims" then
+                        local char = player.Character
+                        if char and not char:FindFirstChild("VictimHighlight") then
+                            local hl = Instance.new("Highlight")
+                            hl.Name = "VictimHighlight"
+                            hl.FillColor = Color3.fromRGB(0, 255, 0)
+                            hl.OutlineColor = Color3.fromRGB(125, 249, 255)
+                            hl.FillTransparency = 1
+                            hl.OutlineTransparency = 0
+                            hl.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
+                            hl.Adornee = char
+                            hl.Parent = char
+                        end
+                    end
+                end
+                task.wait(1)
+            end
+        end)
+    else
+        victimHighlightLoop = false
+        for _, player in ipairs(Players:GetPlayers()) do
+            if player ~= localPlayer then
+                local char = player.Character
+                local hl = char and char:FindFirstChild("VictimHighlight")
+                if hl then hl:Destroy() end
+            end
+        end
+    end
+end)
+
+local Players = game:GetService("Players")
+local RunService = game:GetService("RunService")
+
+local player = Players.LocalPlayer
+local distanceConnection
+
+local function findActualRadio()
+    for _, instance in ipairs(workspace:GetDescendants()) do
+        if instance.Name == "Radio" then
+            for _, desc in ipairs(instance:GetDescendants()) do
+                if desc:IsA("Sound") and desc.Name == "YeyLetsGetHelpBoys" then
+                    return instance
+                end
+            end
+        end
+    end
+end
+
+local function addRadioBillboard()
+    local radio = findActualRadio()
+    if not radio then
+        return
+    end
+
+    local adornee
+    if radio:IsA("BasePart") then
+        adornee = radio
+    elseif radio:IsA("Model") then
+        adornee = radio.PrimaryPart or radio:FindFirstChildWhichIsA("BasePart", true)
+    end
+	
+    if not adornee then
+        return
+    end
+
+    local existing = radio:FindFirstChild("RadioBillboard")
+    if existing then
+        existing:Destroy()
+    end
+
+    local billboard = Instance.new("BillboardGui")
+    billboard.Name = "RadioBillboard"
+    billboard.Size = UDim2.new(1, 50, 1, 50)
+    billboard.StudsOffset = Vector3.new(0, 3, 0)
+    billboard.AlwaysOnTop = true
+    billboard.Adornee = adornee
+    billboard.Parent = radio
+
+    local textLabel = Instance.new("TextLabel")
+    textLabel.Size = UDim2.new(1, 0, 1, 0)
+    textLabel.BackgroundTransparency = 1
+    textLabel.Font = Enum.Font.Roboto
+    textLabel.TextScaled = true
+    textLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+    textLabel.TextStrokeTransparency = 0
+    textLabel.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+    textLabel.Parent = billboard
+
+    if distanceConnection then
+        distanceConnection:Disconnect()
+        distanceConnection = nil
+    end
+
+    distanceConnection = RunService.Heartbeat:Connect(function()
+        local character = player.Character
+        local hrp = character and character:FindFirstChild("HumanoidRootPart")
+        if not hrp or not adornee or not adornee.Parent then
+            return
+        end
+
+        local distance = (hrp.Position - adornee.Position).Magnitude
+        textLabel.Text = string.format("%d creepstus away", math.floor(distance + 0.5))
+    end)
+end
+
+Main2:AddButton("Know Where Radio Is", function()
+    addRadioBillboard()
+end)
+
+local Players = game:GetService("Players")
+local RunService = game:GetService("RunService")
+local LocalPlayer = Players.LocalPlayer
+
+local followConnection
+local humanoid
+
+Main:AddToggle("Get Nearest Victim as a Clown", { Default = false }, function(enabled)
+    if enabled then
+        local character = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()
+        humanoid = character:FindFirstChildOfClass("Humanoid")
+        if not humanoid then return end
+
+        if not LocalPlayer.Team or LocalPlayer.Team.Name ~= "Clown" then
+            warn("You must be in the 'Clown' team to use this.")
+            return
+        end
+
+        followConnection = RunService.Heartbeat:Connect(function()
+            if not humanoid or humanoid.Health <= 0 then return end
+
+            local nearestVictim = nil
+            local shortestDistance = math.huge
+
+            for _, player in pairs(Players:GetPlayers()) do
+                if player.Team and player.Team.Name == "Victims" and player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
+                    local targetHumanoid = player.Character:FindFirstChildOfClass("Humanoid")
+                    if targetHumanoid and targetHumanoid.Health > 0 then
+                        local dist = (player.Character.HumanoidRootPart.Position - character.HumanoidRootPart.Position).Magnitude
+                        if dist < shortestDistance then
+                            shortestDistance = dist
+                            nearestVictim = player
+                        end
+                    end
+                end
+            end
+
+            if nearestVictim and nearestVictim.Character and nearestVictim.Character:FindFirstChild("HumanoidRootPart") then
+                humanoid:MoveTo(nearestVictim.Character.HumanoidRootPart.Position)
+            else
+                humanoid:MoveTo(character.HumanoidRootPart.Position) -- stop moving if no victim
+            end
+        end)
+
+    else
+        if followConnection then
+            followConnection:Disconnect()
+            followConnection = nil
+        end
+        if humanoid then
+            humanoid:MoveTo(LocalPlayer.Character and LocalPlayer.Character.HumanoidRootPart.Position or Vector3.new())
+        end
+    end
+end)
+
+local Players = game:GetService("Players")
+local RunService = game:GetService("RunService")
+local LocalPlayer = Players.LocalPlayer
+local Camera = workspace.CurrentCamera
+
+local aimbotConnection
+
+Main:AddToggle("Aimlock on Bozo as a Shooter", { Default = false }, function(enabled)
+    if enabled then
+        local warned = false
+        aimbotConnection = RunService.RenderStepped:Connect(function()
+            local localCharacter = LocalPlayer.Character
+            if not localCharacter then return end
+            local localHRP = localCharacter:FindFirstChild("HumanoidRootPart")
+            if not localHRP then return end
+
+            local closestTarget = nil
+            local shortestDistance = math.huge
+
+            for _, player in pairs(Players:GetPlayers()) do
+                if player.Team and player.Team.Name == "Clown" and player.Character and player.Character:FindFirstChild("HumanoidRootPart") and player ~= LocalPlayer then
+                    local targetHRP = player.Character.HumanoidRootPart
+                    local distance = (targetHRP.Position - localHRP.Position).Magnitude
+                    if distance < shortestDistance then
+                        shortestDistance = distance
+                        closestTarget = player
+                    end
+                end
+            end
+
+            if closestTarget then
+                warned = false
+                local targetPos = closestTarget.Character.HumanoidRootPart.Position
+                local cameraPos = Camera.CFrame.Position
+                local direction = (targetPos - cameraPos).Unit
+                local newCFrame = CFrame.new(cameraPos, cameraPos + direction)
+
+                Camera.CFrame = Camera.CFrame:Lerp(newCFrame, 0.2)
+            else
+                if not warned then
+                    UI.Success("nigga", "the round has not started yet")
+                    warned = true
+                end
+            end
+        end)
+    else
+        if aimbotConnection then
+            aimbotConnection:Disconnect()
+            aimbotConnection = nil
+        end
+    end
+end)
+
+local Main2 = Window:AddTab("More", UI.Icons.World)
+Main2:AddSection("Features")
+
+local Players = game:GetService("Players")
+local localPlayer = Players.LocalPlayer
+
+Main2:AddToggle("Lay Down", { Default = false }, function(enabled)
+    local char = localPlayer.Character or localPlayer.CharacterAdded:Wait()
+    local humanoid = char:FindFirstChildOfClass("Humanoid")
+    local root = char:FindFirstChild("HumanoidRootPart")
+
+    if humanoid and root then
+        if enabled then
+            humanoid.Sit = true
+            task.wait(.1)
+
+            root.CFrame = root.CFrame * CFrame.Angles(math.pi * 0.5, 0, 0)
+
+            for _, track in ipairs(humanoid:GetPlayingAnimationTracks()) do
+                track:Stop()
+            end
+        else
+            humanoid.Sit = false
+
+            root.CFrame = CFrame.new(root.Position)
+        end
+    end
+end)
+
+local Players = game:GetService("Players")
+local localPlayer = Players.LocalPlayer
+
+Main2:AddToggle("Sit", { Default = false }, function(enabled)
+    local char = localPlayer.Character or localPlayer.CharacterAdded:Wait()
+    local humanoid = char:FindFirstChildOfClass("Humanoid")
+
+    if humanoid then
+        if enabled then
+            -- Force the player to sit
+            humanoid.Sit = true
+        else
+            -- Stand back up
+            humanoid.Sit = false
+        end
+    end
+end)
+
+Main2:AddSlider("Walk Speed",{
+	Min = 0.01,
+	Max = 19.999, -- never reaches 20 
+	Default = 16, Increment = 0.01
+}, function(v)
+	currentSpeed = math.min(v, 19.999) 
+end) 
+
+Main2:AddToggle("Enable Walk Speed", { Default = false }, function(enabled)
+	if enabled then
+		UI.Success("nigga", "run away from Clown using this")
+		walkLoop = true
+		task.spawn(function()
+			while walkLoop do
+				local char = localPlayer.Character or localPlayer.CharacterAdded:Wait()
+				local humanoid = char:FindFirstChildOfClass("Humanoid")
+				if humanoid then
+					local speed = math.min(currentSpeed, 19.999)
+					if speed == 20 then
+						speed = 19.999
+					end
+					humanoid.WalkSpeed = speed
+				end
+				task.wait(0.5)
+			end
+		end)
+	else
+		walkLoop = false
+		local char = localPlayer.Character
+		local humanoid = char and char:FindFirstChildOfClass("Humanoid")
+		if humanoid then
+			humanoid.WalkSpeed = 16
+		end
+	end
+end)
+
+Main2:AddSlider("Jump Power", {
+    Min = 0.01,
+    Max = 90,
+    Default = 50,
+    Increment = 0.01
+}, function(v)
+    currentJumpPower = math.min(v, 90)
+end)
+
+Main2:AddToggle("Enable Jump Power", { Default = false }, function(enabled)
+    if enabled then
+        UI.Success("nigga", "Clown still jumps higher than u")
+        jumpLoop = true
+        task.spawn(function()
+            while jumpLoop do
+                local char = localPlayer.Character or localPlayer.CharacterAdded:Wait()
+                local humanoid = char:FindFirstChildOfClass("Humanoid")
+
+                if humanoid then
+                    local jumpPower = math.min(currentJumpPower, 90)
+                    humanoid.JumpPower = jumpPower
+                end
+
+                task.wait(0.5)
+            end
+        end)
+    else
+        jumpLoop = false
+        local char = localPlayer.Character
+        local humanoid = char and char:FindFirstChildOfClass("Humanoid")
+        if humanoid then
+            humanoid.JumpPower = 50
+        end
+    end
+end)
+
+local Camera = workspace.CurrentCamera
+local originalMaxZoom = Camera.CameraMaxZoomDistance
+
+Main2:AddToggle("Camera Zoom Distance", { Default = false }, function(enabled)
+    if enabled then
+        Camera.CameraMaxZoomDistance = math.huge
+    else
+        Camera.CameraMaxZoomDistance = originalMaxZoom
+    end
+end)
+
+if UI.IsMobile then
+    UI.MobileToggle({ Window = Window })
+end
