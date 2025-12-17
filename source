@@ -18,6 +18,8 @@ local Window = UI.New({
 local Main = Window:AddTab("General", UI.Icons.Render)
 Main:AddSection("Features")
 
+Main:AddLabel("Welcome to ClKiRe Cheat Peetitu (pt ii)")
+
 local Players = game:GetService("Players")
 local localPlayer = Players.LocalPlayer
 
@@ -65,6 +67,8 @@ Main:AddToggle("Show Clown", { Default = false }, function(enabled)
 end)
 
 local clownHighlightLoop = false
+local highlightColor = Color3.fromRGB(255, 0, 0) -- default red
+
 Main:AddToggle("Highlight Clown", { Default = false }, function(enabled)
     if enabled then
         clownHighlightLoop = true
@@ -73,16 +77,20 @@ Main:AddToggle("Highlight Clown", { Default = false }, function(enabled)
                 for _, player in ipairs(Players:GetPlayers()) do
                     if player.Team and player.Team.Name == "Clown" then
                         local char = player.Character
-                        if char and not char:FindFirstChild("ClownHighlight") then
-                            local hl = Instance.new("Highlight")
-                            hl.Name = "ClownHighlight"
-                            hl.FillColor = Color3.fromRGB(0, 0, 0)
-                            hl.OutlineColor = Color3.fromRGB(255, 0, 0)
-                            hl.FillTransparency = 1
+                        if char then
+                            local hl = char:FindFirstChild("ClownHighlight")
+                            if not hl then
+                                hl = Instance.new("Highlight")
+                                hl.Name = "ClownHighlight"
+                                hl.FillColor = Color3.fromRGB(0, 0, 0)
+                                hl.FillTransparency = 1
+                                hl.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
+                                hl.Adornee = char
+                                hl.Parent = char
+                            end
+                            -- Update outline color every loop
+                            hl.OutlineColor = highlightColor
                             hl.OutlineTransparency = 0
-                            hl.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
-                            hl.Adornee = char
-                            hl.Parent = char
                         end
                     end
                 end
@@ -95,6 +103,22 @@ Main:AddToggle("Highlight Clown", { Default = false }, function(enabled)
             local char = player.Character
             local hl = char and char:FindFirstChild("ClownHighlight")
             if hl then hl:Destroy() end
+        end
+    end
+end)
+
+Main:AddColorPicker("Color Picker - Highlight Clown", {
+    Default = UI.RGB(255, 0, 0),
+    Flag = "esp_color"
+}, function(color)
+    highlightColor = color
+    for _, player in ipairs(Players:GetPlayers()) do
+        if player.Team and player.Team.Name == "Clown" then
+            local char = player.Character
+            local hl = char and char:FindFirstChild("ClownHighlight")
+            if hl then
+                hl.OutlineColor = highlightColor
+            end
         end
     end
 end)
@@ -145,6 +169,8 @@ Main:AddToggle("Show Victims", { Default = false }, function(enabled)
 end)
 
 local victimHighlightLoop = false
+local victimHighlightColor = Color3.fromRGB(125, 249, 255)
+
 Main:AddToggle("Highlight Victims", { Default = false }, function(enabled)
     if enabled then
         victimHighlightLoop = true
@@ -153,16 +179,19 @@ Main:AddToggle("Highlight Victims", { Default = false }, function(enabled)
                 for _, player in ipairs(Players:GetPlayers()) do
                     if player ~= localPlayer and player.Team and player.Team.Name == "Victims" then
                         local char = player.Character
-                        if char and not char:FindFirstChild("VictimHighlight") then
-                            local hl = Instance.new("Highlight")
-                            hl.Name = "VictimHighlight"
-                            hl.FillColor = Color3.fromRGB(0, 255, 0)
-                            hl.OutlineColor = Color3.fromRGB(125, 249, 255)
-                            hl.FillTransparency = 1
+                        if char then
+                            local hl = char:FindFirstChild("VictimHighlight")
+                            if not hl then
+                                hl = Instance.new("Highlight")
+                                hl.Name = "VictimHighlight"
+                                hl.FillColor = Color3.fromRGB(0, 255, 0)
+                                hl.FillTransparency = 1
+                                hl.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
+                                hl.Adornee = char
+                                hl.Parent = char
+                            end
+                            hl.OutlineColor = victimHighlightColor
                             hl.OutlineTransparency = 0
-                            hl.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
-                            hl.Adornee = char
-                            hl.Parent = char
                         end
                     end
                 end
@@ -181,11 +210,28 @@ Main:AddToggle("Highlight Victims", { Default = false }, function(enabled)
     end
 end)
 
+Main:AddColorPicker("Color Picker - Highlight Victims", {
+    Default = UI.RGB(125, 249, 255),
+    Flag = "victim_esp_color"
+}, function(color)
+    victimHighlightColor = color
+    for _, player in ipairs(Players:GetPlayers()) do
+        if player.Team and player.Team.Name == "Victims" then
+            local char = player.Character
+            local hl = char and char:FindFirstChild("VictimHighlight")
+            if hl then
+                hl.OutlineColor = victimHighlightColor
+            end
+        end
+    end
+end)
+
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
 
 local player = Players.LocalPlayer
 local distanceConnection
+local currentRadio
 
 local function findActualRadio()
     for _, instance in ipairs(workspace:GetDescendants()) do
@@ -199,11 +245,29 @@ local function findActualRadio()
     end
 end
 
+local function removeRadioBillboard()
+    if distanceConnection then
+        distanceConnection:Disconnect()
+        distanceConnection = nil
+    end
+
+    if currentRadio then
+        local existing = currentRadio:FindFirstChild("RadioBillboard")
+        if existing then
+            existing:Destroy()
+        end
+        currentRadio = nil
+    end
+end
+
 local function addRadioBillboard()
     local radio = findActualRadio()
     if not radio then
+        UI.Success("nigga", "there is not even any radio")
         return
     end
+
+    currentRadio = radio
 
     local adornee
     if radio:IsA("BasePart") then
@@ -211,7 +275,7 @@ local function addRadioBillboard()
     elseif radio:IsA("Model") then
         adornee = radio.PrimaryPart or radio:FindFirstChildWhichIsA("BasePart", true)
     end
-	
+
     if not adornee then
         return
     end
@@ -239,11 +303,6 @@ local function addRadioBillboard()
     textLabel.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
     textLabel.Parent = billboard
 
-    if distanceConnection then
-        distanceConnection:Disconnect()
-        distanceConnection = nil
-    end
-
     distanceConnection = RunService.Heartbeat:Connect(function()
         local character = player.Character
         local hrp = character and character:FindFirstChild("HumanoidRootPart")
@@ -256,61 +315,154 @@ local function addRadioBillboard()
     end)
 end
 
-Main:AddButton("Know Where Radio Is", function()
-    addRadioBillboard()
+Main:AddToggle("Know Where Radio Is", { Default = false }, function(enabled)
+    if enabled then
+        addRadioBillboard()
+    else
+        removeRadioBillboard()
+    end
 end)
 
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
-local LocalPlayer = Players.LocalPlayer
 
+local LocalPlayer = Players.LocalPlayer
+local touchLoop
+local radioHitPart
+
+local function findRadioHitPart()
+    for _, inst in ipairs(workspace:GetDescendants()) do
+        if inst:IsA("BasePart")
+            and inst.Name == "hit"
+            and inst.Parent
+            and inst.Parent:IsA("Model")
+            and inst.Parent.Name == "Radio" then
+            return inst
+        end
+    end
+end
+
+Main:AddToggle("Fix the Radio Progress Bar Not Decreasing", { Default = false }, function(enabled)
+    if enabled then
+        radioHitPart = findRadioHitPart()
+
+        if not radioHitPart then
+            UI.Success("nigga", "cant you wait for the round to start?")
+            return
+        end
+
+        touchLoop = RunService.Heartbeat:Connect(function()
+            local character = LocalPlayer.Character
+            local hrp = character and character:FindFirstChild("HumanoidRootPart")
+
+            if not hrp or not radioHitPart or not radioHitPart.Parent then
+                return
+            end
+
+            firetouchinterest(radioHitPart, hrp, 0)
+            firetouchinterest(radioHitPart, hrp, 1)
+        end)
+    else
+        if touchLoop then
+            touchLoop:Disconnect()
+            touchLoop = nil
+        end
+        radioHitPart = nil
+    end
+end)
+
+local Players = game:GetService("Players")
+local RunService = game:GetService("RunService")
+
+local LocalPlayer = Players.LocalPlayer
+local swingConnection
+
+local function getEquippedKnife(character)
+    for _, tool in ipairs(character:GetChildren()) do
+        if tool:IsA("Tool") and tool.Name == "Knife" then
+            return tool
+        end
+    end
+end
+
+Main:AddToggle("Auto-Swing Knife", { Default = false }, function(enabled)
+    if enabled then
+        swingConnection = RunService.Heartbeat:Connect(function()
+            local character = LocalPlayer.Character
+            if not character then return end
+
+            local humanoid = character:FindFirstChildOfClass("Humanoid")
+            if not humanoid then return end
+
+            local knife = getEquippedKnife(character)
+            if knife then
+                knife:Activate()
+            end
+        end)
+    else
+        if swingConnection then
+            swingConnection:Disconnect()
+            swingConnection = nil
+        end
+    end
+end)
+
+local Players = game:GetService("Players")
+local RunService = game:GetService("RunService")
+
+local LocalPlayer = Players.LocalPlayer
 local followConnection
-local humanoid
+
+local sd = 1
 
 Main:AddToggle("Get Nearest Victim as a Clown", { Default = false }, function(enabled)
     if enabled then
-        local character = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()
-        humanoid = character:FindFirstChildOfClass("Humanoid")
-        if not humanoid then return end
-
         if not LocalPlayer.Team or LocalPlayer.Team.Name ~= "Clown" then
-            warn("You must be in the 'Clown' team to use this.")
+            UI.Success("nigga", "u must be the Clown to use this")
             return
         end
 
         followConnection = RunService.Heartbeat:Connect(function()
-            if not humanoid or humanoid.Health <= 0 then return end
+            local character = LocalPlayer.Character
+            if not character then return end
 
-            local nearestVictim = nil
+            local humanoid = character:FindFirstChildOfClass("Humanoid")
+            local hrp = character:FindFirstChild("HumanoidRootPart")
+            if not humanoid or humanoid.Health <= 0 or not hrp then return end
+
+            local nearestVictim
             local shortestDistance = math.huge
 
-            for _, player in pairs(Players:GetPlayers()) do
-                if player.Team and player.Team.Name == "Victims" and player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
-                    local targetHumanoid = player.Character:FindFirstChildOfClass("Humanoid")
-                    if targetHumanoid and targetHumanoid.Health > 0 then
-                        local dist = (player.Character.HumanoidRootPart.Position - character.HumanoidRootPart.Position).Magnitude
+            for _, player in ipairs(Players:GetPlayers()) do
+                if player.Team and player.Team.Name == "Victims" and player.Character then
+                    local vChar = player.Character
+                    local vHRP = vChar:FindFirstChild("HumanoidRootPart")
+                    local vHum = vChar:FindFirstChildOfClass("Humanoid")
+
+                    if vHRP and vHum and vHum.Health > 0 then
+                        local dist = (vHRP.Position - hrp.Position).Magnitude
                         if dist < shortestDistance then
                             shortestDistance = dist
-                            nearestVictim = player
+                            nearestVictim = vHRP
                         end
                     end
                 end
             end
 
-            if nearestVictim and nearestVictim.Character and nearestVictim.Character:FindFirstChild("HumanoidRootPart") then
-                humanoid:MoveTo(nearestVictim.Character.HumanoidRootPart.Position)
-            else
-                humanoid:MoveTo(character.HumanoidRootPart.Position) -- stop moving if no victim
+            if nearestVictim then
+                if shortestDistance > sd then
+                    local direction = (nearestVictim.Position - hrp.Position).Unit
+                    local targetPosition = nearestVictim.Position - (direction * sd)
+                    humanoid:MoveTo(targetPosition)
+                else
+                    humanoid:MoveTo(hrp.Position)
+                end
             end
         end)
-
     else
         if followConnection then
             followConnection:Disconnect()
             followConnection = nil
-        end
-        if humanoid then
-            humanoid:MoveTo(LocalPlayer.Character and LocalPlayer.Character.HumanoidRootPart.Position or Vector3.new())
         end
     end
 end)
@@ -349,10 +501,9 @@ Main:AddToggle("Aimlock on Bozo as a Shooter", { Default = false }, function(ena
                 warned = false
                 local targetPos = closestTarget.Character.HumanoidRootPart.Position
                 local cameraPos = Camera.CFrame.Position
-                local direction = (targetPos - cameraPos).Unit
-                local newCFrame = CFrame.new(cameraPos, cameraPos + direction)
+                local newCFrame = CFrame.new(cameraPos, targetPos)
 
-                Camera.CFrame = Camera.CFrame:Lerp(newCFrame, 0.2)
+                Camera.CFrame = newCFrame
             else
                 if not warned then
                     UI.Success("nigga", "the round has not started yet")
@@ -417,24 +568,24 @@ end)
 
 Main2:AddSlider("Walk Speed",{
 	Min = 0.01,
-	Max = 19.999, -- never reaches 20 
+	Max = 18,
 	Default = 16, Increment = 0.01
 }, function(v)
-	currentSpeed = math.min(v, 19.999) 
+	currentSpeed = math.min(v, 18) 
 end) 
 
 Main2:AddToggle("Enable Walk Speed", { Default = false }, function(enabled)
 	if enabled then
-		UI.Success("nigga", "run away from Clown using this")
+		UI.Success("nigga", "run as fast as Clown")
 		walkLoop = true
 		task.spawn(function()
 			while walkLoop do
 				local char = localPlayer.Character or localPlayer.CharacterAdded:Wait()
 				local humanoid = char:FindFirstChildOfClass("Humanoid")
 				if humanoid then
-					local speed = math.min(currentSpeed, 19.999)
-					if speed == 20 then
-						speed = 19.999
+					local speed = math.min(currentSpeed, 18)
+					if speed == 18 then
+						speed = 18
 					end
 					humanoid.WalkSpeed = speed
 				end
