@@ -311,11 +311,11 @@ local function addRadioBillboard()
         end
 
         local distance = (hrp.Position - adornee.Position).Magnitude
-        textLabel.Text = string.format("%d creepstus away", math.floor(distance + 0.5))
+        textLabel.Text = string.format("%d continents away", math.floor(distance + 0.5))
     end)
 end
 
-Main:AddToggle("Know Where Radio Is", { Default = false }, function(enabled)
+Main:AddToggle("Where Is the Radio?", { Default = false }, function(enabled)
     if enabled then
         addRadioBillboard()
     else
@@ -324,86 +324,81 @@ Main:AddToggle("Know Where Radio Is", { Default = false }, function(enabled)
 end)
 
 local Players = game:GetService("Players")
-local RunService = game:GetService("RunService")
-
 local LocalPlayer = Players.LocalPlayer
-local touchLoop
-local radioHitPart
 
 local function findRadioHitPart()
     for _, inst in ipairs(workspace:GetDescendants()) do
-        if inst:IsA("BasePart")
-            and inst.Name == "hit"
-            and inst.Parent
-            and inst.Parent:IsA("Model")
-            and inst.Parent.Name == "Radio" then
+        if inst:IsA("BasePart") and inst.Name == "hit" and inst.Parent and inst.Parent:IsA("Model") and inst.Parent.Name == "Radio" then
             return inst
         end
     end
 end
 
-Main:AddToggle("Fix the Radio Progress Bar Not Decreasing", { Default = false }, function(enabled)
-    if enabled then
-        radioHitPart = findRadioHitPart()
-
-        if not radioHitPart then
-            UI.Success("nigga", "cant you wait for the round to start?")
-            return
-        end
-
-        touchLoop = RunService.Heartbeat:Connect(function()
-            local character = LocalPlayer.Character
-            local hrp = character and character:FindFirstChild("HumanoidRootPart")
-
-            if not hrp or not radioHitPart or not radioHitPart.Parent then
-                return
-            end
-
-            firetouchinterest(radioHitPart, hrp, 0)
-            firetouchinterest(radioHitPart, hrp, 1)
-        end)
-    else
-        if touchLoop then
-            touchLoop:Disconnect()
-            touchLoop = nil
-        end
-        radioHitPart = nil
+Main:AddButton("Fix Radio Loading Progress", function()
+    local radioHitPart = findRadioHitPart()
+    if not radioHitPart then
+        UI.Success("nigga", "there is not even any radio")
+        return
     end
+
+    local character = LocalPlayer.Character
+    local hrp = character and character:FindFirstChild("HumanoidRootPart")
+    if not hrp then
+        UI.Success("nigga", "where is ur humanoidrootpart?")
+        return
+    end
+
+    firetouchinterest(radioHitPart, hrp, 0)
 end)
 
 local Players = game:GetService("Players")
-local RunService = game:GetService("RunService")
-
 local LocalPlayer = Players.LocalPlayer
-local swingConnection
 
-local function getEquippedKnife(character)
-    for _, tool in ipairs(character:GetChildren()) do
-        if tool:IsA("Tool") and tool.Name == "Knife" then
-            return tool
-        end
-    end
-end
+local swingLoop
+local equipped = false
+local knifeTool
 
 Main:AddToggle("Auto-Swing Knife", { Default = false }, function(enabled)
     if enabled then
-        swingConnection = RunService.Heartbeat:Connect(function()
-            local character = LocalPlayer.Character
-            if not character then return end
+        knifeTool = LocalPlayer.Character and LocalPlayer.Character:FindFirstChildOfClass("Tool")
+        if not knifeTool or knifeTool.Name ~= "Knife" then
+            UI.Success("nigga", "u are not Clown")
+            return
+        end
 
-            local humanoid = character:FindFirstChildOfClass("Humanoid")
-            if not humanoid then return end
+        equipped = true
 
-            local knife = getEquippedKnife(character)
-            if knife then
-                knife:Activate()
+        swingLoop = task.spawn(function()
+            while enabled and equipped and knifeTool and knifeTool.Parent == LocalPlayer.Character do
+                knifeTool:Activate()
+                task.wait(.5)
             end
         end)
+
+        LocalPlayer.Character.ChildAdded:Connect(function(child)
+            if child:IsA("Tool") and child.Name == "Knife" then
+                knifeTool = child
+                equipped = true
+                if not swingLoop or not task.isRunning(swingLoop) then
+                    swingLoop = task.spawn(function()
+                        while enabled and equipped and knifeTool and knifeTool.Parent == LocalPlayer.Character do
+                            knifeTool:Activate()
+                            task.wait(0.5)
+                        end
+                    end)
+                end
+            end
+        end)
+
+        LocalPlayer.Character.ChildRemoved:Connect(function(child)
+            if child == knifeTool then
+                equipped = false
+            end
+        end)
+        
     else
-        if swingConnection then
-            swingConnection:Disconnect()
-            swingConnection = nil
-        end
+        equipped = false
+        knifeTool = nil
     end
 end)
 
