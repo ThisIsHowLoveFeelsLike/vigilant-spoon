@@ -246,7 +246,7 @@ local function addRadioBillboard()
     end)
 end
 
-Main2:AddButton("Know Where Radio Is", function()
+Main:AddButton("Know Where Radio Is", function()
     addRadioBillboard()
 end)
 
