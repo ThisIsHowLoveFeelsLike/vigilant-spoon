@@ -241,7 +241,9 @@ local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
 
 local LocalPlayer = Players.LocalPlayer
-local touchLoop
+local touchConnection
+local radioHitPart
+local radioMissingWarned = false
 
 local function findRadioHitPart()
     for _, inst in ipairs(workspace:GetDescendants()) do
@@ -255,29 +257,36 @@ local function findRadioHitPart()
     end
 end
 
-Main:AddToggle("Fix Radio Loading Progress", { Default = false }, function(enabled)
+Main:AddToggle("Where Is the Radio?", { Default = false }, function(enabled)
     if enabled then
-        touchLoop = RunService.Heartbeat:Connect(function()
-            local radioHitPart = findRadioHitPart()
+        touchConnection = RunService.Heartbeat:Connect(function()
             local character = LocalPlayer.Character
             local hrp = character and character:FindFirstChild("HumanoidRootPart")
+            if not hrp then return end
 
-            if not radioHitPart then
-                UI.Success("nigga", "there is no radio")
-                return
-            end
+            if not radioHitPart or not radioHitPart.Parent then
+                radioHitPart = findRadioHitPart()
 
-            if not hrp then
-                return
+                if not radioHitPart then
+                    if not radioMissingWarned then
+                        UI.Success("nigga", "i cant find the radio either")
+                        radioMissingWarned = true
+                    end
+                    return
+                end
+
+                radioMissingWarned = false
             end
 
             firetouchinterest(radioHitPart, hrp, 0)
         end)
     else
-        if touchLoop then
-            touchLoop:Disconnect()
-            touchLoop = nil
+        if touchConnection then
+            touchConnection:Disconnect()
+            touchConnection = nil
         end
+        radioHitPart = nil
+        radioMissingWarned = false
     end
 end)
 
@@ -320,7 +329,7 @@ Main:AddToggle("Auto-Swing Knife", { Default = false }, function(enabled)
     if enabled then
         knifeTool = LocalPlayer.Character and LocalPlayer.Character:FindFirstChildOfClass("Tool")
         if not knifeTool or knifeTool.Name ~= "Knife" then
-            UI.Success("nigga", "u are not Clown")
+            UI.Success("nigga", "u are not Clown or the round has not started yet")
             return
         end
 
@@ -368,7 +377,7 @@ local followConnection
 
 local sd = 2
 
-Main:AddToggle("Get Nearest Victim as a Clown", { Default = false }, function(enabled)
+Main:AddToggle("Get Nearest Victim", { Default = false }, function(enabled)
     if enabled then
         if not LocalPlayer.Team or LocalPlayer.Team.Name ~= "Clown" then
             UI.Success("nigga", "u must be the Clown to use this")
@@ -427,7 +436,7 @@ local Camera = workspace.CurrentCamera
 
 local aimbotConnection
 
-Main:AddToggle("Aimlock on Bozo as a Shooter", { Default = false }, function(enabled)
+Main:AddToggle("Aimlock on Bozo", { Default = false }, function(enabled)
     if enabled then
         local warned = false
         aimbotConnection = RunService.RenderStepped:Connect(function()
@@ -459,7 +468,7 @@ Main:AddToggle("Aimlock on Bozo as a Shooter", { Default = false }, function(ena
                 Camera.CFrame = newCFrame
             else
                 if not warned then
-                    UI.Success("nigga", "the round has not started yet")
+                    UI.Success("nigga", "the round has not started yet, u have to be a Shooter by the way")
                     warned = true
                 end
             end
@@ -600,6 +609,398 @@ Main2:AddToggle("Camera Zoom Distance", { Default = false }, function(enabled)
     else
         Camera.CameraMaxZoomDistance = originalMaxZoom
     end
+end)
+
+local Players = game:GetService("Players")
+local UserInputService = game:GetService("UserInputService")
+local RunService = game:GetService("RunService")
+
+local LocalPlayer = Players.LocalPlayer
+local flying = false
+local flyConn, noclipConn
+local bv, bg
+
+local SPEED = 19
+
+local controls = {
+    W = 0, A = 0, S = 0, D = 0,
+    Up = 0, Down = 0
+}
+
+local function setCollision(character, state)
+    for _, v in ipairs(character:GetDescendants()) do
+        if v:IsA("BasePart") then
+            v.CanCollide = state
+        end
+    end
+end
+
+local function startFly()
+    local char = LocalPlayer.Character
+    if not char then return end
+
+    local hrp = char:FindFirstChild("HumanoidRootPart")
+    local hum = char:FindFirstChildOfClass("Humanoid")
+    if not hrp or not hum then return end
+
+    hum.PlatformStand = true
+    setCollision(char, false)
+
+    bv = Instance.new("BodyVelocity")
+    bv.MaxForce = Vector3.new(1e9, 1e9, 1e9)
+    bv.Velocity = Vector3.zero
+    bv.Parent = hrp
+
+    bg = Instance.new("BodyGyro")
+    bg.MaxTorque = Vector3.new(1e9, 1e9, 1e9)
+    bg.CFrame = hrp.CFrame
+    bg.Parent = hrp
+
+    flyConn = RunService.RenderStepped:Connect(function()
+        local cam = workspace.CurrentCamera
+        bg.CFrame = cam.CFrame
+
+        local move =
+            cam.CFrame.LookVector * (controls.W - controls.S) +
+            cam.CFrame.RightVector * (controls.D - controls.A) +
+            cam.CFrame.UpVector * (controls.Up - controls.Down)
+
+        bv.Velocity = (move.Magnitude > 0) and (move.Unit * SPEED) or Vector3.zero
+    end)
+
+    noclipConn = RunService.Stepped:Connect(function()
+        if char then
+            setCollision(char, false)
+        end
+    end)
+end
+
+local function stopFly()
+    if flyConn then flyConn:Disconnect() flyConn = nil end
+    if noclipConn then noclipConn:Disconnect() noclipConn = nil end
+
+    if bv then bv:Destroy() bv = nil end
+    if bg then bg:Destroy() bg = nil end
+
+    local char = LocalPlayer.Character
+    local hum = char and char:FindFirstChildOfClass("Humanoid")
+    if hum then
+        hum.PlatformStand = false
+    end
+    if char then
+        setCollision(char, true)
+    end
+end
+
+UserInputService.InputBegan:Connect(function(i, g)
+    if g then return end
+    if i.KeyCode == Enum.KeyCode.W then controls.W = 1 end
+    if i.KeyCode == Enum.KeyCode.S then controls.S = 1 end
+    if i.KeyCode == Enum.KeyCode.A then controls.A = 1 end
+    if i.KeyCode == Enum.KeyCode.D then controls.D = 1 end
+    if i.KeyCode == Enum.KeyCode.Space then controls.Up = 1 end
+    if i.KeyCode == Enum.KeyCode.LeftControl then controls.Down = 1 end
+end)
+
+UserInputService.InputEnded:Connect(function(i)
+    if i.KeyCode == Enum.KeyCode.W then controls.W = 0 end
+    if i.KeyCode == Enum.KeyCode.S then controls.S = 0 end
+    if i.KeyCode == Enum.KeyCode.A then controls.A = 0 end
+    if i.KeyCode == Enum.KeyCode.D then controls.D = 0 end
+    if i.KeyCode == Enum.KeyCode.Space then controls.Up = 0 end
+    if i.KeyCode == Enum.KeyCode.LeftControl then controls.Down = 0 end
+end)
+
+Main2:AddToggle("Fly Collab with NoClip", { Default = false }, function(enabled)
+    flying = enabled
+    if enabled then
+        startFly()
+    else
+        stopFly()
+    end
+end)
+
+local Players = game:GetService("Players")
+local RunService = game:GetService("RunService")
+local UserInputService = game:GetService("UserInputService")
+
+local LocalPlayer = Players.LocalPlayer
+local Camera = workspace.CurrentCamera
+
+local flying = false
+local flyConn, noclipConn
+local bv, bg
+local SPEED = 19
+
+local move = Vector3.zero
+local gui
+
+local function setCollision(char, state)
+    for _, v in ipairs(char:GetDescendants()) do
+        if v:IsA("BasePart") then
+            v.CanCollide = state
+        end
+    end
+end
+
+local function createButton(parent, text, pos)
+    local b = Instance.new("TextButton")
+    b.Size = UDim2.fromScale(0.18, 0.12)
+    b.Position = pos
+    b.Text = text
+    b.TextScaled = true
+    b.BackgroundTransparency = 0.2
+    b.Parent = parent
+    return b
+end
+
+local function createControls()
+    gui = Instance.new("ScreenGui")
+    gui.ResetOnSpawn = false
+    gui.Parent = LocalPlayer:WaitForChild("PlayerGui")
+
+    local frame = Instance.new("Frame", gui)
+    frame.Size = UDim2.fromScale(1, 1)
+    frame.BackgroundTransparency = 1
+
+    local up    = createButton(frame, "↑", UDim2.fromScale(0.82, 0.55))
+    local down  = createButton(frame, "↓", UDim2.fromScale(0.82, 0.70))
+    local left  = createButton(frame, "←", UDim2.fromScale(0.72, 0.63))
+    local right = createButton(frame, "→", UDim2.fromScale(0.92, 0.63))
+    local rise  = createButton(frame, "UP", UDim2.fromScale(0.05, 0.55))
+    local fall  = createButton(frame, "DOWN", UDim2.fromScale(0.05, 0.70))
+
+    local function bind(btn, vec)
+        btn.TouchStarted:Connect(function() move += vec end)
+        btn.TouchEnded:Connect(function() move -= vec end)
+    end
+
+    bind(up,    Vector3.new(0, 0, -1))
+    bind(down,  Vector3.new(0, 0,  1))
+    bind(left,  Vector3.new(-1, 0, 0))
+    bind(right, Vector3.new( 1, 0, 0))
+    bind(rise,  Vector3.new(0, 1, 0))
+    bind(fall,  Vector3.new(0,-1, 0))
+end
+
+local function startFly()
+    local char = LocalPlayer.Character
+    if not char then return end
+
+    local hrp = char:FindFirstChild("HumanoidRootPart")
+    local hum = char:FindFirstChildOfClass("Humanoid")
+    if not hrp or not hum then return end
+
+    hum.PlatformStand = true
+    setCollision(char, false)
+    createControls()
+
+    bv = Instance.new("BodyVelocity", hrp)
+    bv.MaxForce = Vector3.new(1e9,1e9,1e9)
+
+    bg = Instance.new("BodyGyro", hrp)
+    bg.MaxTorque = Vector3.new(1e9,1e9,1e9)
+
+    flyConn = RunService.RenderStepped:Connect(function()
+        bg.CFrame = Camera.CFrame
+        if move.Magnitude > 0 then
+            local dir =
+                Camera.CFrame.RightVector * move.X +
+                Camera.CFrame.UpVector * move.Y +
+                Camera.CFrame.LookVector * move.Z
+            bv.Velocity = dir.Unit * SPEED
+        else
+            bv.Velocity = Vector3.zero
+        end
+    end)
+
+    noclipConn = RunService.Stepped:Connect(function()
+        setCollision(char, false)
+    end)
+end
+
+local function stopFly()
+    if flyConn then flyConn:Disconnect() end
+    if noclipConn then noclipConn:Disconnect() end
+    if bv then bv:Destroy() end
+    if bg then bg:Destroy() end
+    if gui then gui:Destroy() end
+
+    local char = LocalPlayer.Character
+    local hum = char and char:FindFirstChildOfClass("Humanoid")
+    if hum then hum.PlatformStand = false end
+    if char then setCollision(char, true) end
+
+    move = Vector3.zero
+end
+
+Main2:AddToggle("Fly Collab with NoClip (pt ii)", { Default = false }, function(v)
+    flying = v
+    if v then
+        startFly()
+    else
+        stopFly()
+    end
+end)
+
+local Players = game:GetService("Players")
+local RunService = game:GetService("RunService")
+
+local LocalPlayer = Players.LocalPlayer
+local spoofSpeed = 16
+local enforceConnection
+
+Main2:AddSlider("Speed Spoofer Experimental", {
+    Min = 8,
+    Max = 24,
+    Default = 16,
+    Increment = 0.1
+}, function(value)
+    spoofSpeed = value
+end)
+
+enforceConnection = RunService.Heartbeat:Connect(function()
+    local char = LocalPlayer.Character
+    local hum = char and char:FindFirstChildOfClass("Humanoid")
+    if hum then
+        if hum.WalkSpeed ~= spoofSpeed then
+            hum.WalkSpeed = spoofSpeed
+        end
+    end
+end)
+
+local Players = game:GetService("Players")
+local TweenService = game:GetService("TweenService")
+
+local LocalPlayer = Players.LocalPlayer
+
+local function getLobbyTarget()
+    local lobby = workspace:FindFirstChild("Lobby")
+    if not lobby then return nil end
+
+    if lobby:IsA("Model") then
+        return lobby.PrimaryPart or lobby:FindFirstChildWhichIsA("BasePart", true)
+    end
+
+    if lobby:IsA("BasePart") then
+        return lobby
+    end
+
+    return nil
+end
+
+local function tweenToLobby()
+    local char = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()
+    local hrp = char:WaitForChild("HumanoidRootPart")
+
+    local targetPart = getLobbyTarget()
+    if not targetPart then
+        warn("Lobby target not found")
+        return
+    end
+
+    local humanoid = char:FindFirstChildOfClass("Humanoid")
+    if humanoid then
+        humanoid:ChangeState(Enum.HumanoidStateType.Physics)
+    end
+
+    local tweenInfo = TweenInfo.new(
+        3.5, -- duration (slow)
+        Enum.EasingStyle.Quad,
+        Enum.EasingDirection.Out
+    )
+
+    local goal = {
+        CFrame = targetPart.CFrame + Vector3.new(0, 3, 0)
+    }
+
+    local tween = TweenService:Create(hrp, tweenInfo, goal)
+    tween:Play()
+
+    tween.Completed:Once(function()
+        if humanoid then
+            humanoid:ChangeState(Enum.HumanoidStateType.Running)
+        end
+    end)
+end
+
+Main2:AddButton("Let's Go to the Lobby Bitch", function()
+    tweenToLobby()
+end)
+
+local Players = game:GetService("Players")
+local RunService = game:GetService("RunService")
+local LocalPlayer = Players.LocalPlayer
+
+local headSitConnection
+
+local function getPlayersByName(query)
+    local matches = {}
+    query = query:lower()
+    for _, player in pairs(Players:GetPlayers()) do
+        if player.Name:lower():find(query) or (player.DisplayName and player.DisplayName:lower():find(query)) then
+            table.insert(matches, player)
+        end
+    end
+    return matches
+end
+
+local function getRoot(character)
+    return character and character:FindFirstChild("HumanoidRootPart")
+end
+
+Main2:AddInput("Deal with Teamers (sit on one teamer's shoulders)", function(text)
+    if headSitConnection then
+        headSitConnection:Disconnect()
+        headSitConnection = nil
+    end
+
+    local matches = getPlayersByName(text)
+    if #matches ~= 1 then
+        UI.Success("nigga", "there is no such player with that name. Found:", #matches)
+        return
+    end
+
+    local targetPlayer = matches[1]
+    local speakerChar = LocalPlayer.Character
+    local targetChar = targetPlayer.Character
+
+    if not speakerChar or not targetChar then
+        UI.Success("nigga", "wait the character to load, deadass")
+        return
+    end
+
+    local speakerHumanoid = speakerChar:FindFirstChildOfClass("Humanoid")
+    if not speakerHumanoid then
+        UI.Success("nigga", "i cannot find HRP")
+        return
+    end
+
+    local speakerRoot = getRoot(speakerChar)
+    local targetRoot = getRoot(targetChar)
+    if not speakerRoot or not targetRoot then
+        UI.Success("nigga", "smth is missing inside your body")
+        return
+    end
+
+    speakerHumanoid.Sit = true
+
+    headSitConnection = RunService.Heartbeat:Connect(function()
+        if not Players:FindFirstChild(targetPlayer.Name) or not targetPlayer.Character or not speakerHumanoid.Sit then
+            headSitConnection:Disconnect()
+            headSitConnection = nil
+            return
+        end
+        local targetRoot = getRoot(targetPlayer.Character)
+        local speakerRoot = getRoot(LocalPlayer.Character)
+        if not targetRoot or not speakerRoot then
+            headSitConnection:Disconnect()
+            headSitConnection = nil
+            return
+        end
+        local offset = CFrame.new(0, 1.6, 0.4)
+        speakerRoot.CFrame = targetRoot.CFrame * offset
+    end)
 end)
 
 if UI.IsMobile then
