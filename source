@@ -1,7 +1,18 @@
 local plr = game.Players.LocalPlayer
 
 local africa = {
-	["GuardNoir"] = true
+	["GuardNoir"] = true,
+	["S4nd33er"] = true,
+	["vigilxntt"] = true,
+	["Xxadi123XD"] = true,
+	["htpp_kaczuszka"] = true,
+	["Pola_1b"] = true,
+	["Ghxstbbusta66"] = true,
+	["oskadsa1"] = true,
+	["XxJulyXx_Xx"] = true,
+	["Cinnamon_3520"] = true,
+	["Blue_pulll"] = true,
+	["faeriee4"] = true
 }
 
 if africa[plr.Name] then
@@ -229,97 +240,44 @@ end)
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
 
-local player = Players.LocalPlayer
-local distanceConnection
-local currentRadio
+local LocalPlayer = Players.LocalPlayer
+local touchLoop
 
-local function findActualRadio()
-    for _, instance in ipairs(workspace:GetDescendants()) do
-        if instance.Name == "Radio" then
-            for _, desc in ipairs(instance:GetDescendants()) do
-                if desc:IsA("Sound") and desc.Name == "YeyLetsGetHelpBoys" then
-                    return instance
-                end
-            end
+local function findRadioHitPart()
+    for _, inst in ipairs(workspace:GetDescendants()) do
+        if inst:IsA("BasePart")
+            and inst.Name == "hit"
+            and inst.Parent
+            and inst.Parent:IsA("Model")
+            and inst.Parent.Name == "Radio" then
+            return inst
         end
     end
 end
 
-local function removeRadioBillboard()
-    if distanceConnection then
-        distanceConnection:Disconnect()
-        distanceConnection = nil
-    end
-
-    if currentRadio then
-        local existing = currentRadio:FindFirstChild("RadioBillboard")
-        if existing then
-            existing:Destroy()
-        end
-        currentRadio = nil
-    end
-end
-
-local function addRadioBillboard()
-    local radio = findActualRadio()
-    if not radio then
-        UI.Success("nigga", "there is not even any radio")
-        return
-    end
-
-    currentRadio = radio
-
-    local adornee
-    if radio:IsA("BasePart") then
-        adornee = radio
-    elseif radio:IsA("Model") then
-        adornee = radio.PrimaryPart or radio:FindFirstChildWhichIsA("BasePart", true)
-    end
-
-    if not adornee then
-        return
-    end
-
-    local existing = radio:FindFirstChild("RadioBillboard")
-    if existing then
-        existing:Destroy()
-    end
-
-    local billboard = Instance.new("BillboardGui")
-    billboard.Name = "RadioBillboard"
-    billboard.Size = UDim2.new(1, 50, 1, 50)
-    billboard.StudsOffset = Vector3.new(0, 3, 0)
-    billboard.AlwaysOnTop = true
-    billboard.Adornee = adornee
-    billboard.Parent = radio
-
-    local textLabel = Instance.new("TextLabel")
-    textLabel.Size = UDim2.new(1, 0, 1, 0)
-    textLabel.BackgroundTransparency = 1
-    textLabel.Font = Enum.Font.Roboto
-    textLabel.TextScaled = true
-    textLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-    textLabel.TextStrokeTransparency = 0
-    textLabel.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
-    textLabel.Parent = billboard
-
-    distanceConnection = RunService.Heartbeat:Connect(function()
-        local character = player.Character
-        local hrp = character and character:FindFirstChild("HumanoidRootPart")
-        if not hrp or not adornee or not adornee.Parent then
-            return
-        end
-
-        local distance = (hrp.Position - adornee.Position).Magnitude
-        textLabel.Text = string.format("%d continents away", math.floor(distance + 0.5))
-    end)
-end
-
-Main:AddToggle("Where Is the Radio?", { Default = false }, function(enabled)
+Main:AddToggle("Fix Radio Loading Progress", { Default = false }, function(enabled)
     if enabled then
-        addRadioBillboard()
+        touchLoop = RunService.Heartbeat:Connect(function()
+            local radioHitPart = findRadioHitPart()
+            local character = LocalPlayer.Character
+            local hrp = character and character:FindFirstChild("HumanoidRootPart")
+
+            if not radioHitPart then
+                UI.Success("nigga", "there is no radio")
+                return
+            end
+
+            if not hrp then
+                return
+            end
+
+            firetouchinterest(radioHitPart, hrp, 0)
+        end)
     else
-        removeRadioBillboard()
+        if touchLoop then
+            touchLoop:Disconnect()
+            touchLoop = nil
+        end
     end
 end)
 
@@ -408,7 +366,7 @@ local RunService = game:GetService("RunService")
 local LocalPlayer = Players.LocalPlayer
 local followConnection
 
-local sd = 1
+local sd = 2
 
 Main:AddToggle("Get Nearest Victim as a Clown", { Default = false }, function(enabled)
     if enabled then
@@ -563,10 +521,10 @@ end)
 
 Main2:AddSlider("Walk Speed",{
 	Min = 0.01,
-	Max = 18,
+	Max = 19.999,
 	Default = 16, Increment = 0.01
 }, function(v)
-	currentSpeed = math.min(v, 18) 
+	currentSpeed = math.min(v, 19.999) 
 end) 
 
 Main2:AddToggle("Enable Walk Speed", { Default = false }, function(enabled)
@@ -578,9 +536,9 @@ Main2:AddToggle("Enable Walk Speed", { Default = false }, function(enabled)
 				local char = localPlayer.Character or localPlayer.CharacterAdded:Wait()
 				local humanoid = char:FindFirstChildOfClass("Humanoid")
 				if humanoid then
-					local speed = math.min(currentSpeed, 18)
-					if speed == 18 then
-						speed = 18
+					local speed = math.min(currentSpeed, 19.999)
+					if speed == 20 then
+						speed = 19.999
 					end
 					humanoid.WalkSpeed = speed
 				end
