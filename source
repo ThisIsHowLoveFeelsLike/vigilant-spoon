@@ -5,7 +5,7 @@ local africa = {
 }
 
 if africa[plr.Name] then
-	plr:Kick"thousands of wins but caught cheating. " ..plr.Name.. " oh " ..plr.Name.. "."
+	plr:Kick("thousands of wins but caught cheating. " ..plr.Name.. " oh " ..plr.Name.. ".")
 end
 
 local UI = loadstring(game:HttpGet("https://xan.bar/init.lua"))()
