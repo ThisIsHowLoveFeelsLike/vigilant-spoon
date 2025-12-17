@@ -477,7 +477,7 @@ Main2:AddToggle("Enable Jump Power", { Default = false }, function(enabled)
     end
 end)
 
-local Camera = workspace.CurrentCamera
+local Camera = game.Players.LocalPlayer
 local originalMaxZoom = Camera.CameraMaxZoomDistance
 
 Main2:AddToggle("Camera Zoom Distance", { Default = false }, function(enabled)
