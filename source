@@ -239,149 +239,95 @@ end)
 
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
-local player = Players.LocalPlayer
 
-local billboardGui
-local textLabel
-local distanceConnection
+local LocalPlayer = Players.LocalPlayer
+local radio
+local adornee
+local billboard
+local distanceConn
+local monitorConn
 
-local active = false
-local radio -- current Radio instance tracked
-
--- Helper: find Radio with required Sound descendant
-local function isActualRadio(model)
-    if model.Name ~= "Radio" then return false end
-    for _, desc in ipairs(model:GetDescendants()) do
-        if desc:IsA("Sound") and desc.Name == "YeyLetsGetHelpBoys" then
-            return true
-        end
-    end
-    return false
-end
-
+-- Find the real radio model
 local function findRadio()
     for _, inst in ipairs(workspace:GetDescendants()) do
-        if isActualRadio(inst) then
-            return inst
-        end
-    end
-    return nil
-end
-
-local function createBillboard(radioInstance)
-    local adornee = nil
-    if radioInstance:IsA("BasePart") then
-        adornee = radioInstance
-    elseif radioInstance:IsA("Model") then
-        adornee = radioInstance.PrimaryPart or radioInstance:FindFirstChildWhichIsA("BasePart", true)
-    end
-    if not adornee then
-        UI.Success("huh", "something has gong wrone with the radio")
-        return
-    end
-
-    if billboardGui then
-        billboardGui:Destroy()
-        billboardGui = nil
-        textLabel = nil
-    end
-
-    billboardGui = Instance.new("BillboardGui")
-    billboardGui.Name = "RadioBillboard"
-    billboardGui.Size = UDim2.new(1, 50, 1, 50)
-    billboardGui.StudsOffset = Vector3.new(0, 3, 0)
-    billboardGui.AlwaysOnTop = true
-    billboardGui.Adornee = adornee
-    billboardGui.Parent = adornee
-
-    textLabel = Instance.new("TextLabel")
-    textLabel.Size = UDim2.new(1, 0, 1, 0)
-    textLabel.BackgroundTransparency = 1
-    textLabel.Font = Enum.Font.Roboto
-    textLabel.TextScaled = true
-    textLabel.TextColor3 = Color3.new(1,1,1)
-    textLabel.TextStrokeTransparency = 0
-    textLabel.TextStrokeColor3 = Color3.new(0,0,0)
-    textLabel.Parent = billboardGui
-
-    if distanceConnection then
-        distanceConnection:Disconnect()
-        distanceConnection = nil
-    end
-
-    distanceConnection = RunService.Heartbeat:Connect(function()
-        if not player.Character or not player.Character.Parent then
-            textLabel.Text = "N/A"
-            return
-        end
-        local hrp = player.Character:FindFirstChild("HumanoidRootPart")
-        if not hrp or not adornee or not adornee.Parent then
-            textLabel.Text = "N/A"
-            return
-        end
-        local dist = (hrp.Position - adornee.Position).Magnitude
-        textLabel.Text = string.format("%d continents away", math.floor(dist + 0.5))
-    end)
-end
-
-local function cleanup()
-    if distanceConnection then
-        distanceConnection:Disconnect()
-        distanceConnection = nil
-    end
-    if billboardGui then
-        billboardGui:Destroy()
-        billboardGui = nil
-        textLabel = nil
-    end
-    radio = nil
-end
-
-local function onRadioAdded(radioInstance)
-    if active and isActualRadio(radioInstance) then
-        radio = radioInstance
-        createBillboard(radio)
-    end
-end
-
-local function onRadioRemoved(radioInstance)
-    if radioInstance == radio then
-        cleanup()
-        if active then
-            local newRadio = findRadio()
-            if newRadio then
-                radio = newRadio
-                createBillboard(radio)
+        if inst:IsA("Model") and inst.Name == "Radio" then
+            for _, d in ipairs(inst:GetDescendants()) do
+                if d:IsA("Sound") and d.Name == "YeyLetsGetHelpBoys" then
+                    return inst
+                end
             end
         end
     end
 end
 
-workspace.DescendantAdded:Connect(function(desc)
-    if active and desc.Name == "Radio" and desc:IsA("Model") and isActualRadio(desc) then
-        if not radio then
-            onRadioAdded(desc)
-        end
-    end
-end)
+-- Resolve a usable BasePart
+local function getAdornee(model)
+    return model.PrimaryPart or model:FindFirstChildWhichIsA("BasePart", true)
+end
 
-workspace.DescendantRemoving:Connect(function(desc)
-    if active and desc == radio then
-        onRadioRemoved(desc)
+-- Remove billboard safely
+local function removeBillboard()
+    if distanceConn then
+        distanceConn:Disconnect()
+        distanceConn = nil
     end
-end)
+    if billboard then
+        billboard:Destroy()
+        billboard = nil
+    end
+end
+
+local function createBillboard(radioModel)
+    removeBillboard()
+
+    adornee = getAdornee(radioModel)
+    if not adornee then return end
+
+    billboard = Instance.new("BillboardGui")
+    billboard.Name = "RadioBillboard"
+    billboard.Size = UDim2.fromOffset(150, 50)
+    billboard.StudsOffset = Vector3.new(0, 3, 0)
+    billboard.AlwaysOnTop = true
+    billboard.Adornee = adornee
+    billboard.Parent = radioModel
+
+    local label = Instance.new("TextLabel")
+    label.Size = UDim2.fromScale(1, 1)
+    label.BackgroundTransparency = 1
+    label.TextScaled = true
+    label.Font = Enum.Font.Roboto
+    label.TextStrokeTransparency = 0
+    label.TextColor3 = Color3.new(1, 1, 1)
+    label.Parent = billboard
+
+    distanceConn = RunService.Heartbeat:Connect(function()
+        local char = LocalPlayer.Character
+        local hrp = char and char:FindFirstChild("HumanoidRootPart")
+        if not hrp or not adornee or not adornee.Parent then
+            return
+        end
+        local dist = (hrp.Position - adornee.Position).Magnitude
+        label.Text = string.format("%d continents away", math.floor(dist + 0.5))
+    end)
+end
 
 Main:AddToggle("Where Is the Radio?", { Default = false }, function(enabled)
-    active = enabled
     if enabled then
-        -- Try to find Radio immediately
-        local foundRadio = findRadio()
-        if foundRadio then
-            radio = foundRadio
-            createBillboard(radio)
-        end
+        monitorConn = RunService.Heartbeat:Connect(function()
+            if not radio or not radio.Parent then
+                radio = findRadio()
+                if radio then
+                    createBillboard(radio)
+                end
+            end
+        end)
     else
-        cleanup()
+        if monitorConn then
+            monitorConn:Disconnect()
+            monitorConn = nil
+        end
+        removeBillboard()
+        radio = nil
     end
 end)
 
