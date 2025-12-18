@@ -567,7 +567,7 @@ local function stopLoop()
     clearHighlights()
 end
 
-Main2:AddToggle("Memorizer", { Default = false }, function(on)
+Main:AddToggle("Memorizer", { Default = false }, function(on)
     enabled = on
     if on then
         startLoop()
