@@ -417,12 +417,12 @@ local RunService = game:GetService("RunService")
 local LocalPlayer = Players.LocalPlayer
 local followConnection
 
-local sd = 2
+local STOP_DISTANCE = 2
 
 Main:AddToggle("Get Nearest Victim", { Default = false }, function(enabled)
     if enabled then
         if not LocalPlayer.Team or LocalPlayer.Team.Name ~= "Clown" then
-            UI.Success("nigga", "u must be the Clown to use this")
+            UI.Success("nigga", "u must be Clown to use this")
             return
         end
 
@@ -434,7 +434,8 @@ Main:AddToggle("Get Nearest Victim", { Default = false }, function(enabled)
             local hrp = character:FindFirstChild("HumanoidRootPart")
             if not humanoid or humanoid.Health <= 0 or not hrp then return end
 
-            local nearestVictim
+            local nearestVictimHRP
+            local nearestVictimHum
             local shortestDistance = math.huge
 
             for _, player in ipairs(Players:GetPlayers()) do
@@ -447,22 +448,34 @@ Main:AddToggle("Get Nearest Victim", { Default = false }, function(enabled)
                         local dist = (vHRP.Position - hrp.Position).Magnitude
                         if dist < shortestDistance then
                             shortestDistance = dist
-                            nearestVictim = vHRP
+                            nearestVictimHRP = vHRP
+                            nearestVictimHum = vHum
                         end
                     end
                 end
             end
 
-            if nearestVictim then
-                if shortestDistance > sd then
-                    local direction = (nearestVictim.Position - hrp.Position).Unit
-                    local targetPosition = nearestVictim.Position - (direction * sd)
+            if nearestVictimHRP then
+                -- Movement (do not climb on victim)
+                if shortestDistance > STOP_DISTANCE then
+                    local direction = (nearestVictimHRP.Position - hrp.Position).Unit
+                    local targetPosition = nearestVictimHRP.Position - (direction * STOP_DISTANCE)
                     humanoid:MoveTo(targetPosition)
                 else
                     humanoid:MoveTo(hrp.Position)
                 end
+
+                -- Jump sync
+                local victimState = nearestVictimHum:GetState()
+                if (victimState == Enum.HumanoidStateType.Jumping
+                    or victimState == Enum.HumanoidStateType.Freefall)
+                    and humanoid.FloorMaterial ~= Enum.Material.Air then
+
+                    humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+                end
             end
         end)
+
     else
         if followConnection then
             followConnection:Disconnect()
@@ -481,45 +494,63 @@ highlightFolder.Parent = player:WaitForChild("PlayerGui")
 
 local highlights = {}
 local connection
+local enabled = false
 
-local function startHighlight()
+local BOX_SIZE = Vector3.new(50, 20, 50)
+
+local function clearHighlights()
+    for _, hl in pairs(highlights) do
+        hl:Destroy()
+    end
+    table.clear(highlights)
+end
+
+local function startLoop()
+    if connection then return end
+
     connection = RunService.Heartbeat:Connect(function()
+        if not enabled then return end
+
         local character = player.Character
-        if not character then return end
-        local hrp = character:FindFirstChild("HumanoidRootPart")
-        if not hrp then return end
-
-        local center = hrp.Position
-        local size = Vector3.new(50, 25, 50)
-
-        local parts = workspace:FindPartsInRegion3WithIgnoreList(
-            Region3.new(center - size/2, center + size/2),
-            {character}, math.huge)
-
-        local partsToHighlight = {}
-
-        for _, part in pairs(parts) do
-            if part.CanCollide == false then
-                partsToHighlight[part] = true
-            end
+        if not character then
+            clearHighlights()
+            return
         end
 
-        for part, _ in pairs(partsToHighlight) do
-            if not highlights[part] then
-                local hl = Instance.new("Highlight")
-                hl.Name = "UncollideHighlight"
-                hl.Adornee = part
-                hl.FillColor = Color3.new(1,1,1)
-                hl.FillTransparency = 1
-                hl.OutlineColor = Color3.new(1,1,1)
-                hl.OutlineTransparency = 0
-                hl.Parent = highlightFolder
-                highlights[part] = hl
+        local hrp = character:FindFirstChild("HumanoidRootPart")
+        if not hrp then
+            clearHighlights()
+            return
+        end
+
+        local center = hrp.Position
+        local size = BOX_SIZE
+
+        local parts = workspace:FindPartsInRegion3WithIgnoreList(
+            Region3.new(center - size / 2, center + size / 2),
+            { character },
+            math.huge
+        )
+
+        local valid = {}
+
+        for _, part in ipairs(parts) do
+            if part:IsA("BasePart") and part.CanCollide == false then
+                valid[part] = true
+                if not highlights[part] then
+                    local hl = Instance.new("Highlight")
+                    hl.Adornee = part
+                    hl.FillTransparency = 1
+                    hl.OutlineTransparency = 0
+                    hl.OutlineColor = Color3.new(1, 1, 1)
+                    hl.Parent = highlightFolder
+                    highlights[part] = hl
+                end
             end
         end
 
         for part, hl in pairs(highlights) do
-            if not partsToHighlight[part] then
+            if not valid[part] then
                 hl:Destroy()
                 highlights[part] = nil
             end
@@ -527,25 +558,21 @@ local function startHighlight()
     end)
 end
 
-local function stopHighlight()
+local function stopLoop()
+    enabled = false
     if connection then
         connection:Disconnect()
         connection = nil
     end
-    for _, hl in pairs(highlights) do
-        hl:Destroy()
-    end
-    highlights = {}
+    clearHighlights()
 end
 
-local enabled = false
-
-Main:AddToggle("Memorizer", { Default = false }, function(on)
+Main2:AddToggle("Memorizer", { Default = false }, function(on)
     enabled = on
-    if enabled then
-        startHighlight()
+    if on then
+        startLoop()
     else
-        stopHighlight()
+        stopLoop()
     end
 end)
 
