@@ -12,7 +12,10 @@ local africa = {
 	["XxJulyXx_Xx"] = true,
 	["Cinnamon_3520"] = true,
 	["Blue_pulll"] = true,
-	["faeriee4"] = true
+	["faeriee4"] = true,
+    ["UWEUWEUWE63"] = true,
+    ["Akira07920"] = true,
+    ["Ezraisrael2"] = true
 }
 
 if africa[plr.Name] then
