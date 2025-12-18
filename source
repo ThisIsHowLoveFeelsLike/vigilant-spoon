@@ -564,9 +564,9 @@ local function startHighlight()
                 hl.Name = "UncollideHighlight"
                 hl.Adornee = part
                 hl.FillColor = Color3.new(1,1,1)
-                hl.FillTransparency = 0
+                hl.FillTransparency = 1
                 hl.OutlineColor = Color3.new(1,1,1)
-                hl.OutlineTransparency = 1
+                hl.OutlineTransparency = 0
                 hl.Parent = highlightFolder
                 highlights[part] = hl
             end
@@ -594,7 +594,7 @@ end
 
 local enabled = false
 
-Main2:AddToggle("Memorizer", { Default = false }, function(on)
+Main:AddToggle("Memorizer", { Default = false }, function(on)
     enabled = on
     if enabled then
         startHighlight()
@@ -603,7 +603,7 @@ Main2:AddToggle("Memorizer", { Default = false }, function(on)
     end
 end)
 
-Main2:AddLabel("Memorizer - Shows you what obstacles are able to be hidden in")
+Main:AddParagraph("Memorizer", "Shows you what obstacles are able to be hidden in")
 
 player.CharacterAdded:Connect(function()
     if enabled then
