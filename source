@@ -94,7 +94,6 @@ local Converted = {
 	["_Checked9"] = Instance.new("ImageLabel");
 	["_LocalScript17"] = Instance.new("LocalScript");
 	["_Infos"] = Instance.new("ScrollingFrame");
-	["_UIListLayout3"] = Instance.new("UIListLayout");
 	["_GameRunning"] = Instance.new("TextLabel");
 	["_LocalScript18"] = Instance.new("LocalScript");
 	["_It"] = Instance.new("TextLabel");
@@ -102,6 +101,7 @@ local Converted = {
 	["_UIPadding18"] = Instance.new("UIPadding");
 	["_Lol"] = Instance.new("TextLabel");
 	["_LocalScript20"] = Instance.new("LocalScript");
+	["_UIListLayout3"] = Instance.new("UIListLayout");
 	["_DropShadowHolder"] = Instance.new("Frame");
 	["_DropShadow"] = Instance.new("ImageLabel");
 	["_SmoothDragUI"] = Instance.new("LocalScript");
@@ -113,6 +113,7 @@ local Converted = {
 	["_hovers"] = Instance.new("Sound");
 	["_clicking"] = Instance.new("Sound");
 	["_SoundSystem"] = Instance.new("LocalScript");
+	["_fuckyounigga"] = Instance.new("LocalScript");
 }
 
 Converted["_Scryn"].IgnoreGuiInset = true
@@ -874,10 +875,6 @@ Converted["_Infos"].ZIndex = 2
 Converted["_Infos"].Name = "Infos"
 Converted["_Infos"].Parent = Converted["_Frame"]
 
-Converted["_UIListLayout3"].HorizontalAlignment = Enum.HorizontalAlignment.Center
-Converted["_UIListLayout3"].VerticalAlignment = Enum.VerticalAlignment.Center
-Converted["_UIListLayout3"].Parent = Converted["_Infos"]
-
 Converted["_GameRunning"].Font = Enum.Font.SourceSans
 Converted["_GameRunning"].Text = "Game Running: ?"
 Converted["_GameRunning"].TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -912,19 +909,26 @@ Converted["_UIPadding18"].PaddingTop = UDim.new(0, -15)
 Converted["_UIPadding18"].Parent = Converted["_Infos"]
 
 Converted["_Lol"].Font = Enum.Font.SourceSans
-Converted["_Lol"].Text = "stupid bitch"
+Converted["_Lol"].Text = "These are the players that have been blacklisted from using this script for teaming: @GuardNoir, @S4nd33er, @vigilxntt, @Xxadi123XD, @htpp_kaczuszka, @Pola_1b, @Ghxstbbusta666, @oskadsa1, @XxJulyXx_Xx, @Cinnamon_3520, @Blue_pulll, @faeriee4, @UWEUWEUWE63, @Akira07920, @Ezraisrael2."
 Converted["_Lol"].TextColor3 = Color3.fromRGB(255, 170.0000050663948, 0)
+Converted["_Lol"].TextScaled = true
 Converted["_Lol"].TextSize = 14
 Converted["_Lol"].TextStrokeTransparency = 0
 Converted["_Lol"].TextWrapped = true
+Converted["_Lol"].TextXAlignment = Enum.TextXAlignment.Left
+Converted["_Lol"].TextYAlignment = Enum.TextYAlignment.Top
 Converted["_Lol"].BackgroundColor3 = Color3.fromRGB(35.00000171363354, 41.00000135600567, 35.00000171363354)
 Converted["_Lol"].BackgroundTransparency = 1
 Converted["_Lol"].BorderColor3 = Color3.fromRGB(0, 0, 0)
 Converted["_Lol"].BorderSizePixel = 0
-Converted["_Lol"].Size = UDim2.new(1, -20, 0, 20)
+Converted["_Lol"].Size = UDim2.new(1, -20, 0, 150)
 Converted["_Lol"].ZIndex = 3
 Converted["_Lol"].Name = "Lol"
 Converted["_Lol"].Parent = Converted["_Infos"]
+
+Converted["_UIListLayout3"].HorizontalAlignment = Enum.HorizontalAlignment.Center
+Converted["_UIListLayout3"].VerticalAlignment = Enum.VerticalAlignment.Center
+Converted["_UIListLayout3"].Parent = Converted["_Infos"]
 
 Converted["_DropShadowHolder"].BackgroundTransparency = 1
 Converted["_DropShadowHolder"].BorderSizePixel = 0
@@ -998,7 +1002,7 @@ local fake_module_scripts = {}
 
 -- Fake Local Scripts:
 
-local function VZHROB_fake_script() -- Fake Script: Workspace.Scryn.Frame.Frame.Close.LocalScript
+local function QZTC_fake_script() -- Fake Script: Workspace.Scryn.Frame.Frame.Close.LocalScript
     local script = Instance.new("LocalScript")
     script.Name = "LocalScript"
     script.Parent = Converted["_Close"]
@@ -1015,7 +1019,7 @@ local function VZHROB_fake_script() -- Fake Script: Workspace.Scryn.Frame.Frame.
 		script.Parent.Parent.Parent.Parent:Destroy()
 	end)
 end
-local function NOQTEEP_fake_script() -- Fake Script: Workspace.Scryn.Frame.Frame.RestoreDown.LocalScript
+local function WEKL_fake_script() -- Fake Script: Workspace.Scryn.Frame.Frame.RestoreDown.LocalScript
     local script = Instance.new("LocalScript")
     script.Name = "LocalScript"
     script.Parent = Converted["_RestoreDown"]
@@ -1033,7 +1037,7 @@ local function NOQTEEP_fake_script() -- Fake Script: Workspace.Scryn.Frame.Frame
 		script.Parent.Parent.Parent.Visible = false
 	end)
 end
-local function OAMBMM_fake_script() -- Fake Script: Workspace.Scryn.Frame.Cheats.FRLP.LocalScript
+local function WTCRUP_fake_script() -- Fake Script: Workspace.Scryn.Frame.Cheats.FRLP.LocalScript
     local script = Instance.new("LocalScript")
     script.Name = "LocalScript"
     script.Parent = Converted["_FRLP"]
@@ -1074,7 +1078,7 @@ local function OAMBMM_fake_script() -- Fake Script: Workspace.Scryn.Frame.Cheats
 		firetouchinterest(radioHitPart, hrp, 0)
 	end)
 end
-local function MCGNSC_fake_script() -- Fake Script: Workspace.Scryn.Frame.Cheats.HC.LocalScript
+local function OLCIXQV_fake_script() -- Fake Script: Workspace.Scryn.Frame.Cheats.HC.LocalScript
     local script = Instance.new("LocalScript")
     script.Name = "LocalScript"
     script.Parent = Converted["_HC"]
@@ -1135,7 +1139,7 @@ local function MCGNSC_fake_script() -- Fake Script: Workspace.Scryn.Frame.Cheats
 		end
 	end)
 end
-local function ZVPE_fake_script() -- Fake Script: Workspace.Scryn.Frame.Cheats.HV.LocalScript
+local function GXLJ_fake_script() -- Fake Script: Workspace.Scryn.Frame.Cheats.HV.LocalScript
     local script = Instance.new("LocalScript")
     script.Name = "LocalScript"
     script.Parent = Converted["_HV"]
@@ -1199,7 +1203,7 @@ local function ZVPE_fake_script() -- Fake Script: Workspace.Scryn.Frame.Cheats.H
 		end
 	end)
 end
-local function KPWEN_fake_script() -- Fake Script: Workspace.Scryn.Frame.Cheats.WITR.LocalScript
+local function PWXUTM_fake_script() -- Fake Script: Workspace.Scryn.Frame.Cheats.WITR.LocalScript
     local script = Instance.new("LocalScript")
     script.Name = "LocalScript"
     script.Parent = Converted["_WITR"]
@@ -1214,33 +1218,42 @@ local function KPWEN_fake_script() -- Fake Script: Workspace.Scryn.Frame.Cheats.
 
 	local Players = game:GetService("Players")
 	local RunService = game:GetService("RunService")
+	local Workspace = game:GetService("Workspace")
 	
 	local LocalPlayer = Players.LocalPlayer
 	local radio
 	local adornee
 	local billboard
 	local distanceConn
-	local monitorConn
+	local descendantAddedConn
+	local descendantRemovingConn
 	
-	-- Find the real radio model
-	local function findRadio()
-		for _, inst in ipairs(workspace:GetDescendants()) do
-			if inst:IsA("Model") and inst.Name == "Radio" then
-				for _, d in ipairs(inst:GetDescendants()) do
-					if d:IsA("Sound") and d.Name == "YeyLetsGetHelpBoys" then
-						return inst
-					end
-				end
+	local function isRadioModel(model)
+		if not model:IsA("Model") or model.Name ~= "Radio" then
+			return false
+		end
+	
+		for _, d in ipairs(model:GetDescendants()) do
+			if d:IsA("Sound") and d.Name == "YeyLetsGetHelpBoys" then
+				return true
 			end
 		end
+		return false
 	end
 	
-	-- Resolve a usable BasePart
+	local function findRadio()
+		for _, inst in ipairs(Workspace:GetDescendants()) do
+			if isRadioModel(inst) then
+				return inst
+			end
+		end
+		return nil
+	end
+	
 	local function getAdornee(model)
 		return model.PrimaryPart or model:FindFirstChildWhichIsA("BasePart", true)
 	end
 	
-	-- Remove billboard safely
 	local function removeBillboard()
 		if distanceConn then
 			distanceConn:Disconnect()
@@ -1250,6 +1263,32 @@ local function KPWEN_fake_script() -- Fake Script: Workspace.Scryn.Frame.Cheats.
 			billboard:Destroy()
 			billboard = nil
 		end
+		adornee = nil
+	end
+	
+	local function setupRadioMonitoring()
+		if descendantAddedConn then
+			descendantAddedConn:Disconnect()
+			descendantAddedConn = nil
+		end
+		if descendantRemovingConn then
+			descendantRemovingConn:Disconnect()
+			descendantRemovingConn = nil
+		end
+	
+		descendantAddedConn = Workspace.DescendantAdded:Connect(function(descendant)
+			if isRadioModel(descendant) then
+				radio = descendant
+				createBillboard(radio)
+			end
+		end)
+	
+		descendantRemovingConn = Workspace.DescendantRemoving:Connect(function(descendant)
+			if descendant == radio then
+				removeBillboard()
+				radio = nil
+			end
+		end)
 	end
 	
 	local function createBillboard(radioModel)
@@ -1286,39 +1325,40 @@ local function KPWEN_fake_script() -- Fake Script: Workspace.Scryn.Frame.Cheats.
 		end)
 	end
 	
-	local Players = game.Players
-	local localPlayer = Players.LocalPlayer
 	local enabled = false
 	
 	script.Parent.MouseButton1Click:Connect(function()
 		enabled = not enabled
-		
+	
 		if enabled then
 			script.Parent.Checked.Visible = true
 			script.Parent.NotChecked.Visible = false
-			
-			monitorConn = RunService.Heartbeat:Connect(function()
-				if not radio or not radio.Parent then
-					radio = findRadio()
-					if radio then
-						createBillboard(radio)
-					end
-				end
-			end)
+	
+			radio = findRadio()
+			if radio then
+				createBillboard(radio)
+			end
+	
+			setupRadioMonitoring()
 		else
 			script.Parent.Checked.Visible = false
 			script.Parent.NotChecked.Visible = true
-			
-			if monitorConn then
-				monitorConn:Disconnect()
-				monitorConn = nil
+	
+			if descendantAddedConn then
+				descendantAddedConn:Disconnect()
+				descendantAddedConn = nil
 			end
+			if descendantRemovingConn then
+				descendantRemovingConn:Disconnect()
+				descendantRemovingConn = nil
+			end
+	
 			removeBillboard()
 			radio = nil
 		end
 	end)
 end
-local function ELVZ_fake_script() -- Fake Script: Workspace.Scryn.Frame.Cheats.ASK.LocalScript
+local function KZJBEON_fake_script() -- Fake Script: Workspace.Scryn.Frame.Cheats.ASK.LocalScript
     local script = Instance.new("LocalScript")
     script.Name = "LocalScript"
     script.Parent = Converted["_ASK"]
@@ -1392,7 +1432,7 @@ local function ELVZ_fake_script() -- Fake Script: Workspace.Scryn.Frame.Cheats.A
 		end
 	end)
 end
-local function NRNVU_fake_script() -- Fake Script: Workspace.Scryn.Frame.Cheats.GNV.LocalScript
+local function CGHULRE_fake_script() -- Fake Script: Workspace.Scryn.Frame.Cheats.GNV.LocalScript
     local script = Instance.new("LocalScript")
     script.Name = "LocalScript"
     script.Parent = Converted["_GNV"]
@@ -1486,7 +1526,7 @@ local function NRNVU_fake_script() -- Fake Script: Workspace.Scryn.Frame.Cheats.
 		end
 	end)
 end
-local function ZMPCJD_fake_script() -- Fake Script: Workspace.Scryn.Frame.Cheats.AOC.LocalScript
+local function TRXPQW_fake_script() -- Fake Script: Workspace.Scryn.Frame.Cheats.AOC.LocalScript
     local script = Instance.new("LocalScript")
     script.Name = "LocalScript"
     script.Parent = Converted["_AOC"]
@@ -1562,7 +1602,7 @@ local function ZMPCJD_fake_script() -- Fake Script: Workspace.Scryn.Frame.Cheats
 		end
 	end)
 end
-local function SNEX_fake_script() -- Fake Script: Workspace.Scryn.Frame.Cheats.M.LocalScript
+local function CLRNY_fake_script() -- Fake Script: Workspace.Scryn.Frame.Cheats.M.LocalScript
     local script = Instance.new("LocalScript")
     script.Name = "LocalScript"
     script.Parent = Converted["_M"]
@@ -1613,7 +1653,7 @@ local function SNEX_fake_script() -- Fake Script: Workspace.Scryn.Frame.Cheats.M
 		local size = BOX_SIZE
 	
 		local region = Region3.new(center - size / 2, center + size / 2)
-		local parts = workspace:GetPartBoundsInBox(region, { character }, math.huge)
+		local parts = workspace:FindPartsInRegion3WithIgnoreList(region, { character }, math.huge)
 	
 		local valid = {}
 	
@@ -1658,7 +1698,7 @@ local function SNEX_fake_script() -- Fake Script: Workspace.Scryn.Frame.Cheats.M
 		end
 	end)
 end
-local function YRRH_fake_script() -- Fake Script: Workspace.Scryn.Frame.Cheats.PP.LocalScript
+local function RPPPVWI_fake_script() -- Fake Script: Workspace.Scryn.Frame.Cheats.PP.LocalScript
     local script = Instance.new("LocalScript")
     script.Name = "LocalScript"
     script.Parent = Converted["_PP"]
@@ -1729,7 +1769,7 @@ local function YRRH_fake_script() -- Fake Script: Workspace.Scryn.Frame.Cheats.P
 		toggleBaritone()
 	end)
 end
-local function SNNED_fake_script() -- Fake Script: Workspace.Scryn.Frame.Tabs.Adjust.LocalScript
+local function CFBQ_fake_script() -- Fake Script: Workspace.Scryn.Frame.Tabs.Adjust.LocalScript
     local script = Instance.new("LocalScript")
     script.Name = "LocalScript"
     script.Parent = Converted["_Adjust"]
@@ -1746,9 +1786,13 @@ local function SNNED_fake_script() -- Fake Script: Workspace.Scryn.Frame.Tabs.Ad
 		script.Parent.Parent.Parent.Cheats.Visible = false
 		script.Parent.Parent.Parent.Adjusts.Visible = true
 		script.Parent.Parent.Parent.Infos.Visible = false
+		
+		script.Parent.BackgroundColor3 = Color3.fromRGB(8,8,8)
+		script.Parent.Parent.Cheats.BackgroundColor3 = Color3.fromRGB(18,18,18)
+		script.Parent.Parent.Info.BackgroundColor3 = Color3.fromRGB(18,18,18)
 	end)
 end
-local function GTOIM_fake_script() -- Fake Script: Workspace.Scryn.Frame.Tabs.Cheats.LocalScript
+local function FHCJLCS_fake_script() -- Fake Script: Workspace.Scryn.Frame.Tabs.Cheats.LocalScript
     local script = Instance.new("LocalScript")
     script.Name = "LocalScript"
     script.Parent = Converted["_Cheats1"]
@@ -1765,9 +1809,13 @@ local function GTOIM_fake_script() -- Fake Script: Workspace.Scryn.Frame.Tabs.Ch
 		script.Parent.Parent.Parent.Cheats.Visible = true
 		script.Parent.Parent.Parent.Adjusts.Visible = false
 		script.Parent.Parent.Parent.Infos.Visible = false
+		
+		script.Parent.BackgroundColor3 = Color3.fromRGB(8,8,8)
+		script.Parent.Parent.Adjust.BackgroundColor3 = Color3.fromRGB(18,18,18)
+		script.Parent.Parent.Info.BackgroundColor3 = Color3.fromRGB(18,18,18)
 	end)
 end
-local function WKISAGQ_fake_script() -- Fake Script: Workspace.Scryn.Frame.Tabs.Info.LocalScript
+local function CGRY_fake_script() -- Fake Script: Workspace.Scryn.Frame.Tabs.Info.LocalScript
     local script = Instance.new("LocalScript")
     script.Name = "LocalScript"
     script.Parent = Converted["_Info"]
@@ -1784,9 +1832,13 @@ local function WKISAGQ_fake_script() -- Fake Script: Workspace.Scryn.Frame.Tabs.
 		script.Parent.Parent.Parent.Cheats.Visible = false
 		script.Parent.Parent.Parent.Adjusts.Visible = false
 		script.Parent.Parent.Parent.Infos.Visible = true
+		
+		script.Parent.BackgroundColor3 = Color3.fromRGB(8,8,8)
+		script.Parent.Parent.Adjust.BackgroundColor3 = Color3.fromRGB(18,18,18)
+		script.Parent.Parent.Cheats.BackgroundColor3 = Color3.fromRGB(18,18,18)
 	end)
 end
-local function WHWBZPR_fake_script() -- Fake Script: Workspace.Scryn.Frame.Adjusts.ChangeWS.LocalScript
+local function WKQWT_fake_script() -- Fake Script: Workspace.Scryn.Frame.Adjusts.ChangeWS.LocalScript
     local script = Instance.new("LocalScript")
     script.Name = "LocalScript"
     script.Parent = Converted["_ChangeWS"]
@@ -1841,7 +1893,7 @@ local function WHWBZPR_fake_script() -- Fake Script: Workspace.Scryn.Frame.Adjus
 	end)
 	
 end
-local function LWSMLXG_fake_script() -- Fake Script: Workspace.Scryn.Frame.Adjusts.ChangeJP.LocalScript
+local function XAGGCM_fake_script() -- Fake Script: Workspace.Scryn.Frame.Adjusts.ChangeJP.LocalScript
     local script = Instance.new("LocalScript")
     script.Name = "LocalScript"
     script.Parent = Converted["_ChangeJP"]
@@ -1896,7 +1948,7 @@ local function LWSMLXG_fake_script() -- Fake Script: Workspace.Scryn.Frame.Adjus
 	end)
 	
 end
-local function SEBMD_fake_script() -- Fake Script: Workspace.Scryn.Frame.Adjusts.LD.LocalScript
+local function ARDEBFJ_fake_script() -- Fake Script: Workspace.Scryn.Frame.Adjusts.LD.LocalScript
     local script = Instance.new("LocalScript")
     script.Name = "LocalScript"
     script.Parent = Converted["_LD"]
@@ -1949,7 +2001,7 @@ local function SEBMD_fake_script() -- Fake Script: Workspace.Scryn.Frame.Adjusts
 		end
 	end)
 end
-local function JUGL_fake_script() -- Fake Script: Workspace.Scryn.Frame.Adjusts.CIZD.LocalScript
+local function JNUGH_fake_script() -- Fake Script: Workspace.Scryn.Frame.Adjusts.CIZD.LocalScript
     local script = Instance.new("LocalScript")
     script.Name = "LocalScript"
     script.Parent = Converted["_CIZD"]
@@ -1985,7 +2037,7 @@ local function JUGL_fake_script() -- Fake Script: Workspace.Scryn.Frame.Adjusts.
 		end
 	end)
 end
-local function WADXN_fake_script() -- Fake Script: Workspace.Scryn.Frame.Infos.GameRunning.LocalScript
+local function FJHJN_fake_script() -- Fake Script: Workspace.Scryn.Frame.Infos.GameRunning.LocalScript
     local script = Instance.new("LocalScript")
     script.Name = "LocalScript"
     script.Parent = Converted["_GameRunning"]
@@ -2024,7 +2076,7 @@ local function WADXN_fake_script() -- Fake Script: Workspace.Scryn.Frame.Infos.G
 		task.wait(1)
 	end
 end
-local function MDEBDMN_fake_script() -- Fake Script: Workspace.Scryn.Frame.Infos.It.LocalScript
+local function QLFCVLG_fake_script() -- Fake Script: Workspace.Scryn.Frame.Infos.It.LocalScript
     local script = Instance.new("LocalScript")
     script.Name = "LocalScript"
     script.Parent = Converted["_It"]
@@ -2058,7 +2110,7 @@ local function MDEBDMN_fake_script() -- Fake Script: Workspace.Scryn.Frame.Infos
 		wait(1)
 	end
 end
-local function RSUZIZ_fake_script() -- Fake Script: Workspace.Scryn.Frame.Infos.Lol.LocalScript
+local function EOTHZ_fake_script() -- Fake Script: Workspace.Scryn.Frame.Infos.Lol.LocalScript
     local script = Instance.new("LocalScript")
     script.Name = "LocalScript"
     script.Parent = Converted["_Lol"]
@@ -2072,25 +2124,9 @@ local function RSUZIZ_fake_script() -- Fake Script: Workspace.Scryn.Frame.Infos.
     end
 
 	script.Parent.Text = [[
-	These are the players that
-	have been blacklisted for teaming:
-	@GuardNoir,
-	@S4nd33er,
-	@vigilxntt,
-	@Xxadi123XD,
-	@htpp_kaczuszka,
-	@Pola_1b,
-	@Ghxstbbusta66,
-	@oskadsa1,
-	@XxJulyXx_Xx,
-	@Cinnamon_3520,
-	@Blue_pulll,
-	@faeriee4,
-	@UWEUWEUWE63,
-	@Akira07920,
-	@Ezraisrael2.]]
+	These are the players that have been blacklisted from using this script for teaming: @GuardNoir, @S4nd33er, @vigilxntt, @Xxadi123XD, @htpp_kaczuszka, @Pola_1b, @Ghxstbbusta666, @oskadsa1, @XxJulyXx_Xx, @Cinnamon_3520, @Blue_pulll, @faeriee4, @UWEUWEUWE63, @Akira07920, @Ezraisrael2.]]
 end
-local function FWZB_fake_script() -- Fake Script: Workspace.Scryn.Frame.SmoothDragUI
+local function UNNEICN_fake_script() -- Fake Script: Workspace.Scryn.Frame.SmoothDragUI
     local script = Instance.new("LocalScript")
     script.Name = "SmoothDragUI"
     script.Parent = Converted["_Frame"]
@@ -2147,7 +2183,7 @@ local function FWZB_fake_script() -- Fake Script: Workspace.Scryn.Frame.SmoothDr
 	
 	dragify(sesomething)
 end
-local function XKBIS_fake_script() -- Fake Script: Workspace.Scryn.TextButton.LocalScript
+local function XQOE_fake_script() -- Fake Script: Workspace.Scryn.TextButton.LocalScript
     local script = Instance.new("LocalScript")
     script.Name = "LocalScript"
     script.Parent = Converted["_TextButton"]
@@ -2165,7 +2201,7 @@ local function XKBIS_fake_script() -- Fake Script: Workspace.Scryn.TextButton.Lo
 		script.Parent.Visible = false
 	end)
 end
-local function PLZHXUX_fake_script() -- Fake Script: Workspace.Scryn.SoundSystem
+local function DBUB_fake_script() -- Fake Script: Workspace.Scryn.SoundSystem
     local script = Instance.new("LocalScript")
     script.Name = "SoundSystem"
     script.Parent = Converted["_Scryn"]
@@ -2194,28 +2230,65 @@ local function PLZHXUX_fake_script() -- Fake Script: Workspace.Scryn.SoundSystem
 		end
 	end
 end
+local function RCDAIH_fake_script() -- Fake Script: Workspace.Scryn.fuckyounigga
+    local script = Instance.new("LocalScript")
+    script.Name = "fuckyounigga"
+    script.Parent = Converted["_Scryn"]
+    local req = require
+    local require = function(obj)
+        local fake = fake_module_scripts[obj]
+        if fake then
+            return fake()
+        end
+        return req(obj)
+    end
 
-coroutine.wrap(VZHROB_fake_script)()
-coroutine.wrap(NOQTEEP_fake_script)()
-coroutine.wrap(OAMBMM_fake_script)()
-coroutine.wrap(MCGNSC_fake_script)()
-coroutine.wrap(ZVPE_fake_script)()
-coroutine.wrap(KPWEN_fake_script)()
-coroutine.wrap(ELVZ_fake_script)()
-coroutine.wrap(NRNVU_fake_script)()
-coroutine.wrap(ZMPCJD_fake_script)()
-coroutine.wrap(SNEX_fake_script)()
-coroutine.wrap(YRRH_fake_script)()
-coroutine.wrap(SNNED_fake_script)()
-coroutine.wrap(GTOIM_fake_script)()
-coroutine.wrap(WKISAGQ_fake_script)()
-coroutine.wrap(WHWBZPR_fake_script)()
-coroutine.wrap(LWSMLXG_fake_script)()
-coroutine.wrap(SEBMD_fake_script)()
-coroutine.wrap(JUGL_fake_script)()
-coroutine.wrap(WADXN_fake_script)()
-coroutine.wrap(MDEBDMN_fake_script)()
-coroutine.wrap(RSUZIZ_fake_script)()
-coroutine.wrap(FWZB_fake_script)()
-coroutine.wrap(XKBIS_fake_script)()
-coroutine.wrap(PLZHXUX_fake_script)()
+	local plr = game.Players.LocalPlayer
+	
+	local africa = {
+		["GuardNoir"] = true,
+		["S4nd33er"] = true,
+		["vigilxntt"] = true,
+		["Xxadi123XD"] = true,
+		["htpp_kaczuszka"] = true,
+		["Pola_1b"] = true,
+		["Ghxstbbusta666"] = true,
+		["XxJulyXx_Xx"] = true,
+		["Cinnamon_3520"] = true,
+		["Blue_pulll"] = true,
+		["faeriee4"] = true,
+		["UWEUWEUWE63"] = true,
+		["Akira07920"] = true,
+		["Ezraisrael2"] = true
+	}
+	
+	if africa[plr.Name] then
+		plr:Kick("teamers or pros cannot use this cheat :sob:")
+	end
+end
+
+coroutine.wrap(QZTC_fake_script)()
+coroutine.wrap(WEKL_fake_script)()
+coroutine.wrap(WTCRUP_fake_script)()
+coroutine.wrap(OLCIXQV_fake_script)()
+coroutine.wrap(GXLJ_fake_script)()
+coroutine.wrap(PWXUTM_fake_script)()
+coroutine.wrap(KZJBEON_fake_script)()
+coroutine.wrap(CGHULRE_fake_script)()
+coroutine.wrap(TRXPQW_fake_script)()
+coroutine.wrap(CLRNY_fake_script)()
+coroutine.wrap(RPPPVWI_fake_script)()
+coroutine.wrap(CFBQ_fake_script)()
+coroutine.wrap(FHCJLCS_fake_script)()
+coroutine.wrap(CGRY_fake_script)()
+coroutine.wrap(WKQWT_fake_script)()
+coroutine.wrap(XAGGCM_fake_script)()
+coroutine.wrap(ARDEBFJ_fake_script)()
+coroutine.wrap(JNUGH_fake_script)()
+coroutine.wrap(FJHJN_fake_script)()
+coroutine.wrap(QLFCVLG_fake_script)()
+coroutine.wrap(EOTHZ_fake_script)()
+coroutine.wrap(UNNEICN_fake_script)()
+coroutine.wrap(XQOE_fake_script)()
+coroutine.wrap(DBUB_fake_script)()
+coroutine.wrap(RCDAIH_fake_script)()
