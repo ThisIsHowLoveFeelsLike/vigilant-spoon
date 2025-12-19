@@ -1,1198 +1,2181 @@
-local plr = game.Players.LocalPlayer
+if game.CoreGui:FindFirstChild("Scryn") then
+	game.CoreGui:FindFirstChild("Scryn"):Destroy()
+end
 
-local africa = {
-	["GuardNoir"] = true,
-	["S4nd33er"] = true,
-	["vigilxntt"] = true,
-	["Xxadi123XD"] = true,
-	["htpp_kaczuszka"] = true,
-	["Pola_1b"] = true,
-	["Ghxstbbusta66"] = true,
-	["oskadsa1"] = true,
-	["XxJulyXx_Xx"] = true,
-	["Cinnamon_3520"] = true,
-	["Blue_pulll"] = true,
-	["faeriee4"] = true,
-    ["UWEUWEUWE63"] = true,
-    ["Akira07920"] = true,
-    ["Ezraisrael2"] = true
+local Converted = {
+	["_Scryn"] = Instance.new("ScreenGui");
+	["_Frame"] = Instance.new("Frame");
+	["_Frame1"] = Instance.new("Frame");
+	["_Title"] = Instance.new("TextLabel");
+	["_UIPadding"] = Instance.new("UIPadding");
+	["_Credit"] = Instance.new("TextLabel");
+	["_UIPadding1"] = Instance.new("UIPadding");
+	["_Close"] = Instance.new("TextButton");
+	["_LocalScript"] = Instance.new("LocalScript");
+	["_RestoreDown"] = Instance.new("TextButton");
+	["_LocalScript1"] = Instance.new("LocalScript");
+	["_Cheats"] = Instance.new("ScrollingFrame");
+	["_UIListLayout"] = Instance.new("UIListLayout");
+	["_UIPadding2"] = Instance.new("UIPadding");
+	["_FRLP"] = Instance.new("TextButton");
+	["_LocalScript2"] = Instance.new("LocalScript");
+	["_UIPadding3"] = Instance.new("UIPadding");
+	["_ImageLabel"] = Instance.new("ImageLabel");
+	["_HC"] = Instance.new("TextButton");
+	["_UIPadding4"] = Instance.new("UIPadding");
+	["_NotChecked"] = Instance.new("ImageLabel");
+	["_Checked"] = Instance.new("ImageLabel");
+	["_LocalScript3"] = Instance.new("LocalScript");
+	["_HV"] = Instance.new("TextButton");
+	["_UIPadding5"] = Instance.new("UIPadding");
+	["_NotChecked1"] = Instance.new("ImageLabel");
+	["_Checked1"] = Instance.new("ImageLabel");
+	["_LocalScript4"] = Instance.new("LocalScript");
+	["_WITR"] = Instance.new("TextButton");
+	["_UIPadding6"] = Instance.new("UIPadding");
+	["_NotChecked2"] = Instance.new("ImageLabel");
+	["_Checked2"] = Instance.new("ImageLabel");
+	["_LocalScript5"] = Instance.new("LocalScript");
+	["_ASK"] = Instance.new("TextButton");
+	["_UIPadding7"] = Instance.new("UIPadding");
+	["_NotChecked3"] = Instance.new("ImageLabel");
+	["_Checked3"] = Instance.new("ImageLabel");
+	["_LocalScript6"] = Instance.new("LocalScript");
+	["_GNV"] = Instance.new("TextButton");
+	["_UIPadding8"] = Instance.new("UIPadding");
+	["_NotChecked4"] = Instance.new("ImageLabel");
+	["_Checked4"] = Instance.new("ImageLabel");
+	["_LocalScript7"] = Instance.new("LocalScript");
+	["_AOC"] = Instance.new("TextButton");
+	["_UIPadding9"] = Instance.new("UIPadding");
+	["_NotChecked5"] = Instance.new("ImageLabel");
+	["_Checked5"] = Instance.new("ImageLabel");
+	["_LocalScript8"] = Instance.new("LocalScript");
+	["_M"] = Instance.new("TextButton");
+	["_UIPadding10"] = Instance.new("UIPadding");
+	["_NotChecked6"] = Instance.new("ImageLabel");
+	["_Checked6"] = Instance.new("ImageLabel");
+	["_LocalScript9"] = Instance.new("LocalScript");
+	["_PP"] = Instance.new("TextButton");
+	["_UIPadding11"] = Instance.new("UIPadding");
+	["_NotChecked7"] = Instance.new("ImageLabel");
+	["_Checked7"] = Instance.new("ImageLabel");
+	["_LocalScript10"] = Instance.new("LocalScript");
+	["_Tabs"] = Instance.new("ScrollingFrame");
+	["_UIListLayout1"] = Instance.new("UIListLayout");
+	["_Adjust"] = Instance.new("TextButton");
+	["_LocalScript11"] = Instance.new("LocalScript");
+	["_UIPadding12"] = Instance.new("UIPadding");
+	["_Cheats1"] = Instance.new("TextButton");
+	["_LocalScript12"] = Instance.new("LocalScript");
+	["_Info"] = Instance.new("TextButton");
+	["_LocalScript13"] = Instance.new("LocalScript");
+	["_Adjusts"] = Instance.new("ScrollingFrame");
+	["_UIListLayout2"] = Instance.new("UIListLayout");
+	["_UIPadding13"] = Instance.new("UIPadding");
+	["_ChangeWS"] = Instance.new("TextBox");
+	["_LocalScript14"] = Instance.new("LocalScript");
+	["_UIPadding14"] = Instance.new("UIPadding");
+	["_UITextSizeConstraint"] = Instance.new("UITextSizeConstraint");
+	["_ImageLabel1"] = Instance.new("ImageLabel");
+	["_ChangeJP"] = Instance.new("TextBox");
+	["_UIPadding15"] = Instance.new("UIPadding");
+	["_UITextSizeConstraint1"] = Instance.new("UITextSizeConstraint");
+	["_ImageLabel2"] = Instance.new("ImageLabel");
+	["_LocalScript15"] = Instance.new("LocalScript");
+	["_LD"] = Instance.new("TextButton");
+	["_UIPadding16"] = Instance.new("UIPadding");
+	["_NotChecked8"] = Instance.new("ImageLabel");
+	["_Checked8"] = Instance.new("ImageLabel");
+	["_LocalScript16"] = Instance.new("LocalScript");
+	["_CIZD"] = Instance.new("TextButton");
+	["_UIPadding17"] = Instance.new("UIPadding");
+	["_NotChecked9"] = Instance.new("ImageLabel");
+	["_Checked9"] = Instance.new("ImageLabel");
+	["_LocalScript17"] = Instance.new("LocalScript");
+	["_Infos"] = Instance.new("ScrollingFrame");
+	["_UIListLayout3"] = Instance.new("UIListLayout");
+	["_GameRunning"] = Instance.new("TextLabel");
+	["_LocalScript18"] = Instance.new("LocalScript");
+	["_It"] = Instance.new("TextLabel");
+	["_LocalScript19"] = Instance.new("LocalScript");
+	["_UIPadding18"] = Instance.new("UIPadding");
+	["_Lol"] = Instance.new("TextLabel");
+	["_LocalScript20"] = Instance.new("LocalScript");
+	["_SmoothDragUI"] = Instance.new("LocalScript");
+	["_DropShadowHolder"] = Instance.new("Frame");
+	["_DropShadow"] = Instance.new("ImageLabel");
+	["_TextButton"] = Instance.new("TextButton");
+	["_LocalScript21"] = Instance.new("LocalScript");
+	["_UICorner"] = Instance.new("UICorner");
+	["_DropShadowHolder1"] = Instance.new("Frame");
+	["_DropShadow1"] = Instance.new("ImageLabel");
+	["_hovers"] = Instance.new("Sound");
+	["_clicking"] = Instance.new("Sound");
+	["_SoundSystem"] = Instance.new("LocalScript");
 }
 
-if africa[plr.Name] then
-	plr:Kick("@justiceforthatclowndiedbyunknown Discord.\nTeamers cannot use this. " ..plr.Name.. " oh " ..plr.Name.. ".")
+Converted["_Scryn"].IgnoreGuiInset = true
+Converted["_Scryn"].ScreenInsets = Enum.ScreenInsets.DeviceSafeInsets
+Converted["_Scryn"].Name = "Scryn"
+Converted["_Scryn"].Parent = game.CoreGui
+
+Converted["_Frame"].AnchorPoint = Vector2.new(0.5, 0.5)
+Converted["_Frame"].BackgroundColor3 = Color3.fromRGB(47.0000009983778, 47.0000009983778, 47.0000009983778)
+Converted["_Frame"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+Converted["_Frame"].BorderSizePixel = 0
+Converted["_Frame"].Position = UDim2.new(0.5, 0, 0.5, 0)
+Converted["_Frame"].Size = UDim2.new(0, 400, 0, 250)
+Converted["_Frame"].Visible = false
+Converted["_Frame"].Parent = Converted["_Scryn"]
+
+Converted["_Frame1"].BackgroundColor3 = Color3.fromRGB(28.000000230968, 28.000000230968, 28.000000230968)
+Converted["_Frame1"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+Converted["_Frame1"].BorderSizePixel = 0
+Converted["_Frame1"].Size = UDim2.new(1, 0, 0, 30)
+Converted["_Frame1"].Parent = Converted["_Frame"]
+
+Converted["_Title"].Font = Enum.Font.SourceSans
+Converted["_Title"].Text = "Clown Killing Reborn"
+Converted["_Title"].TextColor3 = Color3.fromRGB(205.00000298023224, 205.00000298023224, 205.00000298023224)
+Converted["_Title"].TextSize = 20
+Converted["_Title"].TextStrokeTransparency = 0
+Converted["_Title"].TextXAlignment = Enum.TextXAlignment.Left
+Converted["_Title"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Converted["_Title"].BackgroundTransparency = 1
+Converted["_Title"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+Converted["_Title"].BorderSizePixel = 0
+Converted["_Title"].Size = UDim2.new(0, 155, 1, 0)
+Converted["_Title"].Name = "Title"
+Converted["_Title"].Parent = Converted["_Frame1"]
+
+Converted["_UIPadding"].PaddingLeft = UDim.new(0, 10)
+Converted["_UIPadding"].Parent = Converted["_Title"]
+
+Converted["_Credit"].Font = Enum.Font.SourceSans
+Converted["_Credit"].Text = "c r e e p s t u"
+Converted["_Credit"].TextColor3 = Color3.fromRGB(155.00000596046448, 155.00000596046448, 155.00000596046448)
+Converted["_Credit"].TextSize = 15
+Converted["_Credit"].TextStrokeTransparency = 0
+Converted["_Credit"].TextXAlignment = Enum.TextXAlignment.Left
+Converted["_Credit"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Converted["_Credit"].BackgroundTransparency = 1
+Converted["_Credit"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+Converted["_Credit"].BorderSizePixel = 0
+Converted["_Credit"].Position = UDim2.new(0, 168, 0, 0)
+Converted["_Credit"].Size = UDim2.new(0, 77, 1, 0)
+Converted["_Credit"].Name = "Credit"
+Converted["_Credit"].Parent = Converted["_Frame1"]
+
+Converted["_UIPadding1"].PaddingLeft = UDim.new(0, 5)
+Converted["_UIPadding1"].Parent = Converted["_Credit"]
+
+Converted["_Close"].Font = Enum.Font.SourceSans
+Converted["_Close"].Text = "X"
+Converted["_Close"].TextColor3 = Color3.fromRGB(205.00000298023224, 205.00000298023224, 205.00000298023224)
+Converted["_Close"].TextSize = 20
+Converted["_Close"].TextStrokeTransparency = 0
+Converted["_Close"].TextWrapped = true
+Converted["_Close"].AutoButtonColor = false
+Converted["_Close"].AnchorPoint = Vector2.new(1, 0)
+Converted["_Close"].BackgroundColor3 = Color3.fromRGB(18.000000827014446, 18.000000827014446, 18.000000827014446)
+Converted["_Close"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+Converted["_Close"].BorderSizePixel = 0
+Converted["_Close"].Position = UDim2.new(1, 0, 0, 0)
+Converted["_Close"].Size = UDim2.new(0, 30, 1, 0)
+Converted["_Close"].Name = "Close"
+Converted["_Close"].Parent = Converted["_Frame1"]
+
+Converted["_RestoreDown"].Font = Enum.Font.SourceSans
+Converted["_RestoreDown"].Text = "–"
+Converted["_RestoreDown"].TextColor3 = Color3.fromRGB(205.00000298023224, 205.00000298023224, 205.00000298023224)
+Converted["_RestoreDown"].TextSize = 20
+Converted["_RestoreDown"].TextStrokeTransparency = 0
+Converted["_RestoreDown"].TextWrapped = true
+Converted["_RestoreDown"].AutoButtonColor = false
+Converted["_RestoreDown"].AnchorPoint = Vector2.new(1, 0)
+Converted["_RestoreDown"].BackgroundColor3 = Color3.fromRGB(18.000000827014446, 18.000000827014446, 18.000000827014446)
+Converted["_RestoreDown"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+Converted["_RestoreDown"].BorderSizePixel = 0
+Converted["_RestoreDown"].Position = UDim2.new(1, -32, 0, 0)
+Converted["_RestoreDown"].Size = UDim2.new(0, 30, 1, 0)
+Converted["_RestoreDown"].Name = "RestoreDown"
+Converted["_RestoreDown"].Parent = Converted["_Frame1"]
+
+Converted["_Cheats"].AutomaticCanvasSize = Enum.AutomaticSize.XY
+Converted["_Cheats"].CanvasSize = UDim2.new(0, 0, 0, 0)
+Converted["_Cheats"].ScrollBarImageColor3 = Color3.fromRGB(0, 0, 0)
+Converted["_Cheats"].ScrollBarThickness = 0
+Converted["_Cheats"].Active = true
+Converted["_Cheats"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Converted["_Cheats"].BackgroundTransparency = 1
+Converted["_Cheats"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+Converted["_Cheats"].BorderSizePixel = 0
+Converted["_Cheats"].Position = UDim2.new(0, 75, 0, 30)
+Converted["_Cheats"].Size = UDim2.new(1, -75, 1, -30)
+Converted["_Cheats"].ZIndex = 2
+Converted["_Cheats"].Name = "Cheats"
+Converted["_Cheats"].Parent = Converted["_Frame"]
+
+Converted["_UIListLayout"].Padding = UDim.new(0, 2)
+Converted["_UIListLayout"].HorizontalAlignment = Enum.HorizontalAlignment.Center
+Converted["_UIListLayout"].SortOrder = Enum.SortOrder.LayoutOrder
+Converted["_UIListLayout"].Parent = Converted["_Cheats"]
+
+Converted["_UIPadding2"].PaddingBottom = UDim.new(0, 10)
+Converted["_UIPadding2"].PaddingTop = UDim.new(0, 10)
+Converted["_UIPadding2"].Parent = Converted["_Cheats"]
+
+Converted["_FRLP"].Font = Enum.Font.SourceSans
+Converted["_FRLP"].Text = "Fix Radio Loading Progress"
+Converted["_FRLP"].TextColor3 = Color3.fromRGB(205.00000298023224, 205.00000298023224, 205.00000298023224)
+Converted["_FRLP"].TextSize = 15
+Converted["_FRLP"].TextStrokeTransparency = 0
+Converted["_FRLP"].TextXAlignment = Enum.TextXAlignment.Left
+Converted["_FRLP"].BackgroundColor3 = Color3.fromRGB(26.000000350177288, 26.000000350177288, 26.000000350177288)
+Converted["_FRLP"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+Converted["_FRLP"].BorderSizePixel = 0
+Converted["_FRLP"].Size = UDim2.new(1, -20, 0, 30)
+Converted["_FRLP"].ZIndex = 3
+Converted["_FRLP"].Name = "FRLP"
+Converted["_FRLP"].Parent = Converted["_Cheats"]
+
+Converted["_UIPadding3"].PaddingLeft = UDim.new(0, 10)
+Converted["_UIPadding3"].PaddingRight = UDim.new(0, 10)
+Converted["_UIPadding3"].Parent = Converted["_FRLP"]
+
+Converted["_ImageLabel"].Image = "rbxassetid://10734898355"
+Converted["_ImageLabel"].ImageContent = Content
+Converted["_ImageLabel"].AnchorPoint = Vector2.new(1, 0.5)
+Converted["_ImageLabel"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Converted["_ImageLabel"].BackgroundTransparency = 1
+Converted["_ImageLabel"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+Converted["_ImageLabel"].BorderSizePixel = 0
+Converted["_ImageLabel"].Position = UDim2.new(1, 0, 0.5, 0)
+Converted["_ImageLabel"].Size = UDim2.new(0, 15, 1, -15)
+Converted["_ImageLabel"].ZIndex = 3
+Converted["_ImageLabel"].Parent = Converted["_FRLP"]
+
+Converted["_HC"].Font = Enum.Font.SourceSans
+Converted["_HC"].Text = "Highlight Clown"
+Converted["_HC"].TextColor3 = Color3.fromRGB(205.00000298023224, 205.00000298023224, 205.00000298023224)
+Converted["_HC"].TextSize = 15
+Converted["_HC"].TextStrokeTransparency = 0
+Converted["_HC"].TextXAlignment = Enum.TextXAlignment.Left
+Converted["_HC"].BackgroundColor3 = Color3.fromRGB(26.000000350177288, 26.000000350177288, 26.000000350177288)
+Converted["_HC"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+Converted["_HC"].BorderSizePixel = 0
+Converted["_HC"].Size = UDim2.new(1, -20, 0, 30)
+Converted["_HC"].ZIndex = 3
+Converted["_HC"].Name = "HC"
+Converted["_HC"].Parent = Converted["_Cheats"]
+
+Converted["_UIPadding4"].PaddingLeft = UDim.new(0, 10)
+Converted["_UIPadding4"].PaddingRight = UDim.new(0, 10)
+Converted["_UIPadding4"].Parent = Converted["_HC"]
+
+Converted["_NotChecked"].Image = "rbxassetid://10709798174"
+Converted["_NotChecked"].ImageColor3 = Color3.fromRGB(255, 0, 0)
+Converted["_NotChecked"].ImageContent = Content
+Converted["_NotChecked"].AnchorPoint = Vector2.new(1, 0.5)
+Converted["_NotChecked"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Converted["_NotChecked"].BackgroundTransparency = 1
+Converted["_NotChecked"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+Converted["_NotChecked"].BorderSizePixel = 0
+Converted["_NotChecked"].Position = UDim2.new(1, 0, 0.5, 0)
+Converted["_NotChecked"].Size = UDim2.new(0, 15, 1, -15)
+Converted["_NotChecked"].ZIndex = 3
+Converted["_NotChecked"].Name = "NotChecked"
+Converted["_NotChecked"].Parent = Converted["_HC"]
+
+Converted["_Checked"].Image = "rbxassetid://10709790387"
+Converted["_Checked"].ImageColor3 = Color3.fromRGB(0, 255, 0)
+Converted["_Checked"].ImageContent = Content
+Converted["_Checked"].AnchorPoint = Vector2.new(1, 0.5)
+Converted["_Checked"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Converted["_Checked"].BackgroundTransparency = 1
+Converted["_Checked"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+Converted["_Checked"].BorderSizePixel = 0
+Converted["_Checked"].Position = UDim2.new(1, 0, 0.5, 0)
+Converted["_Checked"].Size = UDim2.new(0, 15, 1, -15)
+Converted["_Checked"].Visible = false
+Converted["_Checked"].ZIndex = 3
+Converted["_Checked"].Name = "Checked"
+Converted["_Checked"].Parent = Converted["_HC"]
+
+Converted["_HV"].Font = Enum.Font.SourceSans
+Converted["_HV"].Text = "Highlight Victims"
+Converted["_HV"].TextColor3 = Color3.fromRGB(205.00000298023224, 205.00000298023224, 205.00000298023224)
+Converted["_HV"].TextSize = 15
+Converted["_HV"].TextStrokeTransparency = 0
+Converted["_HV"].TextXAlignment = Enum.TextXAlignment.Left
+Converted["_HV"].BackgroundColor3 = Color3.fromRGB(26.000000350177288, 26.000000350177288, 26.000000350177288)
+Converted["_HV"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+Converted["_HV"].BorderSizePixel = 0
+Converted["_HV"].Size = UDim2.new(1, -20, 0, 30)
+Converted["_HV"].ZIndex = 3
+Converted["_HV"].Name = "HV"
+Converted["_HV"].Parent = Converted["_Cheats"]
+
+Converted["_UIPadding5"].PaddingLeft = UDim.new(0, 10)
+Converted["_UIPadding5"].PaddingRight = UDim.new(0, 10)
+Converted["_UIPadding5"].Parent = Converted["_HV"]
+
+Converted["_NotChecked1"].Image = "rbxassetid://10709798174"
+Converted["_NotChecked1"].ImageColor3 = Color3.fromRGB(255, 0, 0)
+Converted["_NotChecked1"].ImageContent = Content
+Converted["_NotChecked1"].AnchorPoint = Vector2.new(1, 0.5)
+Converted["_NotChecked1"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Converted["_NotChecked1"].BackgroundTransparency = 1
+Converted["_NotChecked1"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+Converted["_NotChecked1"].BorderSizePixel = 0
+Converted["_NotChecked1"].Position = UDim2.new(1, 0, 0.5, 0)
+Converted["_NotChecked1"].Size = UDim2.new(0, 15, 1, -15)
+Converted["_NotChecked1"].ZIndex = 3
+Converted["_NotChecked1"].Name = "NotChecked"
+Converted["_NotChecked1"].Parent = Converted["_HV"]
+
+Converted["_Checked1"].Image = "rbxassetid://10709790387"
+Converted["_Checked1"].ImageColor3 = Color3.fromRGB(0, 255, 0)
+Converted["_Checked1"].ImageContent = Content
+Converted["_Checked1"].AnchorPoint = Vector2.new(1, 0.5)
+Converted["_Checked1"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Converted["_Checked1"].BackgroundTransparency = 1
+Converted["_Checked1"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+Converted["_Checked1"].BorderSizePixel = 0
+Converted["_Checked1"].Position = UDim2.new(1, 0, 0.5, 0)
+Converted["_Checked1"].Size = UDim2.new(0, 15, 1, -15)
+Converted["_Checked1"].Visible = false
+Converted["_Checked1"].ZIndex = 3
+Converted["_Checked1"].Name = "Checked"
+Converted["_Checked1"].Parent = Converted["_HV"]
+
+Converted["_WITR"].Font = Enum.Font.SourceSans
+Converted["_WITR"].Text = "Where Is the Radio?"
+Converted["_WITR"].TextColor3 = Color3.fromRGB(205.00000298023224, 205.00000298023224, 205.00000298023224)
+Converted["_WITR"].TextSize = 15
+Converted["_WITR"].TextStrokeTransparency = 0
+Converted["_WITR"].TextXAlignment = Enum.TextXAlignment.Left
+Converted["_WITR"].BackgroundColor3 = Color3.fromRGB(26.000000350177288, 26.000000350177288, 26.000000350177288)
+Converted["_WITR"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+Converted["_WITR"].BorderSizePixel = 0
+Converted["_WITR"].Size = UDim2.new(1, -20, 0, 30)
+Converted["_WITR"].ZIndex = 3
+Converted["_WITR"].Name = "WITR"
+Converted["_WITR"].Parent = Converted["_Cheats"]
+
+Converted["_UIPadding6"].PaddingLeft = UDim.new(0, 10)
+Converted["_UIPadding6"].PaddingRight = UDim.new(0, 10)
+Converted["_UIPadding6"].Parent = Converted["_WITR"]
+
+Converted["_NotChecked2"].Image = "rbxassetid://10709798174"
+Converted["_NotChecked2"].ImageColor3 = Color3.fromRGB(255, 0, 0)
+Converted["_NotChecked2"].ImageContent = Content
+Converted["_NotChecked2"].AnchorPoint = Vector2.new(1, 0.5)
+Converted["_NotChecked2"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Converted["_NotChecked2"].BackgroundTransparency = 1
+Converted["_NotChecked2"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+Converted["_NotChecked2"].BorderSizePixel = 0
+Converted["_NotChecked2"].Position = UDim2.new(1, 0, 0.5, 0)
+Converted["_NotChecked2"].Size = UDim2.new(0, 15, 1, -15)
+Converted["_NotChecked2"].ZIndex = 3
+Converted["_NotChecked2"].Name = "NotChecked"
+Converted["_NotChecked2"].Parent = Converted["_WITR"]
+
+Converted["_Checked2"].Image = "rbxassetid://10709790387"
+Converted["_Checked2"].ImageColor3 = Color3.fromRGB(0, 255, 0)
+Converted["_Checked2"].ImageContent = Content
+Converted["_Checked2"].AnchorPoint = Vector2.new(1, 0.5)
+Converted["_Checked2"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Converted["_Checked2"].BackgroundTransparency = 1
+Converted["_Checked2"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+Converted["_Checked2"].BorderSizePixel = 0
+Converted["_Checked2"].Position = UDim2.new(1, 0, 0.5, 0)
+Converted["_Checked2"].Size = UDim2.new(0, 15, 1, -15)
+Converted["_Checked2"].Visible = false
+Converted["_Checked2"].ZIndex = 3
+Converted["_Checked2"].Name = "Checked"
+Converted["_Checked2"].Parent = Converted["_WITR"]
+
+Converted["_ASK"].Font = Enum.Font.SourceSans
+Converted["_ASK"].Text = "Auto-Swing Knife"
+Converted["_ASK"].TextColor3 = Color3.fromRGB(205.00000298023224, 205.00000298023224, 205.00000298023224)
+Converted["_ASK"].TextSize = 15
+Converted["_ASK"].TextStrokeTransparency = 0
+Converted["_ASK"].TextXAlignment = Enum.TextXAlignment.Left
+Converted["_ASK"].BackgroundColor3 = Color3.fromRGB(26.000000350177288, 26.000000350177288, 26.000000350177288)
+Converted["_ASK"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+Converted["_ASK"].BorderSizePixel = 0
+Converted["_ASK"].Size = UDim2.new(1, -20, 0, 30)
+Converted["_ASK"].ZIndex = 3
+Converted["_ASK"].Name = "ASK"
+Converted["_ASK"].Parent = Converted["_Cheats"]
+
+Converted["_UIPadding7"].PaddingLeft = UDim.new(0, 10)
+Converted["_UIPadding7"].PaddingRight = UDim.new(0, 10)
+Converted["_UIPadding7"].Parent = Converted["_ASK"]
+
+Converted["_NotChecked3"].Image = "rbxassetid://10709798174"
+Converted["_NotChecked3"].ImageColor3 = Color3.fromRGB(255, 0, 0)
+Converted["_NotChecked3"].ImageContent = Content
+Converted["_NotChecked3"].AnchorPoint = Vector2.new(1, 0.5)
+Converted["_NotChecked3"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Converted["_NotChecked3"].BackgroundTransparency = 1
+Converted["_NotChecked3"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+Converted["_NotChecked3"].BorderSizePixel = 0
+Converted["_NotChecked3"].Position = UDim2.new(1, 0, 0.5, 0)
+Converted["_NotChecked3"].Size = UDim2.new(0, 15, 1, -15)
+Converted["_NotChecked3"].ZIndex = 3
+Converted["_NotChecked3"].Name = "NotChecked"
+Converted["_NotChecked3"].Parent = Converted["_ASK"]
+
+Converted["_Checked3"].Image = "rbxassetid://10709790387"
+Converted["_Checked3"].ImageColor3 = Color3.fromRGB(0, 255, 0)
+Converted["_Checked3"].ImageContent = Content
+Converted["_Checked3"].AnchorPoint = Vector2.new(1, 0.5)
+Converted["_Checked3"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Converted["_Checked3"].BackgroundTransparency = 1
+Converted["_Checked3"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+Converted["_Checked3"].BorderSizePixel = 0
+Converted["_Checked3"].Position = UDim2.new(1, 0, 0.5, 0)
+Converted["_Checked3"].Size = UDim2.new(0, 15, 1, -15)
+Converted["_Checked3"].Visible = false
+Converted["_Checked3"].ZIndex = 3
+Converted["_Checked3"].Name = "Checked"
+Converted["_Checked3"].Parent = Converted["_ASK"]
+
+Converted["_GNV"].Font = Enum.Font.SourceSans
+Converted["_GNV"].Text = "Get Nearest Victim"
+Converted["_GNV"].TextColor3 = Color3.fromRGB(205.00000298023224, 205.00000298023224, 205.00000298023224)
+Converted["_GNV"].TextSize = 15
+Converted["_GNV"].TextStrokeTransparency = 0
+Converted["_GNV"].TextXAlignment = Enum.TextXAlignment.Left
+Converted["_GNV"].BackgroundColor3 = Color3.fromRGB(26.000000350177288, 26.000000350177288, 26.000000350177288)
+Converted["_GNV"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+Converted["_GNV"].BorderSizePixel = 0
+Converted["_GNV"].Size = UDim2.new(1, -20, 0, 30)
+Converted["_GNV"].ZIndex = 3
+Converted["_GNV"].Name = "GNV"
+Converted["_GNV"].Parent = Converted["_Cheats"]
+
+Converted["_UIPadding8"].PaddingLeft = UDim.new(0, 10)
+Converted["_UIPadding8"].PaddingRight = UDim.new(0, 10)
+Converted["_UIPadding8"].Parent = Converted["_GNV"]
+
+Converted["_NotChecked4"].Image = "rbxassetid://10709798174"
+Converted["_NotChecked4"].ImageColor3 = Color3.fromRGB(255, 0, 0)
+Converted["_NotChecked4"].ImageContent = Content
+Converted["_NotChecked4"].AnchorPoint = Vector2.new(1, 0.5)
+Converted["_NotChecked4"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Converted["_NotChecked4"].BackgroundTransparency = 1
+Converted["_NotChecked4"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+Converted["_NotChecked4"].BorderSizePixel = 0
+Converted["_NotChecked4"].Position = UDim2.new(1, 0, 0.5, 0)
+Converted["_NotChecked4"].Size = UDim2.new(0, 15, 1, -15)
+Converted["_NotChecked4"].ZIndex = 3
+Converted["_NotChecked4"].Name = "NotChecked"
+Converted["_NotChecked4"].Parent = Converted["_GNV"]
+
+Converted["_Checked4"].Image = "rbxassetid://10709790387"
+Converted["_Checked4"].ImageColor3 = Color3.fromRGB(0, 255, 0)
+Converted["_Checked4"].ImageContent = Content
+Converted["_Checked4"].AnchorPoint = Vector2.new(1, 0.5)
+Converted["_Checked4"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Converted["_Checked4"].BackgroundTransparency = 1
+Converted["_Checked4"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+Converted["_Checked4"].BorderSizePixel = 0
+Converted["_Checked4"].Position = UDim2.new(1, 0, 0.5, 0)
+Converted["_Checked4"].Size = UDim2.new(0, 15, 1, -15)
+Converted["_Checked4"].Visible = false
+Converted["_Checked4"].ZIndex = 3
+Converted["_Checked4"].Name = "Checked"
+Converted["_Checked4"].Parent = Converted["_GNV"]
+
+Converted["_AOC"].Font = Enum.Font.SourceSans
+Converted["_AOC"].Text = "Aimlock on Clown"
+Converted["_AOC"].TextColor3 = Color3.fromRGB(205.00000298023224, 205.00000298023224, 205.00000298023224)
+Converted["_AOC"].TextSize = 15
+Converted["_AOC"].TextStrokeTransparency = 0
+Converted["_AOC"].TextXAlignment = Enum.TextXAlignment.Left
+Converted["_AOC"].BackgroundColor3 = Color3.fromRGB(26.000000350177288, 26.000000350177288, 26.000000350177288)
+Converted["_AOC"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+Converted["_AOC"].BorderSizePixel = 0
+Converted["_AOC"].Size = UDim2.new(1, -20, 0, 30)
+Converted["_AOC"].ZIndex = 3
+Converted["_AOC"].Name = "AOC"
+Converted["_AOC"].Parent = Converted["_Cheats"]
+
+Converted["_UIPadding9"].PaddingLeft = UDim.new(0, 10)
+Converted["_UIPadding9"].PaddingRight = UDim.new(0, 10)
+Converted["_UIPadding9"].Parent = Converted["_AOC"]
+
+Converted["_NotChecked5"].Image = "rbxassetid://10709798174"
+Converted["_NotChecked5"].ImageColor3 = Color3.fromRGB(255, 0, 0)
+Converted["_NotChecked5"].ImageContent = Content
+Converted["_NotChecked5"].AnchorPoint = Vector2.new(1, 0.5)
+Converted["_NotChecked5"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Converted["_NotChecked5"].BackgroundTransparency = 1
+Converted["_NotChecked5"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+Converted["_NotChecked5"].BorderSizePixel = 0
+Converted["_NotChecked5"].Position = UDim2.new(1, 0, 0.5, 0)
+Converted["_NotChecked5"].Size = UDim2.new(0, 15, 1, -15)
+Converted["_NotChecked5"].ZIndex = 3
+Converted["_NotChecked5"].Name = "NotChecked"
+Converted["_NotChecked5"].Parent = Converted["_AOC"]
+
+Converted["_Checked5"].Image = "rbxassetid://10709790387"
+Converted["_Checked5"].ImageColor3 = Color3.fromRGB(0, 255, 0)
+Converted["_Checked5"].ImageContent = Content
+Converted["_Checked5"].AnchorPoint = Vector2.new(1, 0.5)
+Converted["_Checked5"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Converted["_Checked5"].BackgroundTransparency = 1
+Converted["_Checked5"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+Converted["_Checked5"].BorderSizePixel = 0
+Converted["_Checked5"].Position = UDim2.new(1, 0, 0.5, 0)
+Converted["_Checked5"].Size = UDim2.new(0, 15, 1, -15)
+Converted["_Checked5"].Visible = false
+Converted["_Checked5"].ZIndex = 3
+Converted["_Checked5"].Name = "Checked"
+Converted["_Checked5"].Parent = Converted["_AOC"]
+
+Converted["_M"].Font = Enum.Font.SourceSans
+Converted["_M"].Text = "Memorizer"
+Converted["_M"].TextColor3 = Color3.fromRGB(205.00000298023224, 205.00000298023224, 205.00000298023224)
+Converted["_M"].TextSize = 15
+Converted["_M"].TextStrokeTransparency = 0
+Converted["_M"].TextXAlignment = Enum.TextXAlignment.Left
+Converted["_M"].BackgroundColor3 = Color3.fromRGB(26.000000350177288, 26.000000350177288, 26.000000350177288)
+Converted["_M"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+Converted["_M"].BorderSizePixel = 0
+Converted["_M"].Size = UDim2.new(1, -20, 0, 30)
+Converted["_M"].ZIndex = 3
+Converted["_M"].Name = "M"
+Converted["_M"].Parent = Converted["_Cheats"]
+
+Converted["_UIPadding10"].PaddingLeft = UDim.new(0, 10)
+Converted["_UIPadding10"].PaddingRight = UDim.new(0, 10)
+Converted["_UIPadding10"].Parent = Converted["_M"]
+
+Converted["_NotChecked6"].Image = "rbxassetid://10709798174"
+Converted["_NotChecked6"].ImageColor3 = Color3.fromRGB(255, 0, 0)
+Converted["_NotChecked6"].ImageContent = Content
+Converted["_NotChecked6"].AnchorPoint = Vector2.new(1, 0.5)
+Converted["_NotChecked6"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Converted["_NotChecked6"].BackgroundTransparency = 1
+Converted["_NotChecked6"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+Converted["_NotChecked6"].BorderSizePixel = 0
+Converted["_NotChecked6"].Position = UDim2.new(1, 0, 0.5, 0)
+Converted["_NotChecked6"].Size = UDim2.new(0, 15, 1, -15)
+Converted["_NotChecked6"].ZIndex = 3
+Converted["_NotChecked6"].Name = "NotChecked"
+Converted["_NotChecked6"].Parent = Converted["_M"]
+
+Converted["_Checked6"].Image = "rbxassetid://10709790387"
+Converted["_Checked6"].ImageColor3 = Color3.fromRGB(0, 255, 0)
+Converted["_Checked6"].ImageContent = Content
+Converted["_Checked6"].AnchorPoint = Vector2.new(1, 0.5)
+Converted["_Checked6"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Converted["_Checked6"].BackgroundTransparency = 1
+Converted["_Checked6"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+Converted["_Checked6"].BorderSizePixel = 0
+Converted["_Checked6"].Position = UDim2.new(1, 0, 0.5, 0)
+Converted["_Checked6"].Size = UDim2.new(0, 15, 1, -15)
+Converted["_Checked6"].Visible = false
+Converted["_Checked6"].ZIndex = 3
+Converted["_Checked6"].Name = "Checked"
+Converted["_Checked6"].Parent = Converted["_M"]
+
+Converted["_PP"].Font = Enum.Font.SourceSans
+Converted["_PP"].Text = "Provoke People"
+Converted["_PP"].TextColor3 = Color3.fromRGB(205.00000298023224, 205.00000298023224, 205.00000298023224)
+Converted["_PP"].TextSize = 15
+Converted["_PP"].TextStrokeTransparency = 0
+Converted["_PP"].TextXAlignment = Enum.TextXAlignment.Left
+Converted["_PP"].BackgroundColor3 = Color3.fromRGB(26.000000350177288, 26.000000350177288, 26.000000350177288)
+Converted["_PP"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+Converted["_PP"].BorderSizePixel = 0
+Converted["_PP"].Size = UDim2.new(1, -20, 0, 30)
+Converted["_PP"].ZIndex = 3
+Converted["_PP"].Name = "PP"
+Converted["_PP"].Parent = Converted["_Cheats"]
+
+Converted["_UIPadding11"].PaddingLeft = UDim.new(0, 10)
+Converted["_UIPadding11"].PaddingRight = UDim.new(0, 10)
+Converted["_UIPadding11"].Parent = Converted["_PP"]
+
+Converted["_NotChecked7"].Image = "rbxassetid://10709798174"
+Converted["_NotChecked7"].ImageColor3 = Color3.fromRGB(255, 0, 0)
+Converted["_NotChecked7"].ImageContent = Content
+Converted["_NotChecked7"].AnchorPoint = Vector2.new(1, 0.5)
+Converted["_NotChecked7"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Converted["_NotChecked7"].BackgroundTransparency = 1
+Converted["_NotChecked7"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+Converted["_NotChecked7"].BorderSizePixel = 0
+Converted["_NotChecked7"].Position = UDim2.new(1, 0, 0.5, 0)
+Converted["_NotChecked7"].Size = UDim2.new(0, 15, 1, -15)
+Converted["_NotChecked7"].ZIndex = 3
+Converted["_NotChecked7"].Name = "NotChecked"
+Converted["_NotChecked7"].Parent = Converted["_PP"]
+
+Converted["_Checked7"].Image = "rbxassetid://10709790387"
+Converted["_Checked7"].ImageColor3 = Color3.fromRGB(0, 255, 0)
+Converted["_Checked7"].ImageContent = Content
+Converted["_Checked7"].AnchorPoint = Vector2.new(1, 0.5)
+Converted["_Checked7"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Converted["_Checked7"].BackgroundTransparency = 1
+Converted["_Checked7"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+Converted["_Checked7"].BorderSizePixel = 0
+Converted["_Checked7"].Position = UDim2.new(1, 0, 0.5, 0)
+Converted["_Checked7"].Size = UDim2.new(0, 15, 1, -15)
+Converted["_Checked7"].Visible = false
+Converted["_Checked7"].ZIndex = 3
+Converted["_Checked7"].Name = "Checked"
+Converted["_Checked7"].Parent = Converted["_PP"]
+
+Converted["_Tabs"].AutomaticCanvasSize = Enum.AutomaticSize.XY
+Converted["_Tabs"].CanvasSize = UDim2.new(0, 0, 0, 0)
+Converted["_Tabs"].ScrollBarImageColor3 = Color3.fromRGB(0, 0, 0)
+Converted["_Tabs"].ScrollBarThickness = 6
+Converted["_Tabs"].Active = true
+Converted["_Tabs"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Converted["_Tabs"].BackgroundTransparency = 1
+Converted["_Tabs"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+Converted["_Tabs"].BorderSizePixel = 0
+Converted["_Tabs"].Position = UDim2.new(0, 0, 0, 30)
+Converted["_Tabs"].Size = UDim2.new(1, -325, 1, -30)
+Converted["_Tabs"].ZIndex = 2
+Converted["_Tabs"].Name = "Tabs"
+Converted["_Tabs"].Parent = Converted["_Frame"]
+
+Converted["_UIListLayout1"].HorizontalAlignment = Enum.HorizontalAlignment.Center
+Converted["_UIListLayout1"].Parent = Converted["_Tabs"]
+
+Converted["_Adjust"].Font = Enum.Font.SourceSans
+Converted["_Adjust"].Text = "Adjust"
+Converted["_Adjust"].TextColor3 = Color3.fromRGB(205.00000298023224, 205.00000298023224, 205.00000298023224)
+Converted["_Adjust"].TextSize = 15
+Converted["_Adjust"].TextStrokeTransparency = 0
+Converted["_Adjust"].AutoButtonColor = false
+Converted["_Adjust"].BackgroundColor3 = Color3.fromRGB(18.000000827014446, 18.000000827014446, 18.000000827014446)
+Converted["_Adjust"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+Converted["_Adjust"].BorderSizePixel = 0
+Converted["_Adjust"].Size = UDim2.new(1, 0, 0, 25)
+Converted["_Adjust"].Name = "Adjust"
+Converted["_Adjust"].Parent = Converted["_Tabs"]
+
+Converted["_UIPadding12"].Parent = Converted["_Tabs"]
+
+Converted["_Cheats1"].Font = Enum.Font.SourceSans
+Converted["_Cheats1"].Text = "Cheat"
+Converted["_Cheats1"].TextColor3 = Color3.fromRGB(205.00000298023224, 205.00000298023224, 205.00000298023224)
+Converted["_Cheats1"].TextSize = 15
+Converted["_Cheats1"].TextStrokeTransparency = 0
+Converted["_Cheats1"].AutoButtonColor = false
+Converted["_Cheats1"].BackgroundColor3 = Color3.fromRGB(8.000000473111868, 8.000000473111868, 8.000000473111868)
+Converted["_Cheats1"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+Converted["_Cheats1"].BorderSizePixel = 0
+Converted["_Cheats1"].Size = UDim2.new(1, 0, 0, 25)
+Converted["_Cheats1"].Name = "Cheats"
+Converted["_Cheats1"].Parent = Converted["_Tabs"]
+
+Converted["_Info"].Font = Enum.Font.SourceSans
+Converted["_Info"].Text = "Info"
+Converted["_Info"].TextColor3 = Color3.fromRGB(205.00000298023224, 205.00000298023224, 205.00000298023224)
+Converted["_Info"].TextSize = 15
+Converted["_Info"].TextStrokeTransparency = 0
+Converted["_Info"].AutoButtonColor = false
+Converted["_Info"].BackgroundColor3 = Color3.fromRGB(18.000000827014446, 18.000000827014446, 18.000000827014446)
+Converted["_Info"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+Converted["_Info"].BorderSizePixel = 0
+Converted["_Info"].Size = UDim2.new(1, 0, 0, 25)
+Converted["_Info"].Name = "Info"
+Converted["_Info"].Parent = Converted["_Tabs"]
+
+Converted["_Adjusts"].AutomaticCanvasSize = Enum.AutomaticSize.XY
+Converted["_Adjusts"].CanvasSize = UDim2.new(0, 0, 0, 0)
+Converted["_Adjusts"].ScrollBarImageColor3 = Color3.fromRGB(0, 0, 0)
+Converted["_Adjusts"].ScrollBarThickness = 0
+Converted["_Adjusts"].Active = true
+Converted["_Adjusts"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Converted["_Adjusts"].BackgroundTransparency = 1
+Converted["_Adjusts"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+Converted["_Adjusts"].BorderSizePixel = 0
+Converted["_Adjusts"].Position = UDim2.new(0, 75, 0, 30)
+Converted["_Adjusts"].Size = UDim2.new(1, -75, 1, -30)
+Converted["_Adjusts"].Visible = false
+Converted["_Adjusts"].ZIndex = 2
+Converted["_Adjusts"].Name = "Adjusts"
+Converted["_Adjusts"].Parent = Converted["_Frame"]
+
+Converted["_UIListLayout2"].Padding = UDim.new(0, 2)
+Converted["_UIListLayout2"].HorizontalAlignment = Enum.HorizontalAlignment.Center
+Converted["_UIListLayout2"].Parent = Converted["_Adjusts"]
+
+Converted["_UIPadding13"].PaddingBottom = UDim.new(0, 10)
+Converted["_UIPadding13"].PaddingTop = UDim.new(0, 10)
+Converted["_UIPadding13"].Parent = Converted["_Adjusts"]
+
+Converted["_ChangeWS"].ClearTextOnFocus = false
+Converted["_ChangeWS"].Font = Enum.Font.SourceSans
+Converted["_ChangeWS"].PlaceholderText = "Walk Speed:"
+Converted["_ChangeWS"].Text = ""
+Converted["_ChangeWS"].TextColor3 = Color3.fromRGB(205.00000298023224, 205.00000298023224, 205.00000298023224)
+Converted["_ChangeWS"].TextSize = 14
+Converted["_ChangeWS"].TextStrokeTransparency = 0
+Converted["_ChangeWS"].TextWrapped = true
+Converted["_ChangeWS"].TextXAlignment = Enum.TextXAlignment.Left
+Converted["_ChangeWS"].BackgroundColor3 = Color3.fromRGB(26.000000350177288, 26.000000350177288, 26.000000350177288)
+Converted["_ChangeWS"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+Converted["_ChangeWS"].BorderSizePixel = 0
+Converted["_ChangeWS"].Size = UDim2.new(1, -20, 0, 26)
+Converted["_ChangeWS"].ZIndex = 3
+Converted["_ChangeWS"].Name = "ChangeWS"
+Converted["_ChangeWS"].Parent = Converted["_Adjusts"]
+
+Converted["_UIPadding14"].PaddingLeft = UDim.new(0, 10)
+Converted["_UIPadding14"].PaddingRight = UDim.new(0, 10)
+Converted["_UIPadding14"].Parent = Converted["_ChangeWS"]
+
+Converted["_UITextSizeConstraint"].MaxTextSize = 14
+Converted["_UITextSizeConstraint"].Parent = Converted["_ChangeWS"]
+
+Converted["_ImageLabel1"].Image = "rbxassetid://10734982395"
+Converted["_ImageLabel1"].ImageContent = Content
+Converted["_ImageLabel1"].AnchorPoint = Vector2.new(1, 0.5)
+Converted["_ImageLabel1"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Converted["_ImageLabel1"].BackgroundTransparency = 1
+Converted["_ImageLabel1"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+Converted["_ImageLabel1"].BorderSizePixel = 0
+Converted["_ImageLabel1"].Position = UDim2.new(1, 0, 0.5, 0)
+Converted["_ImageLabel1"].Size = UDim2.new(0, 13, 1, -13)
+Converted["_ImageLabel1"].ZIndex = 3
+Converted["_ImageLabel1"].Parent = Converted["_ChangeWS"]
+
+Converted["_ChangeJP"].ClearTextOnFocus = false
+Converted["_ChangeJP"].Font = Enum.Font.SourceSans
+Converted["_ChangeJP"].PlaceholderText = "Jump Power:"
+Converted["_ChangeJP"].Text = ""
+Converted["_ChangeJP"].TextColor3 = Color3.fromRGB(205.00000298023224, 205.00000298023224, 205.00000298023224)
+Converted["_ChangeJP"].TextSize = 14
+Converted["_ChangeJP"].TextStrokeTransparency = 0
+Converted["_ChangeJP"].TextWrapped = true
+Converted["_ChangeJP"].TextXAlignment = Enum.TextXAlignment.Left
+Converted["_ChangeJP"].BackgroundColor3 = Color3.fromRGB(26.000000350177288, 26.000000350177288, 26.000000350177288)
+Converted["_ChangeJP"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+Converted["_ChangeJP"].BorderSizePixel = 0
+Converted["_ChangeJP"].Size = UDim2.new(1, -20, 0, 26)
+Converted["_ChangeJP"].ZIndex = 3
+Converted["_ChangeJP"].Name = "ChangeJP"
+Converted["_ChangeJP"].Parent = Converted["_Adjusts"]
+
+Converted["_UIPadding15"].PaddingLeft = UDim.new(0, 10)
+Converted["_UIPadding15"].PaddingRight = UDim.new(0, 10)
+Converted["_UIPadding15"].Parent = Converted["_ChangeJP"]
+
+Converted["_UITextSizeConstraint1"].MaxTextSize = 14
+Converted["_UITextSizeConstraint1"].Parent = Converted["_ChangeJP"]
+
+Converted["_ImageLabel2"].Image = "rbxassetid://10734982395"
+Converted["_ImageLabel2"].ImageContent = Content
+Converted["_ImageLabel2"].AnchorPoint = Vector2.new(1, 0.5)
+Converted["_ImageLabel2"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Converted["_ImageLabel2"].BackgroundTransparency = 1
+Converted["_ImageLabel2"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+Converted["_ImageLabel2"].BorderSizePixel = 0
+Converted["_ImageLabel2"].Position = UDim2.new(1, 0, 0.5, 0)
+Converted["_ImageLabel2"].Size = UDim2.new(0, 13, 1, -13)
+Converted["_ImageLabel2"].ZIndex = 3
+Converted["_ImageLabel2"].Parent = Converted["_ChangeJP"]
+
+Converted["_LD"].Font = Enum.Font.SourceSans
+Converted["_LD"].Text = "Lay Down"
+Converted["_LD"].TextColor3 = Color3.fromRGB(205.00000298023224, 205.00000298023224, 205.00000298023224)
+Converted["_LD"].TextSize = 15
+Converted["_LD"].TextStrokeTransparency = 0
+Converted["_LD"].TextXAlignment = Enum.TextXAlignment.Left
+Converted["_LD"].BackgroundColor3 = Color3.fromRGB(26.000000350177288, 26.000000350177288, 26.000000350177288)
+Converted["_LD"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+Converted["_LD"].BorderSizePixel = 0
+Converted["_LD"].Size = UDim2.new(1, -20, 0, 30)
+Converted["_LD"].ZIndex = 3
+Converted["_LD"].Name = "LD"
+Converted["_LD"].Parent = Converted["_Adjusts"]
+
+Converted["_UIPadding16"].PaddingLeft = UDim.new(0, 10)
+Converted["_UIPadding16"].PaddingRight = UDim.new(0, 10)
+Converted["_UIPadding16"].Parent = Converted["_LD"]
+
+Converted["_NotChecked8"].Image = "rbxassetid://10709798174"
+Converted["_NotChecked8"].ImageColor3 = Color3.fromRGB(255, 0, 0)
+Converted["_NotChecked8"].ImageContent = Content
+Converted["_NotChecked8"].AnchorPoint = Vector2.new(1, 0.5)
+Converted["_NotChecked8"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Converted["_NotChecked8"].BackgroundTransparency = 1
+Converted["_NotChecked8"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+Converted["_NotChecked8"].BorderSizePixel = 0
+Converted["_NotChecked8"].Position = UDim2.new(1, 0, 0.5, 0)
+Converted["_NotChecked8"].Size = UDim2.new(0, 15, 1, -15)
+Converted["_NotChecked8"].ZIndex = 3
+Converted["_NotChecked8"].Name = "NotChecked"
+Converted["_NotChecked8"].Parent = Converted["_LD"]
+
+Converted["_Checked8"].Image = "rbxassetid://10709790387"
+Converted["_Checked8"].ImageColor3 = Color3.fromRGB(0, 255, 0)
+Converted["_Checked8"].ImageContent = Content
+Converted["_Checked8"].AnchorPoint = Vector2.new(1, 0.5)
+Converted["_Checked8"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Converted["_Checked8"].BackgroundTransparency = 1
+Converted["_Checked8"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+Converted["_Checked8"].BorderSizePixel = 0
+Converted["_Checked8"].Position = UDim2.new(1, 0, 0.5, 0)
+Converted["_Checked8"].Size = UDim2.new(0, 15, 1, -15)
+Converted["_Checked8"].Visible = false
+Converted["_Checked8"].ZIndex = 3
+Converted["_Checked8"].Name = "Checked"
+Converted["_Checked8"].Parent = Converted["_LD"]
+
+Converted["_CIZD"].Font = Enum.Font.SourceSans
+Converted["_CIZD"].Text = "Camera Infinite Zoom Distance"
+Converted["_CIZD"].TextColor3 = Color3.fromRGB(205.00000298023224, 205.00000298023224, 205.00000298023224)
+Converted["_CIZD"].TextSize = 15
+Converted["_CIZD"].TextStrokeTransparency = 0
+Converted["_CIZD"].TextXAlignment = Enum.TextXAlignment.Left
+Converted["_CIZD"].BackgroundColor3 = Color3.fromRGB(26.000000350177288, 26.000000350177288, 26.000000350177288)
+Converted["_CIZD"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+Converted["_CIZD"].BorderSizePixel = 0
+Converted["_CIZD"].Size = UDim2.new(1, -20, 0, 30)
+Converted["_CIZD"].ZIndex = 3
+Converted["_CIZD"].Name = "CIZD"
+Converted["_CIZD"].Parent = Converted["_Adjusts"]
+
+Converted["_UIPadding17"].PaddingLeft = UDim.new(0, 10)
+Converted["_UIPadding17"].PaddingRight = UDim.new(0, 10)
+Converted["_UIPadding17"].Parent = Converted["_CIZD"]
+
+Converted["_NotChecked9"].Image = "rbxassetid://10709798174"
+Converted["_NotChecked9"].ImageColor3 = Color3.fromRGB(255, 0, 0)
+Converted["_NotChecked9"].ImageContent = Content
+Converted["_NotChecked9"].AnchorPoint = Vector2.new(1, 0.5)
+Converted["_NotChecked9"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Converted["_NotChecked9"].BackgroundTransparency = 1
+Converted["_NotChecked9"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+Converted["_NotChecked9"].BorderSizePixel = 0
+Converted["_NotChecked9"].Position = UDim2.new(1, 0, 0.5, 0)
+Converted["_NotChecked9"].Size = UDim2.new(0, 15, 1, -15)
+Converted["_NotChecked9"].ZIndex = 3
+Converted["_NotChecked9"].Name = "NotChecked"
+Converted["_NotChecked9"].Parent = Converted["_CIZD"]
+
+Converted["_Checked9"].Image = "rbxassetid://10709790387"
+Converted["_Checked9"].ImageColor3 = Color3.fromRGB(0, 255, 0)
+Converted["_Checked9"].ImageContent = Content
+Converted["_Checked9"].AnchorPoint = Vector2.new(1, 0.5)
+Converted["_Checked9"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Converted["_Checked9"].BackgroundTransparency = 1
+Converted["_Checked9"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+Converted["_Checked9"].BorderSizePixel = 0
+Converted["_Checked9"].Position = UDim2.new(1, 0, 0.5, 0)
+Converted["_Checked9"].Size = UDim2.new(0, 15, 1, -15)
+Converted["_Checked9"].Visible = false
+Converted["_Checked9"].ZIndex = 3
+Converted["_Checked9"].Name = "Checked"
+Converted["_Checked9"].Parent = Converted["_CIZD"]
+
+Converted["_Infos"].AutomaticCanvasSize = Enum.AutomaticSize.XY
+Converted["_Infos"].CanvasSize = UDim2.new(0, 0, 0, 0)
+Converted["_Infos"].ScrollBarImageColor3 = Color3.fromRGB(0, 0, 0)
+Converted["_Infos"].ScrollBarThickness = 0
+Converted["_Infos"].Active = true
+Converted["_Infos"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Converted["_Infos"].BackgroundTransparency = 1
+Converted["_Infos"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+Converted["_Infos"].BorderSizePixel = 0
+Converted["_Infos"].Position = UDim2.new(0, 75, 0, 30)
+Converted["_Infos"].Size = UDim2.new(1, -75, 1, -30)
+Converted["_Infos"].Visible = false
+Converted["_Infos"].ZIndex = 2
+Converted["_Infos"].Name = "Infos"
+Converted["_Infos"].Parent = Converted["_Frame"]
+
+Converted["_UIListLayout3"].HorizontalAlignment = Enum.HorizontalAlignment.Center
+Converted["_UIListLayout3"].VerticalAlignment = Enum.VerticalAlignment.Center
+Converted["_UIListLayout3"].Parent = Converted["_Infos"]
+
+Converted["_GameRunning"].Font = Enum.Font.SourceSans
+Converted["_GameRunning"].Text = "Game Running: ?"
+Converted["_GameRunning"].TextColor3 = Color3.fromRGB(255, 255, 255)
+Converted["_GameRunning"].TextSize = 14
+Converted["_GameRunning"].TextStrokeTransparency = 0
+Converted["_GameRunning"].TextWrapped = true
+Converted["_GameRunning"].BackgroundColor3 = Color3.fromRGB(35.00000171363354, 41.00000135600567, 35.00000171363354)
+Converted["_GameRunning"].BackgroundTransparency = 1
+Converted["_GameRunning"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+Converted["_GameRunning"].BorderSizePixel = 0
+Converted["_GameRunning"].Size = UDim2.new(1, -20, 0, 20)
+Converted["_GameRunning"].ZIndex = 3
+Converted["_GameRunning"].Name = "GameRunning"
+Converted["_GameRunning"].Parent = Converted["_Infos"]
+
+Converted["_It"].Font = Enum.Font.SourceSans
+Converted["_It"].Text = "The Clown: ?"
+Converted["_It"].TextColor3 = Color3.fromRGB(255, 255, 255)
+Converted["_It"].TextSize = 14
+Converted["_It"].TextStrokeTransparency = 0
+Converted["_It"].TextWrapped = true
+Converted["_It"].BackgroundColor3 = Color3.fromRGB(35.00000171363354, 41.00000135600567, 35.00000171363354)
+Converted["_It"].BackgroundTransparency = 1
+Converted["_It"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+Converted["_It"].BorderSizePixel = 0
+Converted["_It"].Size = UDim2.new(1, -20, 0, 20)
+Converted["_It"].ZIndex = 3
+Converted["_It"].Name = "It"
+Converted["_It"].Parent = Converted["_Infos"]
+
+Converted["_UIPadding18"].PaddingTop = UDim.new(0, -15)
+Converted["_UIPadding18"].Parent = Converted["_Infos"]
+
+Converted["_Lol"].Font = Enum.Font.SourceSans
+Converted["_Lol"].Text = "stupid bitch"
+Converted["_Lol"].TextColor3 = Color3.fromRGB(255, 170.0000050663948, 0)
+Converted["_Lol"].TextSize = 14
+Converted["_Lol"].TextStrokeTransparency = 0
+Converted["_Lol"].TextWrapped = true
+Converted["_Lol"].BackgroundColor3 = Color3.fromRGB(35.00000171363354, 41.00000135600567, 35.00000171363354)
+Converted["_Lol"].BackgroundTransparency = 1
+Converted["_Lol"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+Converted["_Lol"].BorderSizePixel = 0
+Converted["_Lol"].Size = UDim2.new(1, -20, 0, 20)
+Converted["_Lol"].ZIndex = 3
+Converted["_Lol"].Name = "Lol"
+Converted["_Lol"].Parent = Converted["_Infos"]
+
+Converted["_DropShadowHolder"].BackgroundTransparency = 1
+Converted["_DropShadowHolder"].BorderSizePixel = 0
+Converted["_DropShadowHolder"].Size = UDim2.new(1, 0, 1, 0)
+Converted["_DropShadowHolder"].ZIndex = 0
+Converted["_DropShadowHolder"].Name = "DropShadowHolder"
+Converted["_DropShadowHolder"].Parent = Converted["_Frame"]
+
+Converted["_DropShadow"].Image = "rbxassetid://6015897843"
+Converted["_DropShadow"].ImageContent = Content
+Converted["_DropShadow"].ImageTransparency = 0.5
+Converted["_DropShadow"].ScaleType = Enum.ScaleType.Slice
+Converted["_DropShadow"].SliceCenter = Rect.new(49, 49, 450, 450)
+Converted["_DropShadow"].AnchorPoint = Vector2.new(0.5, 0.5)
+Converted["_DropShadow"].BackgroundTransparency = 1
+Converted["_DropShadow"].BorderSizePixel = 0
+Converted["_DropShadow"].Position = UDim2.new(0.5, 0, 0.5, 0)
+Converted["_DropShadow"].Size = UDim2.new(1, 47, 1, 47)
+Converted["_DropShadow"].ZIndex = 0
+Converted["_DropShadow"].Name = "DropShadow"
+Converted["_DropShadow"].Parent = Converted["_DropShadowHolder"]
+
+Converted["_TextButton"].Font = Enum.Font.SourceSans
+Converted["_TextButton"].Text = "Restore Up"
+Converted["_TextButton"].TextColor3 = Color3.fromRGB(255, 255, 255)
+Converted["_TextButton"].TextSize = 20
+Converted["_TextButton"].TextStrokeTransparency = 0
+Converted["_TextButton"].AnchorPoint = Vector2.new(0.5, 1)
+Converted["_TextButton"].BackgroundColor3 = Color3.fromRGB(38.0000015348196, 38.0000015348196, 38.0000015348196)
+Converted["_TextButton"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+Converted["_TextButton"].BorderSizePixel = 0
+Converted["_TextButton"].Position = UDim2.new(0.5, 0, 1, -50)
+Converted["_TextButton"].Size = UDim2.new(0, 97, 0, 50)
+Converted["_TextButton"].Parent = Converted["_Scryn"]
+
+Converted["_UICorner"].CornerRadius = UDim.new(0, 10)
+Converted["_UICorner"].Parent = Converted["_TextButton"]
+
+Converted["_DropShadowHolder1"].BackgroundTransparency = 1
+Converted["_DropShadowHolder1"].BorderSizePixel = 0
+Converted["_DropShadowHolder1"].Size = UDim2.new(1, 0, 1, 0)
+Converted["_DropShadowHolder1"].ZIndex = 0
+Converted["_DropShadowHolder1"].Name = "DropShadowHolder"
+Converted["_DropShadowHolder1"].Parent = Converted["_TextButton"]
+
+Converted["_DropShadow1"].Image = "rbxassetid://6014261993"
+Converted["_DropShadow1"].ImageContent = Content
+Converted["_DropShadow1"].ImageTransparency = 0.5
+Converted["_DropShadow1"].ScaleType = Enum.ScaleType.Slice
+Converted["_DropShadow1"].SliceCenter = Rect.new(49, 49, 450, 450)
+Converted["_DropShadow1"].AnchorPoint = Vector2.new(0.5, 0.5)
+Converted["_DropShadow1"].BackgroundTransparency = 1
+Converted["_DropShadow1"].BorderSizePixel = 0
+Converted["_DropShadow1"].Position = UDim2.new(0.5, 0, 0.5, 0)
+Converted["_DropShadow1"].Size = UDim2.new(1, 47, 1, 47)
+Converted["_DropShadow1"].ZIndex = 0
+Converted["_DropShadow1"].Name = "DropShadow"
+Converted["_DropShadow1"].Parent = Converted["_DropShadowHolder1"]
+
+Converted["_hovers"].AudioContent = Content
+Converted["_hovers"].PlaybackSpeed = 3
+Converted["_hovers"].SoundId = "rbxassetid://86233475600567"
+Converted["_hovers"].Name = "hovers"
+Converted["_hovers"].Parent = Converted["_Scryn"]
+
+Converted["_clicking"].AudioContent = Content
+Converted["_clicking"].SoundId = "rbxassetid://3428115723"
+Converted["_clicking"].Name = "clicking"
+Converted["_clicking"].Parent = Converted["_Scryn"]
+
+local fake_module_scripts = {}
+
+local function AYDZX_fake_script() -- Fake Script: Workspace.Scryn.Frame.Frame.Close.LocalScript
+    local script = Instance.new("LocalScript")
+    script.Name = "LocalScript"
+    script.Parent = Converted["_Close"]
+    local req = require
+    local require = function(obj)
+        local fake = fake_module_scripts[obj]
+        if fake then
+            return fake()
+        end
+        return req(obj)
+    end
+
+	
 end
-
-local UI = loadstring(game:HttpGet("https://xan.bar/init.lua"))()
-
-local Window = UI.New({
-    Title = "Clown Killing\nReborn",
-    Theme = "Default"
-})
-
-local Main = Window:AddTab("General", UI.Icons.Render)
-Main:AddSection("Features")
-
-Main:AddLabel("Welcome to ClKiRe Cheat Peetitu (pt ii)")
-
-local Players = game:GetService("Players")
-local localPlayer = Players.LocalPlayer
-
-local clownLoop = false
-Main:AddToggle("Show Clown", { Default = false }, function(enabled)
-    if enabled then
-        clownLoop = true
-        task.spawn(function()
-            while clownLoop do
-                for _, player in ipairs(Players:GetPlayers()) do
-                    if player.Team and player.Team.Name == "Clown" then
-                        local char = player.Character
-                        local hrp = char and char:FindFirstChild("HumanoidRootPart")
-                        if char and hrp and not char:FindFirstChild("ClownBillboard") then
-                            local billboard = Instance.new("BillboardGui")
-                            billboard.Name = "ClownBillboard"
-                            billboard.Size = UDim2.new(1, 50, 1, 50)
-                            billboard.Adornee = hrp
-                            billboard.AlwaysOnTop = true
-                            billboard.Parent = char
-
-                            local label = Instance.new("TextLabel")
-                            label.Size = UDim2.new(1, 0, 1, 0)
-                            label.BackgroundTransparency = 1
-                            label.TextStrokeTransparency = 0
-                            label.Font = Enum.Font.Roboto
-                            label.Text = "Clown"
-                            label.TextColor3 = Color3.fromRGB(225, 6, 0)
-                            label.TextScaled = true
-                            label.Parent = billboard
-                        end
-                    end
-                end
-                task.wait(1)
-            end
-        end)
-    else
-        clownLoop = false
-        for _, player in ipairs(Players:GetPlayers()) do
-            local char = player.Character
-            local bb = char and char:FindFirstChild("ClownBillboard")
-            if bb then bb:Destroy() end
+local function BAAALZ_fake_script() -- Fake Script: Workspace.Scryn.Frame.Frame.RestoreDown.LocalScript
+    local script = Instance.new("LocalScript")
+    script.Name = "LocalScript"
+    script.Parent = Converted["_RestoreDown"]
+    local req = require
+    local require = function(obj)
+        local fake = fake_module_scripts[obj]
+        if fake then
+            return fake()
         end
+        return req(obj)
     end
-end)
 
-local clownHighlightLoop = false
-local highlightColor = Color3.fromRGB(255, 0, 0) -- default red
-
-Main:AddToggle("Highlight Clown", { Default = false }, function(enabled)
-    if enabled then
-        clownHighlightLoop = true
-        task.spawn(function()
-            while clownHighlightLoop do
-                for _, player in ipairs(Players:GetPlayers()) do
-                    if player.Team and player.Team.Name == "Clown" then
-                        local char = player.Character
-                        if char then
-                            local hl = char:FindFirstChild("ClownHighlight")
-                            if not hl then
-                                hl = Instance.new("Highlight")
-                                hl.Name = "ClownHighlight"
-                                hl.FillColor = Color3.fromRGB(0, 0, 0)
-                                hl.FillTransparency = 1
-                                hl.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
-                                hl.Adornee = char
-                                hl.Parent = char
-                            end
-                            -- Update outline color every loop
-                            hl.OutlineColor = highlightColor
-                            hl.OutlineTransparency = 0
-                        end
-                    end
-                end
-                task.wait(1)
-            end
-        end)
-    else
-        clownHighlightLoop = false
-        for _, player in ipairs(Players:GetPlayers()) do
-            local char = player.Character
-            local hl = char and char:FindFirstChild("ClownHighlight")
-            if hl then hl:Destroy() end
-        end
-    end
-end)
-
-Main:AddColorPicker("Color Picker - Highlight Clown", {
-    Default = UI.RGB(255, 0, 0),
-    Flag = "esp_color"
-}, function(color)
-    highlightColor = color
-    for _, player in ipairs(Players:GetPlayers()) do
-        if player.Team and player.Team.Name == "Clown" then
-            local char = player.Character
-            local hl = char and char:FindFirstChild("ClownHighlight")
-            if hl then
-                hl.OutlineColor = highlightColor
-            end
-        end
-    end
-end)
-
-local victimLoop = false
-Main:AddToggle("Show Victims", { Default = false }, function(enabled)
-    if enabled then
-        victimLoop = true
-        task.spawn(function()
-            while victimLoop do
-                for _, player in ipairs(Players:GetPlayers()) do
-                    if player ~= localPlayer and player.Team and player.Team.Name == "Victims" then
-                        local char = player.Character
-                        local head = char and char:FindFirstChild("Head")
-                        if head and not char:FindFirstChild("VictimBillboard") then
-                            local billboard = Instance.new("BillboardGui")
-                            billboard.Name = "VictimBillboard"
-                            billboard.Size = UDim2.new(1, 50, 1, 50)
-                            billboard.Adornee = head
-                            billboard.AlwaysOnTop = true
-                            billboard.Parent = char
-
-                            local label = Instance.new("TextLabel")
-                            label.Size = UDim2.new(1, 0, 1, 0)
-                            label.BackgroundTransparency = 1
-                            label.TextStrokeTransparency = 0
-                            label.Text = "Victim"
-                            label.TextColor3 = Color3.fromRGB(125, 249, 255)
-                            label.TextScaled = true
-                            label.Font = Enum.Font.Roboto
-                            label.Parent = billboard
-                        end
-                    end
-                end
-                task.wait(1)
-            end
-        end)
-    else
-        victimLoop = false
-        for _, player in ipairs(Players:GetPlayers()) do
-            if player ~= localPlayer then
-                local char = player.Character
-                local bb = char and char:FindFirstChild("VictimBillboard")
-                if bb then bb:Destroy() end
-            end
-        end
-    end
-end)
-
-local victimHighlightLoop = false
-local victimHighlightColor = Color3.fromRGB(125, 249, 255)
-
-Main:AddToggle("Highlight Victims", { Default = false }, function(enabled)
-    if enabled then
-        victimHighlightLoop = true
-        task.spawn(function()
-            while victimHighlightLoop do
-                for _, player in ipairs(Players:GetPlayers()) do
-                    if player ~= localPlayer and player.Team and player.Team.Name == "Victims" then
-                        local char = player.Character
-                        if char then
-                            local hl = char:FindFirstChild("VictimHighlight")
-                            if not hl then
-                                hl = Instance.new("Highlight")
-                                hl.Name = "VictimHighlight"
-                                hl.FillColor = Color3.fromRGB(0, 255, 0)
-                                hl.FillTransparency = 1
-                                hl.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
-                                hl.Adornee = char
-                                hl.Parent = char
-                            end
-                            hl.OutlineColor = victimHighlightColor
-                            hl.OutlineTransparency = 0
-                        end
-                    end
-                end
-                task.wait(1)
-            end
-        end)
-    else
-        victimHighlightLoop = false
-        for _, player in ipairs(Players:GetPlayers()) do
-            if player ~= localPlayer then
-                local char = player.Character
-                local hl = char and char:FindFirstChild("VictimHighlight")
-                if hl then hl:Destroy() end
-            end
-        end
-    end
-end)
-
-Main:AddColorPicker("Color Picker - Highlight Victims", {
-    Default = UI.RGB(125, 249, 255),
-    Flag = "victim_esp_color"
-}, function(color)
-    victimHighlightColor = color
-    for _, player in ipairs(Players:GetPlayers()) do
-        if player.Team and player.Team.Name == "Victims" then
-            local char = player.Character
-            local hl = char and char:FindFirstChild("VictimHighlight")
-            if hl then
-                hl.OutlineColor = victimHighlightColor
-            end
-        end
-    end
-end)
-
-local Players = game:GetService("Players")
-local RunService = game:GetService("RunService")
-
-local LocalPlayer = Players.LocalPlayer
-local radio
-local adornee
-local billboard
-local distanceConn
-local monitorConn
-
--- Find the real radio model
-local function findRadio()
-    for _, inst in ipairs(workspace:GetDescendants()) do
-        if inst:IsA("Model") and inst.Name == "Radio" then
-            for _, d in ipairs(inst:GetDescendants()) do
-                if d:IsA("Sound") and d.Name == "YeyLetsGetHelpBoys" then
-                    return inst
-                end
-            end
-        end
-    end
+	
 end
-
--- Resolve a usable BasePart
-local function getAdornee(model)
-    return model.PrimaryPart or model:FindFirstChildWhichIsA("BasePart", true)
-end
-
--- Remove billboard safely
-local function removeBillboard()
-    if distanceConn then
-        distanceConn:Disconnect()
-        distanceConn = nil
-    end
-    if billboard then
-        billboard:Destroy()
-        billboard = nil
-    end
-end
-
-local function createBillboard(radioModel)
-    removeBillboard()
-
-    adornee = getAdornee(radioModel)
-    if not adornee then return end
-
-    billboard = Instance.new("BillboardGui")
-    billboard.Name = "RadioBillboard"
-    billboard.Size = UDim2.fromOffset(150, 50)
-    billboard.StudsOffset = Vector3.new(0, 3, 0)
-    billboard.AlwaysOnTop = true
-    billboard.Adornee = adornee
-    billboard.Parent = radioModel
-
-    local label = Instance.new("TextLabel")
-    label.Size = UDim2.fromScale(1, 1)
-    label.BackgroundTransparency = 1
-    label.TextScaled = true
-    label.Font = Enum.Font.Roboto
-    label.TextStrokeTransparency = 0
-    label.TextColor3 = Color3.new(1, 1, 1)
-    label.Parent = billboard
-
-    distanceConn = RunService.Heartbeat:Connect(function()
-        local char = LocalPlayer.Character
-        local hrp = char and char:FindFirstChild("HumanoidRootPart")
-        if not hrp or not adornee or not adornee.Parent then
-            return
+local function DKLBNX_fake_script() -- Fake Script: Workspace.Scryn.Frame.Cheats.FRLP.LocalScript
+    local script = Instance.new("LocalScript")
+    script.Name = "LocalScript"
+    script.Parent = Converted["_FRLP"]
+    local req = require
+    local require = function(obj)
+        local fake = fake_module_scripts[obj]
+        if fake then
+            return fake()
         end
-        local dist = (hrp.Position - adornee.Position).Magnitude
-        label.Text = string.format("%d continents away", math.floor(dist + 0.5))
-    end)
-end
-
-Main:AddToggle("Where Is the Radio?", { Default = false }, function(enabled)
-    if enabled then
-        monitorConn = RunService.Heartbeat:Connect(function()
-            if not radio or not radio.Parent then
-                radio = findRadio()
-                if radio then
-                    createBillboard(radio)
-                end
-            end
-        end)
-    else
-        if monitorConn then
-            monitorConn:Disconnect()
-            monitorConn = nil
-        end
-        removeBillboard()
-        radio = nil
-    end
-end)
-
-local Players = game:GetService("Players")
-local LocalPlayer = Players.LocalPlayer
-
-local function findRadioHitPart()
-    for _, inst in ipairs(workspace:GetDescendants()) do
-        if inst:IsA("BasePart") and inst.Name == "hit" and inst.Parent and inst.Parent:IsA("Model") and inst.Parent.Name == "Radio" then
-            return inst
-        end
-    end
-end
-
-Main:AddButton("Fix Radio Loading Progress", function()
-	UI.Success("scary fact", "u have to touch the desk instead of the radio to work")
-    local radioHitPart = findRadioHitPart()
-    if not radioHitPart then
-        UI.Success("nigga", "there is not even any radio")
-        return
+        return req(obj)
     end
 
-    local character = LocalPlayer.Character
-    local hrp = character and character:FindFirstChild("HumanoidRootPart")
-    if not hrp then
-        UI.Success("nigga", "where is ur humanoidrootpart?")
-        return
-    end
-
-    firetouchinterest(radioHitPart, hrp, 0)
-end)
-
-local Players = game:GetService("Players")
-local LocalPlayer = Players.LocalPlayer
-
-local swingLoop
-local equipped = false
-local knifeTool
-
-Main:AddToggle("Auto-Swing Knife", { Default = false }, function(enabled)
-    if enabled then
-        knifeTool = LocalPlayer.Character and LocalPlayer.Character:FindFirstChildOfClass("Tool")
-        if not knifeTool or knifeTool.Name ~= "Knife" then
-            UI.Success("nigga", "u are not Clown or the round has not started yet")
-            return
-        end
-
-        equipped = true
-
-        swingLoop = task.spawn(function()
-            while enabled and equipped and knifeTool and knifeTool.Parent == LocalPlayer.Character do
-                knifeTool:Activate()
-                task.wait(.5)
-            end
-        end)
-
-        LocalPlayer.Character.ChildAdded:Connect(function(child)
-            if child:IsA("Tool") and child.Name == "Knife" then
-                knifeTool = child
-                equipped = true
-                if not swingLoop or not task.isRunning(swingLoop) then
-                    swingLoop = task.spawn(function()
-                        while enabled and equipped and knifeTool and knifeTool.Parent == LocalPlayer.Character do
-                            knifeTool:Activate()
-                            task.wait(0.5)
-                        end
-                    end)
-                end
-            end
-        end)
-
-        LocalPlayer.Character.ChildRemoved:Connect(function(child)
-            if child == knifeTool then
-                equipped = false
-            end
-        end)
-        
-    else
-        equipped = false
-        knifeTool = nil
-    end
-end)
-
-local Players = game:GetService("Players")
-local RunService = game:GetService("RunService")
-
-local LocalPlayer = Players.LocalPlayer
-local followConnection
-
-local STOP_DISTANCE = 2
-
-Main:AddToggle("Get Nearest Victim", { Default = false }, function(enabled)
-    if enabled then
-        if not LocalPlayer.Team or LocalPlayer.Team.Name ~= "Clown" then
-            UI.Success("nigga", "u must be Clown to use this")
-            return
-        end
-
-        followConnection = RunService.Heartbeat:Connect(function()
-            local character = LocalPlayer.Character
-            if not character then return end
-
-            local humanoid = character:FindFirstChildOfClass("Humanoid")
-            local hrp = character:FindFirstChild("HumanoidRootPart")
-            if not humanoid or humanoid.Health <= 0 or not hrp then return end
-
-            local nearestVictimHRP
-            local nearestVictimHum
-            local shortestDistance = math.huge
-
-            for _, player in ipairs(Players:GetPlayers()) do
-                if player.Team and player.Team.Name == "Victims" and player.Character then
-                    local vChar = player.Character
-                    local vHRP = vChar:FindFirstChild("HumanoidRootPart")
-                    local vHum = vChar:FindFirstChildOfClass("Humanoid")
-
-                    if vHRP and vHum and vHum.Health > 0 then
-                        local dist = (vHRP.Position - hrp.Position).Magnitude
-                        if dist < shortestDistance then
-                            shortestDistance = dist
-                            nearestVictimHRP = vHRP
-                            nearestVictimHum = vHum
-                        end
-                    end
-                end
-            end
-
-            if nearestVictimHRP then
-                -- Movement (do not climb on victim)
-                if shortestDistance > STOP_DISTANCE then
-                    local direction = (nearestVictimHRP.Position - hrp.Position).Unit
-                    local targetPosition = nearestVictimHRP.Position - (direction * STOP_DISTANCE)
-                    humanoid:MoveTo(targetPosition)
-                else
-                    humanoid:MoveTo(hrp.Position)
-                end
-
-                -- Jump sync
-                local victimState = nearestVictimHum:GetState()
-                if (victimState == Enum.HumanoidStateType.Jumping
-                    or victimState == Enum.HumanoidStateType.Freefall)
-                    and humanoid.FloorMaterial ~= Enum.Material.Air then
-
-                    humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
-                end
-            end
-        end)
-
-    else
-        if followConnection then
-            followConnection:Disconnect()
-            followConnection = nil
-        end
-    end
-end)
-
-local Players = game:GetService("Players")
-local RunService = game:GetService("RunService")
-
-local player = Players.LocalPlayer
-
-local enabled = false
-local highlights = {}
-local BOX_SIZE = Vector3.new(50, 20, 50)
-
-local function clear()
-    for _, h in pairs(highlights) do
-        h:Destroy()
-    end
-    table.clear(highlights)
-end
-
-RunService.Heartbeat:Connect(function()
-    if not enabled then
-        clear()
-        return
-    end
-
-    local character = player.Character
-    if not character then
-        clear()
-        return
-    end
-
-    local hrp = character:FindFirstChild("HumanoidRootPart")
-    if not hrp then
-        clear()
-        return
-    end
-
-    local center = hrp.Position
-    local size = BOX_SIZE
-
-    local region = Region3.new(center - size / 2, center + size / 2)
-    local parts = workspace:FindPartsInRegion3WithIgnoreList(region, { character }, math.huge)
-
-    local valid = {}
-
-    for _, part in ipairs(parts) do
-        if part:IsA("BasePart") and part.CanCollide == false then
-            valid[part] = true
-
-            if not highlights[part] then
-                local hl = Instance.new("Highlight")
-                hl.Adornee = part
-                hl.FillTransparency = 1
-                hl.OutlineTransparency = 0
-                hl.OutlineColor = Color3.new(1, 1, 1)
-                hl.Parent = workspace -- NOT PlayerGui
-                highlights[part] = hl
-            end
-        end
-    end
-
-    for part, hl in pairs(highlights) do
-        if not valid[part] then
-            hl:Destroy()
-            highlights[part] = nil
-        end
-    end
-end)
-
-Main:AddToggle("Memorizer", { Default = false }, function(on)
-    enabled = on
-    if not on then
-        clear()
-    end
-end)
-
-Main:AddParagraph("Memorizer", "Shows you what obstacles are able to be hidden in")
-
-local Players = game:GetService("Players")
-local RunService = game:GetService("RunService")
-local LocalPlayer = Players.LocalPlayer
-local Camera = workspace.CurrentCamera
-
-local aimbotConnection
-
-Main:AddToggle("Aimlock on Bozo", { Default = false }, function(enabled)
-    if enabled then
-        local warned = false
-        aimbotConnection = RunService.RenderStepped:Connect(function()
-            local localCharacter = LocalPlayer.Character
-            if not localCharacter then return end
-            local localHRP = localCharacter:FindFirstChild("HumanoidRootPart")
-            if not localHRP then return end
-
-            local closestTarget = nil
-            local shortestDistance = math.huge
-
-            for _, player in pairs(Players:GetPlayers()) do
-                if player.Team and player.Team.Name == "Clown" and player.Character and player.Character:FindFirstChild("HumanoidRootPart") and player ~= LocalPlayer then
-                    local targetHRP = player.Character.HumanoidRootPart
-                    local distance = (targetHRP.Position - localHRP.Position).Magnitude
-                    if distance < shortestDistance then
-                        shortestDistance = distance
-                        closestTarget = player
-                    end
-                end
-            end
-
-            if closestTarget then
-                warned = false
-                local targetPos = closestTarget.Character.HumanoidRootPart.Position
-                local cameraPos = Camera.CFrame.Position
-                local newCFrame = CFrame.new(cameraPos, targetPos)
-
-                Camera.CFrame = newCFrame
-            else
-                if not warned then
-                    UI.Success("nigga", "the round has not started yet, u have to be a Shooter by the way")
-                    warned = true
-                end
-            end
-        end)
-    else
-        if aimbotConnection then
-            aimbotConnection:Disconnect()
-            aimbotConnection = nil
-        end
-    end
-end)
-
-invisRunning = false
-local speaker = game.Players.LocalPlayer
-local RunService = game:GetService("RunService")
-local Lighting = game:GetService("Lighting")
-local Player = game.Players.LocalPlayer
-local Character = game.Players.LocalPlayer.Character
-
-local function fixcam()
-	workspace.CurrentCamera:remove()
-	wait(.1)
-	repeat wait() until speaker.Character ~= nil
-	workspace.CurrentCamera.CameraSubject = speaker.Character:FindFirstChildWhichIsA('Humanoid')
-	workspace.CurrentCamera.CameraType = "Custom"
-	speaker.CameraMinZoomDistance = 0.5
-	speaker.CameraMaxZoomDistance = 400
-	speaker.CameraMode = "Classic"
-	speaker.Character.Head.Anchored = false
-end
-
-Main:AddButton("Invisible", function()
-	if invisRunning then return end
-	invisRunning = true
-	local Player = speaker
-	repeat wait(.1) until Player.Character
-	local Character = Player.Character
-	Character.Archivable = true
-	local IsInvis = false
-	local IsRunning = true
-	local InvisibleCharacter = Character:Clone()
-	InvisibleCharacter.Parent = Lighting
-	local Void = workspace.FallenPartsDestroyHeight
-	InvisibleCharacter.Name = ""
-	local CF
-
-	local invisFix = RunService.Stepped:Connect(function()
-		pcall(function()
-			local IsInteger
-			if tostring(Void):find'-' then
-				IsInteger = true
-			else
-				IsInteger = false
-			end
-			local Pos = Player.Character.HumanoidRootPart.Position
-			local Pos_String = tostring(Pos)
-			local Pos_Seperate = Pos_String:split(', ')
-			local X = tonumber(Pos_Seperate[1])
-			local Y = tonumber(Pos_Seperate[2])
-			local Z = tonumber(Pos_Seperate[3])
-			if IsInteger == true then
-				if Y <= Void then
-					Respawn()
-				end
-			elseif IsInteger == false then
-				if Y >= Void then
-					Respawn()
-				end
-			end
-		end)
-	end)
-
-	for i,v in pairs(InvisibleCharacter:GetDescendants())do
-		if v:IsA("BasePart") then
-			if v.Name == "HumanoidRootPart" then
-				v.Transparency = 1
-			else
-				v.Transparency = .5
+	local Players = game:GetService("Players")
+	local LocalPlayer = Players.LocalPlayer
+	
+	local function findRadioHitPart()
+		for _, inst in ipairs(workspace:GetDescendants()) do
+			if inst:IsA("BasePart") and inst.Name == "hit" and inst.Parent and inst.Parent:IsA("Model") and inst.Parent.Name == "Radio" then
+				return inst
 			end
 		end
 	end
-
-	function Respawn()
-		IsRunning = false
-		if IsInvis == true then
-			pcall(function()
-				Player.Character = Character
-				wait()
-				Character.Parent = workspace
-				Character:FindFirstChildWhichIsA'Humanoid':Destroy()
-				IsInvis = false
-				InvisibleCharacter.Parent = nil
-				invisRunning = false
-			end)
-		elseif IsInvis == false then
-			pcall(function()
-				Player.Character = Character
-				wait()
-				Character.Parent = workspace
-				Character:FindFirstChildWhichIsA'Humanoid':Destroy()
-				TurnVisible()
-			end)
+	
+	script.Parent.MouseButton1Click:Connect(function()
+		local radioHitPart = findRadioHitPart()
+		if not radioHitPart then
+			print("there is not even any radio")
+			return
 		end
-	end
-
-	local invisDied
-	invisDied = InvisibleCharacter:FindFirstChildOfClass'Humanoid'.Died:Connect(function()
-		Respawn()
-		invisDied:Disconnect()
+	
+		local character = LocalPlayer.Character
+		local hrp = character and character:FindFirstChild("HumanoidRootPart")
+		if not hrp then
+			print("where is ur humanoidrootpart?")
+			return
+		end
+	
+		firetouchinterest(radioHitPart, hrp, 0)
 	end)
-
-	if IsInvis == true then return end
-	IsInvis = true
-	CF = workspace.CurrentCamera.CFrame
-	local CF_1 = Player.Character.HumanoidRootPart.CFrame
-	Character:MoveTo(Vector3.new(0,math.pi*1000000,0))
-	workspace.CurrentCamera.CameraType = Enum.CameraType.Scriptable
-	wait(.2)
-	workspace.CurrentCamera.CameraType = Enum.CameraType.Custom
-	InvisibleCharacter = InvisibleCharacter
-	Character.Parent = Lighting
-	InvisibleCharacter.Parent = workspace
-	InvisibleCharacter.HumanoidRootPart.CFrame = CF_1
-	Player.Character = InvisibleCharacter
-	fixcam()
-	Player.Character.Animate.Disabled = true
-	Player.Character.Animate.Disabled = false
-
-	function TurnVisible()
-		if IsInvis == false then return end
-		invisFix:Disconnect()
-		invisDied:Disconnect()
-		CF = workspace.CurrentCamera.CFrame
-		Character = Character
-		local CF_1 = Player.Character.HumanoidRootPart.CFrame
-		Character.HumanoidRootPart.CFrame = CF_1
-		InvisibleCharacter:Destroy()
-		Player.Character = Character
-		Character.Parent = workspace
-		IsInvis = false
-		Player.Character.Animate.Disabled = true
-		Player.Character.Animate.Disabled = false
-		invisDied = Character:FindFirstChildOfClass'Humanoid'.Died:Connect(function()
-			Respawn()
-			invisDied:Disconnect()
-		end)
-		invisRunning = false
-	end
-end)
-
-Main:AddButton("Visible", function()
-	TurnVisible()
-end)
-
-local Main2 = Window:AddTab("More", UI.Icons.World)
-Main2:AddSection("Features")
-
-local Players = game:GetService("Players")
-local localPlayer = Players.LocalPlayer
-
-Main2:AddToggle("Lay Down", { Default = false }, function(enabled)
-    local char = localPlayer.Character or localPlayer.CharacterAdded:Wait()
-    local humanoid = char:FindFirstChildOfClass("Humanoid")
-    local root = char:FindFirstChild("HumanoidRootPart")
-
-    if humanoid and root then
-        if enabled then
-            humanoid.Sit = true
-            task.wait(.1)
-
-            root.CFrame = root.CFrame * CFrame.Angles(math.pi * 0.5, 0, 0)
-
-            for _, track in ipairs(humanoid:GetPlayingAnimationTracks()) do
-                track:Stop()
-            end
-        else
-            humanoid.Sit = false
-
-            root.CFrame = CFrame.new(root.Position)
+end
+local function JNHP_fake_script() -- Fake Script: Workspace.Scryn.Frame.Cheats.HC.LocalScript
+    local script = Instance.new("LocalScript")
+    script.Name = "LocalScript"
+    script.Parent = Converted["_HC"]
+    local req = require
+    local require = function(obj)
+        local fake = fake_module_scripts[obj]
+        if fake then
+            return fake()
         end
+        return req(obj)
     end
-end)
 
-local Players = game:GetService("Players")
-local localPlayer = Players.LocalPlayer
-
-Main2:AddToggle("Sit", { Default = false }, function(enabled)
-    local char = localPlayer.Character or localPlayer.CharacterAdded:Wait()
-    local humanoid = char:FindFirstChildOfClass("Humanoid")
-
-    if humanoid then
-        if enabled then
-            -- Force the player to sit
-            humanoid.Sit = true
-        else
-            -- Stand back up
-            humanoid.Sit = false
-        end
-    end
-end)
-
-Main2:AddSlider("Walk Speed",{
-	Min = 0.01,
-	Max = 19.999,
-	Default = 16, Increment = 0.01
-}, function(v)
-	currentSpeed = math.min(v, 19.999) 
-end) 
-
-Main2:AddToggle("Enable Walk Speed", { Default = false }, function(enabled)
-	if enabled then
-		UI.Success("nigga", "run as fast as Clown")
-		walkLoop = true
-		task.spawn(function()
-			while walkLoop do
-				local char = localPlayer.Character or localPlayer.CharacterAdded:Wait()
-				local humanoid = char:FindFirstChildOfClass("Humanoid")
-				if humanoid then
-					local speed = math.min(currentSpeed, 19.999)
-					if speed == 20 then
-						speed = 19.999
+	local clownHighlightLoop = false
+	local Players = game.Players
+	local enabled = false
+	
+	script.Parent.MouseButton1Click:Connect(function()
+		enabled = not enabled
+		
+		if enabled then
+			script.Parent.Checked.Visible = true
+			script.Parent.NotChecked.Visible = false
+			
+			clownHighlightLoop = true
+			task.spawn(function()
+				while clownHighlightLoop do
+					for _, player in ipairs(Players:GetPlayers()) do
+						if player.Team and player.Team.Name == "Clown" then
+							local char = player.Character
+							if char and not char:FindFirstChild("ClownHighlight") then
+								local hl = Instance.new("Highlight")
+								hl.Name = "ClownHighlight"
+								hl.FillColor = Color3.fromRGB(0, 0, 0)
+								hl.OutlineColor = Color3.fromRGB(255, 0, 0) 
+								hl.FillTransparency = 1
+								hl.OutlineTransparency = 0
+								hl.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
+								hl.Adornee = char
+								hl.Parent = char
+							end
+						end
 					end
-					humanoid.WalkSpeed = speed
+					task.wait(1)
 				end
-				task.wait(0.5)
+			end)
+		else
+			script.Parent.Checked.Visible = false
+			script.Parent.NotChecked.Visible = true
+			
+			clownHighlightLoop = false
+			for _, player in ipairs(Players:GetPlayers()) do
+				local char = player.Character
+				local hl = char and char:FindFirstChild("ClownHighlight")
+				if hl then
+					hl:Destroy()
+				end
 			end
-		end)
-	else
-		walkLoop = false
-		local char = localPlayer.Character
-		local humanoid = char and char:FindFirstChildOfClass("Humanoid")
-		if humanoid then
-			humanoid.WalkSpeed = 16
+		end
+	end)
+end
+local function WWPHSC_fake_script() -- Fake Script: Workspace.Scryn.Frame.Cheats.HV.LocalScript
+    local script = Instance.new("LocalScript")
+    script.Name = "LocalScript"
+    script.Parent = Converted["_HV"]
+    local req = require
+    local require = function(obj)
+        local fake = fake_module_scripts[obj]
+        if fake then
+            return fake()
+        end
+        return req(obj)
+    end
+
+	local victimHighlightLoop = false
+	local Players = game.Players
+	local localPlayer = Players.LocalPlayer
+	local enabled = false
+	
+	script.Parent.MouseButton1Click:Connect(function()
+		enabled = not enabled
+		
+		if enabled then
+			script.Parent.Checked.Visible = true
+			script.Parent.NotChecked.Visible = false
+			
+			victimHighlightLoop = true
+			task.spawn(function()
+				while victimHighlightLoop do
+					for _, player in ipairs(Players:GetPlayers()) do
+						if player ~= localPlayer and player.Team and player.Team.Name == "Victims" then
+							local char = player.Character
+							if char and not char:FindFirstChild("VictimHighlight") then
+								local hl = Instance.new("Highlight")
+								hl.Name = "VictimHighlight"
+								hl.FillColor = Color3.fromRGB(0, 255, 0)
+								hl.OutlineColor = Color3.fromRGB(125, 249, 255)
+								hl.FillTransparency = 1
+								hl.OutlineTransparency = 0
+								hl.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
+								hl.Adornee = char
+								hl.Parent = char
+							end
+						end
+					end
+					task.wait(1)
+				end
+			end)
+		else
+			script.Parent.Checked.Visible = false
+			script.Parent.NotChecked.Visible = true
+			
+			victimHighlightLoop = false
+			for _, player in ipairs(Players:GetPlayers()) do
+				if player ~= localPlayer then
+					local char = player.Character
+					local hl = char and char:FindFirstChild("VictimHighlight")
+					if hl then
+						hl:Destroy()
+					end
+				end
+			end
+		end
+	end)
+end
+local function JTEOMK_fake_script() -- Fake Script: Workspace.Scryn.Frame.Cheats.WITR.LocalScript
+    local script = Instance.new("LocalScript")
+    script.Name = "LocalScript"
+    script.Parent = Converted["_WITR"]
+    local req = require
+    local require = function(obj)
+        local fake = fake_module_scripts[obj]
+        if fake then
+            return fake()
+        end
+        return req(obj)
+    end
+
+	local Players = game:GetService("Players")
+	local RunService = game:GetService("RunService")
+	
+	local LocalPlayer = Players.LocalPlayer
+	local radio
+	local adornee
+	local billboard
+	local distanceConn
+	local monitorConn
+	
+	-- Find the real radio model
+	local function findRadio()
+		for _, inst in ipairs(workspace:GetDescendants()) do
+			if inst:IsA("Model") and inst.Name == "Radio" then
+				for _, d in ipairs(inst:GetDescendants()) do
+					if d:IsA("Sound") and d.Name == "YeyLetsGetHelpBoys" then
+						return inst
+					end
+				end
+			end
 		end
 	end
-end)
-
-Main2:AddSlider("Jump Power", {
-    Min = 0.01,
-    Max = 90,
-    Default = 50,
-    Increment = 0.01
-}, function(v)
-    currentJumpPower = math.min(v, 90)
-end)
-
-Main2:AddToggle("Enable Jump Power", { Default = false }, function(enabled)
-    if enabled then
-        UI.Success("nigga", "Clown still jumps higher than u")
-        jumpLoop = true
-        task.spawn(function()
-            while jumpLoop do
-                local char = localPlayer.Character or localPlayer.CharacterAdded:Wait()
-                local humanoid = char:FindFirstChildOfClass("Humanoid")
-
-                if humanoid then
-                    local jumpPower = math.min(currentJumpPower, 90)
-                    humanoid.JumpPower = jumpPower
-                end
-
-                task.wait(0.5)
-            end
-        end)
-    else
-        jumpLoop = false
-        local char = localPlayer.Character
-        local humanoid = char and char:FindFirstChildOfClass("Humanoid")
-        if humanoid then
-            humanoid.JumpPower = 50
+	
+	-- Resolve a usable BasePart
+	local function getAdornee(model)
+		return model.PrimaryPart or model:FindFirstChildWhichIsA("BasePart", true)
+	end
+	
+	-- Remove billboard safely
+	local function removeBillboard()
+		if distanceConn then
+			distanceConn:Disconnect()
+			distanceConn = nil
+		end
+		if billboard then
+			billboard:Destroy()
+			billboard = nil
+		end
+	end
+	
+	local function createBillboard(radioModel)
+		removeBillboard()
+	
+		adornee = getAdornee(radioModel)
+		if not adornee then return end
+	
+		billboard = Instance.new("BillboardGui")
+		billboard.Name = "RadioBillboard"
+		billboard.Size = UDim2.fromOffset(150, 50)
+		billboard.StudsOffset = Vector3.new(0, 3, 0)
+		billboard.AlwaysOnTop = true
+		billboard.Adornee = adornee
+		billboard.Parent = radioModel
+	
+		local label = Instance.new("TextLabel")
+		label.Size = UDim2.fromScale(1, 1)
+		label.BackgroundTransparency = 1
+		label.TextScaled = true
+		label.Font = Enum.Font.Roboto
+		label.TextStrokeTransparency = 0
+		label.TextColor3 = Color3.new(1, 1, 1)
+		label.Parent = billboard
+	
+		distanceConn = RunService.Heartbeat:Connect(function()
+			local char = LocalPlayer.Character
+			local hrp = char and char:FindFirstChild("HumanoidRootPart")
+			if not hrp or not adornee or not adornee.Parent then
+				return
+			end
+			local dist = (hrp.Position - adornee.Position).Magnitude
+			label.Text = string.format("%d continents away", math.floor(dist + 0.5))
+		end)
+	end
+	
+	local Players = game.Players
+	local localPlayer = Players.LocalPlayer
+	local enabled = false
+	
+	script.Parent.MouseButton1Click:Connect(function()
+		enabled = not enabled
+		
+		if enabled then
+			script.Parent.Checked.Visible = true
+			script.Parent.NotChecked.Visible = false
+			
+			monitorConn = RunService.Heartbeat:Connect(function()
+				if not radio or not radio.Parent then
+					radio = findRadio()
+					if radio then
+						createBillboard(radio)
+					end
+				end
+			end)
+		else
+			script.Parent.Checked.Visible = false
+			script.Parent.NotChecked.Visible = true
+			
+			if monitorConn then
+				monitorConn:Disconnect()
+				monitorConn = nil
+			end
+			removeBillboard()
+			radio = nil
+		end
+	end)
+end
+local function ASLI_fake_script() -- Fake Script: Workspace.Scryn.Frame.Cheats.ASK.LocalScript
+    local script = Instance.new("LocalScript")
+    script.Name = "LocalScript"
+    script.Parent = Converted["_ASK"]
+    local req = require
+    local require = function(obj)
+        local fake = fake_module_scripts[obj]
+        if fake then
+            return fake()
         end
+        return req(obj)
     end
-end)
 
-local Camera = game.Players.LocalPlayer
-local originalMaxZoom = Camera.CameraMaxZoomDistance
-
-Main2:AddToggle("Camera Zoom Distance", { Default = false }, function(enabled)
-    if enabled then
-        Camera.CameraMaxZoomDistance = math.huge
-    else
-        Camera.CameraMaxZoomDistance = originalMaxZoom
-    end
-end)
-
-local Players = game:GetService("Players")
-local UserInputService = game:GetService("UserInputService")
-local RunService = game:GetService("RunService")
-
-local LocalPlayer = Players.LocalPlayer
-local flying = false
-local flyConn, noclipConn
-local bv, bg
-
-local SPEED = 19
-
-local controls = {
-    W = 0, A = 0, S = 0, D = 0,
-    Up = 0, Down = 0
-}
-
-local function setCollision(character, state)
-    for _, v in ipairs(character:GetDescendants()) do
-        if v:IsA("BasePart") then
-            v.CanCollide = state
+	local Players = game:GetService("Players")
+	local LocalPlayer = Players.LocalPlayer
+	
+	local swingLoop
+	local equipped = false
+	local knifeTool
+	
+	local Players = game.Players
+	local localPlayer = Players.LocalPlayer
+	local enabled = false
+	
+	script.Parent.MouseButton1Click:Connect(function()
+		enabled = not enabled
+		
+		if enabled then
+			script.Parent.Checked.Visible = true
+			script.Parent.NotChecked.Visible = false
+			
+			knifeTool = LocalPlayer.Character and LocalPlayer.Character:FindFirstChildOfClass("Tool")
+			if not knifeTool or knifeTool.Name ~= "Knife" then
+				return
+			end
+	
+			equipped = true
+	
+			swingLoop = task.spawn(function()
+				while enabled and equipped and knifeTool and knifeTool.Parent == LocalPlayer.Character do
+					knifeTool:Activate()
+					task.wait(.5)
+				end
+			end)
+	
+			LocalPlayer.Character.ChildAdded:Connect(function(child)
+				if child:IsA("Tool") and child.Name == "Knife" then
+					knifeTool = child
+					equipped = true
+					if not swingLoop or not task.isRunning(swingLoop) then
+						swingLoop = task.spawn(function()
+							while enabled and equipped and knifeTool and knifeTool.Parent == LocalPlayer.Character do
+								knifeTool:Activate()
+								task.wait(0.5)
+							end
+						end)
+					end
+				end
+			end)
+	
+			LocalPlayer.Character.ChildRemoved:Connect(function(child)
+				if child == knifeTool then
+					equipped = false
+				end
+			end)
+		else
+			script.Parent.Checked.Visible = false
+			script.Parent.NotChecked.Visible = true
+			
+			equipped = false
+			knifeTool = nil
+		end
+	end)
+end
+local function UAPRU_fake_script() -- Fake Script: Workspace.Scryn.Frame.Cheats.GNV.LocalScript
+    local script = Instance.new("LocalScript")
+    script.Name = "LocalScript"
+    script.Parent = Converted["_GNV"]
+    local req = require
+    local require = function(obj)
+        local fake = fake_module_scripts[obj]
+        if fake then
+            return fake()
         end
+        return req(obj)
     end
+
+	local Players = game:GetService("Players")
+	local RunService = game:GetService("RunService")
+	
+	local LocalPlayer = Players.LocalPlayer
+	local followConnection
+	
+	local STOP_DISTANCE = 2
+	
+	local Players = game.Players
+	local localPlayer = Players.LocalPlayer
+	local enabled = false
+	
+	script.Parent.MouseButton1Click:Connect(function()
+		enabled = not enabled
+		
+		if enabled then
+			script.Parent.Checked.Visible = true
+			script.Parent.NotChecked.Visible = false
+			
+			if not LocalPlayer.Team or LocalPlayer.Team.Name ~= "Clown" then
+				return
+			end
+	
+			followConnection = RunService.Heartbeat:Connect(function()
+				local character = LocalPlayer.Character
+				if not character then return end
+	
+				local humanoid = character:FindFirstChildOfClass("Humanoid")
+				local hrp = character:FindFirstChild("HumanoidRootPart")
+				if not humanoid or humanoid.Health <= 0 or not hrp then return end
+	
+				local nearestVictimHRP
+				local nearestVictimHum
+				local shortestDistance = math.huge
+	
+				for _, player in ipairs(Players:GetPlayers()) do
+					if player.Team and player.Team.Name == "Victims" and player.Character then
+						local vChar = player.Character
+						local vHRP = vChar:FindFirstChild("HumanoidRootPart")
+						local vHum = vChar:FindFirstChildOfClass("Humanoid")
+	
+						if vHRP and vHum and vHum.Health > 0 then
+							local dist = (vHRP.Position - hrp.Position).Magnitude
+							if dist < shortestDistance then
+								shortestDistance = dist
+								nearestVictimHRP = vHRP
+								nearestVictimHum = vHum
+							end
+						end
+					end
+				end
+	
+				if nearestVictimHRP then
+					if shortestDistance > STOP_DISTANCE then
+						local direction = (nearestVictimHRP.Position - hrp.Position).Unit
+						local targetPosition = nearestVictimHRP.Position - (direction * STOP_DISTANCE)
+						humanoid:MoveTo(targetPosition)
+					else
+						humanoid:MoveTo(hrp.Position)
+					end
+	
+					local victimState = nearestVictimHum:GetState()
+					if (victimState == Enum.HumanoidStateType.Jumping
+						or victimState == Enum.HumanoidStateType.Freefall)
+						and humanoid.FloorMaterial ~= Enum.Material.Air then
+	
+						humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+					end
+				end
+			end)
+		else
+			script.Parent.Checked.Visible = false
+			script.Parent.NotChecked.Visible = true
+			
+			if followConnection then
+				followConnection:Disconnect()
+				followConnection = nil
+			end
+		end
+	end)
 end
-
-local function startFly()
-    local char = LocalPlayer.Character
-    if not char then return end
-
-    local hrp = char:FindFirstChild("HumanoidRootPart")
-    local hum = char:FindFirstChildOfClass("Humanoid")
-    if not hrp or not hum then return end
-
-    hum.PlatformStand = true
-    setCollision(char, false)
-
-    bv = Instance.new("BodyVelocity")
-    bv.MaxForce = Vector3.new(1e9, 1e9, 1e9)
-    bv.Velocity = Vector3.zero
-    bv.Parent = hrp
-
-    bg = Instance.new("BodyGyro")
-    bg.MaxTorque = Vector3.new(1e9, 1e9, 1e9)
-    bg.CFrame = hrp.CFrame
-    bg.Parent = hrp
-
-    flyConn = RunService.RenderStepped:Connect(function()
-        local cam = workspace.CurrentCamera
-        bg.CFrame = cam.CFrame
-
-        local move =
-            cam.CFrame.LookVector * (controls.W - controls.S) +
-            cam.CFrame.RightVector * (controls.D - controls.A) +
-            cam.CFrame.UpVector * (controls.Up - controls.Down)
-
-        bv.Velocity = (move.Magnitude > 0) and (move.Unit * SPEED) or Vector3.zero
-    end)
-
-    noclipConn = RunService.Stepped:Connect(function()
-        if char then
-            setCollision(char, false)
+local function VCLO_fake_script() -- Fake Script: Workspace.Scryn.Frame.Cheats.AOC.LocalScript
+    local script = Instance.new("LocalScript")
+    script.Name = "LocalScript"
+    script.Parent = Converted["_AOC"]
+    local req = require
+    local require = function(obj)
+        local fake = fake_module_scripts[obj]
+        if fake then
+            return fake()
         end
-    end)
+        return req(obj)
+    end
+
+	local Players = game:GetService("Players")
+	local RunService = game:GetService("RunService")
+	local LocalPlayer = Players.LocalPlayer
+	local Camera = workspace.CurrentCamera
+	
+	local aimbotConnection
+	
+	local Players = game.Players
+	local localPlayer = Players.LocalPlayer
+	local enabled = false
+	
+	script.Parent.MouseButton1Click:Connect(function()
+		enabled = not enabled
+		
+		if enabled then
+			script.Parent.Checked.Visible = true
+			script.Parent.NotChecked.Visible = false
+			
+			local warned = false
+			aimbotConnection = RunService.RenderStepped:Connect(function()
+				local localCharacter = LocalPlayer.Character
+				if not localCharacter then return end
+				local localHRP = localCharacter:FindFirstChild("HumanoidRootPart")
+				if not localHRP then return end
+	
+				local closestTarget = nil
+				local shortestDistance = math.huge
+	
+				for _, player in pairs(Players:GetPlayers()) do
+					if player.Team and player.Team.Name == "Clown" and player.Character and player.Character:FindFirstChild("HumanoidRootPart") and player ~= LocalPlayer then
+						local targetHRP = player.Character.HumanoidRootPart
+						local distance = (targetHRP.Position - localHRP.Position).Magnitude
+						if distance < shortestDistance then
+							shortestDistance = distance
+							closestTarget = player
+						end
+					end
+				end
+	
+				if closestTarget then
+					warned = false
+					local targetPos = closestTarget.Character.HumanoidRootPart.Position
+					local cameraPos = Camera.CFrame.Position
+					local newCFrame = CFrame.new(cameraPos, targetPos)
+	
+					Camera.CFrame = newCFrame
+				else
+					if not warned then
+						warned = true
+					end
+				end
+			end)
+		else
+			script.Parent.Checked.Visible = false
+			script.Parent.NotChecked.Visible = true
+			
+			if aimbotConnection then
+				aimbotConnection:Disconnect()
+				aimbotConnection = nil
+			end
+		end
+	end)
 end
-
-local function stopFly()
-    if flyConn then flyConn:Disconnect() flyConn = nil end
-    if noclipConn then noclipConn:Disconnect() noclipConn = nil end
-
-    if bv then bv:Destroy() bv = nil end
-    if bg then bg:Destroy() bg = nil end
-
-    local char = LocalPlayer.Character
-    local hum = char and char:FindFirstChildOfClass("Humanoid")
-    if hum then
-        hum.PlatformStand = false
-    end
-    if char then
-        setCollision(char, true)
-    end
-end
-
-UserInputService.InputBegan:Connect(function(i, g)
-    if g then return end
-    if i.KeyCode == Enum.KeyCode.W then controls.W = 1 end
-    if i.KeyCode == Enum.KeyCode.S then controls.S = 1 end
-    if i.KeyCode == Enum.KeyCode.A then controls.A = 1 end
-    if i.KeyCode == Enum.KeyCode.D then controls.D = 1 end
-    if i.KeyCode == Enum.KeyCode.Space then controls.Up = 1 end
-    if i.KeyCode == Enum.KeyCode.LeftControl then controls.Down = 1 end
-end)
-
-UserInputService.InputEnded:Connect(function(i)
-    if i.KeyCode == Enum.KeyCode.W then controls.W = 0 end
-    if i.KeyCode == Enum.KeyCode.S then controls.S = 0 end
-    if i.KeyCode == Enum.KeyCode.A then controls.A = 0 end
-    if i.KeyCode == Enum.KeyCode.D then controls.D = 0 end
-    if i.KeyCode == Enum.KeyCode.Space then controls.Up = 0 end
-    if i.KeyCode == Enum.KeyCode.LeftControl then controls.Down = 0 end
-end)
-
-Main2:AddToggle("Fly Collab with NoClip", { Default = false }, function(enabled)
-    flying = enabled
-    if enabled then
-        startFly()
-    else
-        stopFly()
-    end
-end)
-
-local Players = game:GetService("Players")
-local RunService = game:GetService("RunService")
-local UserInputService = game:GetService("UserInputService")
-
-local LocalPlayer = Players.LocalPlayer
-local Camera = workspace.CurrentCamera
-
-local flying = false
-local flyConn, noclipConn
-local bv, bg
-local SPEED = 19
-
-local move = Vector3.zero
-local gui
-
-local function setCollision(char, state)
-    for _, v in ipairs(char:GetDescendants()) do
-        if v:IsA("BasePart") then
-            v.CanCollide = state
+local function MPDRTT_fake_script() -- Fake Script: Workspace.Scryn.Frame.Cheats.M.LocalScript
+    local script = Instance.new("LocalScript")
+    script.Name = "LocalScript"
+    script.Parent = Converted["_M"]
+    local req = require
+    local require = function(obj)
+        local fake = fake_module_scripts[obj]
+        if fake then
+            return fake()
         end
-    end
-end
-
-local function createButton(parent, text, pos)
-    local b = Instance.new("TextButton")
-    b.Size = UDim2.fromScale(0.18, 0.12)
-    b.Position = pos
-    b.Text = text
-    b.TextScaled = true
-    b.BackgroundTransparency = 0.2
-    b.Parent = parent
-    return b
-end
-
-local function createControls()
-    gui = Instance.new("ScreenGui")
-    gui.ResetOnSpawn = false
-    gui.Parent = LocalPlayer:WaitForChild("PlayerGui")
-
-    local frame = Instance.new("Frame", gui)
-    frame.Size = UDim2.fromScale(1, 1)
-    frame.BackgroundTransparency = 1
-
-    local up    = createButton(frame, "↑", UDim2.fromScale(0.82, 0.55))
-    local down  = createButton(frame, "↓", UDim2.fromScale(0.82, 0.70))
-    local left  = createButton(frame, "←", UDim2.fromScale(0.72, 0.63))
-    local right = createButton(frame, "→", UDim2.fromScale(0.92, 0.63))
-    local rise  = createButton(frame, "UP", UDim2.fromScale(0.05, 0.55))
-    local fall  = createButton(frame, "DOWN", UDim2.fromScale(0.05, 0.70))
-
-    local function bind(btn, vec)
-        btn.TouchStarted:Connect(function() move += vec end)
-        btn.TouchEnded:Connect(function() move -= vec end)
+        return req(obj)
     end
 
-    bind(up,    Vector3.new(0, 0, -1))
-    bind(down,  Vector3.new(0, 0,  1))
-    bind(left,  Vector3.new(-1, 0, 0))
-    bind(right, Vector3.new( 1, 0, 0))
-    bind(rise,  Vector3.new(0, 1, 0))
-    bind(fall,  Vector3.new(0,-1, 0))
+	local Players = game:GetService("Players")
+	local RunService = game:GetService("RunService")
+	
+	local player = Players.LocalPlayer
+	
+	local enabledptii = false
+	local highlights = {}
+	local BOX_SIZE = Vector3.new(30, 10, 30)
+	
+	local function clear()
+		for _, h in pairs(highlights) do
+			h:Destroy()
+		end
+		table.clear(highlights)
+	end
+	
+	RunService.Heartbeat:Connect(function()
+		if not enabledptii then
+			clear()
+			return
+		end
+	
+		local character = player.Character
+		if not character then
+			clear()
+			return
+		end
+	
+		local hrp = character:FindFirstChild("HumanoidRootPart")
+		if not hrp then
+			clear()
+			return
+		end
+	
+		local center = hrp.Position
+		local size = BOX_SIZE
+	
+		local region = Region3.new(center - size / 2, center + size / 2)
+		local parts = workspace:GetPartBoundsInBox(region, { character }, math.huge)
+	
+		local valid = {}
+	
+		for _, part in ipairs(parts) do
+			if part:IsA("BasePart") and part.CanCollide == false then
+				valid[part] = true
+	
+				if not highlights[part] then
+					local hl = Instance.new("Highlight")
+					hl.Adornee = part
+					hl.FillTransparency = 1
+					hl.OutlineTransparency = 0
+					hl.OutlineColor = Color3.new(1, 1, 1)
+					hl.Parent = workspace
+					highlights[part] = hl
+				end
+			end
+		end
+	
+		for part, hl in pairs(highlights) do
+			if not valid[part] then
+				hl:Destroy()
+				highlights[part] = nil
+			end
+		end
+	end)
+	
+	local Players = game.Players
+	local localPlayer = Players.LocalPlayer
+	local enabled = false
+	
+	script.Parent.MouseButton1Click:Connect(function()
+		enabled = not enabled
+		
+		script.Parent.Checked.Visible = true
+		script.Parent.NotChecked.Visible = false
+		enabledptii = enabled
+		if not enabled then
+			script.Parent.Checked.Visible = false
+			script.Parent.NotChecked.Visible = true
+			clear()
+		end
+	end)
 end
-
-local function startFly()
-    local char = LocalPlayer.Character
-    if not char then return end
-
-    local hrp = char:FindFirstChild("HumanoidRootPart")
-    local hum = char:FindFirstChildOfClass("Humanoid")
-    if not hrp or not hum then return end
-
-    hum.PlatformStand = true
-    setCollision(char, false)
-    createControls()
-
-    bv = Instance.new("BodyVelocity", hrp)
-    bv.MaxForce = Vector3.new(1e9,1e9,1e9)
-
-    bg = Instance.new("BodyGyro", hrp)
-    bg.MaxTorque = Vector3.new(1e9,1e9,1e9)
-
-    flyConn = RunService.RenderStepped:Connect(function()
-        bg.CFrame = Camera.CFrame
-        if move.Magnitude > 0 then
-            local dir =
-                Camera.CFrame.RightVector * move.X +
-                Camera.CFrame.UpVector * move.Y +
-                Camera.CFrame.LookVector * move.Z
-            bv.Velocity = dir.Unit * SPEED
-        else
-            bv.Velocity = Vector3.zero
+local function ZYEYFS_fake_script() -- Fake Script: Workspace.Scryn.Frame.Cheats.PP.LocalScript
+    local script = Instance.new("LocalScript")
+    script.Name = "LocalScript"
+    script.Parent = Converted["_PP"]
+    local req = require
+    local require = function(obj)
+        local fake = fake_module_scripts[obj]
+        if fake then
+            return fake()
         end
-    end)
-
-    noclipConn = RunService.Stepped:Connect(function()
-        setCollision(char, false)
-    end)
-end
-
-local function stopFly()
-    if flyConn then flyConn:Disconnect() end
-    if noclipConn then noclipConn:Disconnect() end
-    if bv then bv:Destroy() end
-    if bg then bg:Destroy() end
-    if gui then gui:Destroy() end
-
-    local char = LocalPlayer.Character
-    local hum = char and char:FindFirstChildOfClass("Humanoid")
-    if hum then hum.PlatformStand = false end
-    if char then setCollision(char, true) end
-
-    move = Vector3.zero
-end
-
-Main2:AddToggle("Fly Collab with NoClip (pt ii)", { Default = false }, function(v)
-    flying = v
-    if v then
-        startFly()
-    else
-        stopFly()
+        return req(obj)
     end
-end)
 
-local Players = game:GetService("Players")
-local RunService = game:GetService("RunService")
-local LocalPlayer = Players.LocalPlayer
-
-local headSitConnection
-
-local function getPlayersByName(query)
-    local matches = {}
-    query = query:lower()
-    for _, player in pairs(Players:GetPlayers()) do
-        if player.Name:lower():find(query) or (player.DisplayName and player.DisplayName:lower():find(query)) then
-            table.insert(matches, player)
+	local Players = game:GetService("Players")
+	local localPlayer = Players.LocalPlayer
+	local EmoteId = 168
+	
+	local runLoop = false
+	
+	function playLaughAnimation(character)
+		local humanoid = character:FindFirstChildOfClass("Humanoid")
+		if humanoid then
+			local anim = Instance.new("Animation")
+			anim.AnimationId = "rbxassetid://" .. EmoteId
+			local animTrack = humanoid:LoadAnimation(anim)
+			animTrack:Play()
+			return animTrack.Length
+		end
+		return 0
+	end
+	
+	function startBaritone()
+		
+		
+		while runLoop do
+			for _, player in pairs(Players:GetPlayers()) do
+				if not runLoop then break end
+				if player ~= localPlayer and player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
+					local hrp = player.Character.HumanoidRootPart
+					local localHRP = localPlayer.Character and localPlayer.Character:FindFirstChild("HumanoidRootPart")
+					if localHRP then
+						localPlayer.Character.Humanoid:MoveTo(hrp.Position)
+						repeat wait() until (localHRP.Position - hrp.Position).Magnitude < 5 or not runLoop
+					end
+	
+					if not runLoop then break end
+	
+					local duration = playLaughAnimation(localPlayer.Character)
+					wait(duration)
+				end
+			end
+		end
+	end
+	
+	function toggleBaritone()
+		runLoop = not runLoop
+		if runLoop then
+			script.Parent.Checked.Visible = true
+			script.Parent.NotChecked.Visible = false
+			
+			startBaritone()
+		else
+			script.Parent.Checked.Visible = false
+			script.Parent.NotChecked.Visible = true
+		end
+	end
+	
+	script.Parent.MouseButton1Click:Connect(function()
+		toggleBaritone()
+	end)
+end
+local function HOPU_fake_script() -- Fake Script: Workspace.Scryn.Frame.Tabs.Adjust.LocalScript
+    local script = Instance.new("LocalScript")
+    script.Name = "LocalScript"
+    script.Parent = Converted["_Adjust"]
+    local req = require
+    local require = function(obj)
+        local fake = fake_module_scripts[obj]
+        if fake then
+            return fake()
         end
+        return req(obj)
     end
-    return matches
+
+	
 end
-
-local function getRoot(character)
-    return character and character:FindFirstChild("HumanoidRootPart")
-end
-
-Main2:AddInput("Deal with Teamers (sit on one teamer's shoulders)", function(text)
-    if headSitConnection then
-        headSitConnection:Disconnect()
-        headSitConnection = nil
-    end
-
-    local matches = getPlayersByName(text)
-    if #matches ~= 1 then
-        UI.Success("nigga", "there is no such player with that name. Found:", #matches)
-        return
-    end
-
-    local targetPlayer = matches[1]
-    local speakerChar = LocalPlayer.Character
-    local targetChar = targetPlayer.Character
-
-    if not speakerChar or not targetChar then
-        UI.Success("nigga", "wait the character to load, deadass")
-        return
-    end
-
-    local speakerHumanoid = speakerChar:FindFirstChildOfClass("Humanoid")
-    if not speakerHumanoid then
-        UI.Success("nigga", "i cannot find HRP")
-        return
-    end
-
-    local speakerRoot = getRoot(speakerChar)
-    local targetRoot = getRoot(targetChar)
-    if not speakerRoot or not targetRoot then
-        UI.Success("nigga", "smth is missing inside your body")
-        return
-    end
-
-    speakerHumanoid.Sit = true
-
-    headSitConnection = RunService.Heartbeat:Connect(function()
-        if not Players:FindFirstChild(targetPlayer.Name) or not targetPlayer.Character or not speakerHumanoid.Sit then
-            headSitConnection:Disconnect()
-            headSitConnection = nil
-            return
+local function KBMIPK_fake_script() -- Fake Script: Workspace.Scryn.Frame.Tabs.Cheats.LocalScript
+    local script = Instance.new("LocalScript")
+    script.Name = "LocalScript"
+    script.Parent = Converted["_Cheats1"]
+    local req = require
+    local require = function(obj)
+        local fake = fake_module_scripts[obj]
+        if fake then
+            return fake()
         end
-        local targetRoot = getRoot(targetPlayer.Character)
-        local speakerRoot = getRoot(LocalPlayer.Character)
-        if not targetRoot or not speakerRoot then
-            headSitConnection:Disconnect()
-            headSitConnection = nil
-            return
-        end
-        local offset = CFrame.new(0, 1.6, 0.4)
-        speakerRoot.CFrame = targetRoot.CFrame * offset
-    end)
-end)
+        return req(obj)
+    end
 
-if UI.IsMobile then
-    UI.MobileToggle({ Window = Window })
+	
 end
+local function EIOOF_fake_script() -- Fake Script: Workspace.Scryn.Frame.Tabs.Info.LocalScript
+    local script = Instance.new("LocalScript")
+    script.Name = "LocalScript"
+    script.Parent = Converted["_Info"]
+    local req = require
+    local require = function(obj)
+        local fake = fake_module_scripts[obj]
+        if fake then
+            return fake()
+        end
+        return req(obj)
+    end
+
+	
+end
+local function XLQJCMV_fake_script() -- Fake Script: Workspace.Scryn.Frame.Adjusts.ChangeWS.LocalScript
+    local script = Instance.new("LocalScript")
+    script.Name = "LocalScript"
+    script.Parent = Converted["_ChangeWS"]
+    local req = require
+    local require = function(obj)
+        local fake = fake_module_scripts[obj]
+        if fake then
+            return fake()
+        end
+        return req(obj)
+    end
+
+	local Players = game:GetService("Players")
+	local RunService = game:GetService("RunService")
+	
+	local LocalPlayer = Players.LocalPlayer
+	local TextBox = script.Parent
+	
+	local currentWalkSpeed = 16
+	
+	TextBox:GetPropertyChangedSignal("Text"):Connect(function()
+		local text = TextBox.Text
+	
+		local filtered = text:gsub("[^%d%.]", "")
+	
+		local _, dotCount = filtered:gsub("%.", "")
+		if dotCount > 1 then
+			filtered = filtered:sub(1, -2)
+		end
+	
+		if filtered ~= text then
+			TextBox.Text = filtered
+		end
+	
+		local value = tonumber(filtered)
+		if value and value < 20 then
+			currentWalkSpeed = value
+		end
+	end)
+	
+	RunService.Heartbeat:Connect(function()
+		local char = LocalPlayer.Character
+		local hum = char and char:FindFirstChildOfClass("Humanoid")
+		if hum and hum.WalkSpeed ~= currentWalkSpeed then
+			hum.WalkSpeed = currentWalkSpeed
+		end
+	end)
+	
+	LocalPlayer.CharacterAdded:Connect(function(char)
+		local hum = char:WaitForChild("Humanoid")
+		hum.WalkSpeed = currentWalkSpeed
+	end)
+	
+end
+local function NAYEO_fake_script() -- Fake Script: Workspace.Scryn.Frame.Adjusts.ChangeJP.LocalScript
+    local script = Instance.new("LocalScript")
+    script.Name = "LocalScript"
+    script.Parent = Converted["_ChangeJP"]
+    local req = require
+    local require = function(obj)
+        local fake = fake_module_scripts[obj]
+        if fake then
+            return fake()
+        end
+        return req(obj)
+    end
+
+	local Players = game:GetService("Players")
+	local RunService = game:GetService("RunService")
+	
+	local LocalPlayer = Players.LocalPlayer
+	local TextBox = script.Parent
+	
+	local currentJumpPower = 50
+	
+	TextBox:GetPropertyChangedSignal("Text"):Connect(function()
+		local text = TextBox.Text
+	
+		local filtered = text:gsub("[^%d%.]", "")
+	
+		local dotCount = select(2, filtered:gsub("%.", ""))
+		if dotCount > 1 then
+			filtered = filtered:sub(1, -2)
+		end
+	
+		if filtered ~= text then
+			TextBox.Text = filtered
+		end
+	
+		local value = tonumber(filtered)
+		if value and value < 91 then
+			currentJumpPower = value
+		end
+	end)
+	
+	RunService.Heartbeat:Connect(function()
+		local char = LocalPlayer.Character
+		local hum = char and char:FindFirstChildOfClass("Humanoid")
+		if hum and hum.JumpPower ~= currentJumpPower then
+			hum.JumpPower = currentJumpPower
+		end
+	end)
+	
+	LocalPlayer.CharacterAdded:Connect(function(char)
+		local hum = char:WaitForChild("Humanoid")
+		hum.JumpPower = currentJumpPower
+	end)
+	
+end
+local function KWALK_fake_script() -- Fake Script: Workspace.Scryn.Frame.Adjusts.LD.LocalScript
+    local script = Instance.new("LocalScript")
+    script.Name = "LocalScript"
+    script.Parent = Converted["_LD"]
+    local req = require
+    local require = function(obj)
+        local fake = fake_module_scripts[obj]
+        if fake then
+            return fake()
+        end
+        return req(obj)
+    end
+
+	local Players = game:GetService("Players")
+	local LocalPlayer = Players.LocalPlayer
+	
+	local swingLoop
+	local equipped = false
+	local knifeTool
+	
+	local Players = game.Players
+	local localPlayer = Players.LocalPlayer
+	local enabled = false
+	
+	script.Parent.MouseButton1Click:Connect(function()
+		enabled = not enabled
+		
+		local char = localPlayer.Character or localPlayer.CharacterAdded:Wait()
+		local humanoid = char:FindFirstChildOfClass("Humanoid")
+		local root = char:FindFirstChild("HumanoidRootPart")	
+		
+		if humanoid and root then
+			if enabled then
+				script.Parent.Checked.Visible = true
+				script.Parent.NotChecked.Visible = false
+	
+				humanoid.Sit = true
+				task.wait(.1)
+	
+				root.CFrame = root.CFrame * CFrame.Angles(math.pi * 0.5, 0, 0)
+	
+				for _, track in ipairs(humanoid:GetPlayingAnimationTracks()) do
+					track:Stop()
+				end
+			else
+				script.Parent.Checked.Visible = false
+				script.Parent.NotChecked.Visible = true
+	
+				root.CFrame = CFrame.new(root.Position)
+			end
+		end
+	end)
+end
+local function CFVJMC_fake_script() -- Fake Script: Workspace.Scryn.Frame.Adjusts.CIZD.LocalScript
+    local script = Instance.new("LocalScript")
+    script.Name = "LocalScript"
+    script.Parent = Converted["_CIZD"]
+    local req = require
+    local require = function(obj)
+        local fake = fake_module_scripts[obj]
+        if fake then
+            return fake()
+        end
+        return req(obj)
+    end
+
+	local Camera = game.Players.LocalPlayer
+	local originalMaxZoom = Camera.CameraMaxZoomDistance
+	
+	local Players = game.Players
+	local localPlayer = Players.LocalPlayer
+	local enabled = false
+	
+	script.Parent.MouseButton1Click:Connect(function()
+		enabled = not enabled
+		
+		if enabled then
+			script.Parent.Checked.Visible = true
+			script.Parent.NotChecked.Visible = false
+	
+			Camera.CameraMaxZoomDistance = math.huge
+		else
+			script.Parent.Checked.Visible = false
+			script.Parent.NotChecked.Visible = true
+	
+			Camera.CameraMaxZoomDistance = originalMaxZoom
+		end
+	end)
+end
+local function KVVWQGO_fake_script() -- Fake Script: Workspace.Scryn.Frame.Infos.GameRunning.LocalScript
+    local script = Instance.new("LocalScript")
+    script.Name = "LocalScript"
+    script.Parent = Converted["_GameRunning"]
+    local req = require
+    local require = function(obj)
+        local fake = fake_module_scripts[obj]
+        if fake then
+            return fake()
+        end
+        return req(obj)
+    end
+
+	local Teams = game:GetService("Teams")
+	local Players = game:GetService("Players")
+	
+	local textLabel = script.Parent
+	local clownTeam = Teams:FindFirstChild("Clown")
+	
+	while true do
+		local gameRunning = false
+		if clownTeam then
+			for _, player in pairs(Players:GetPlayers()) do
+				if player.Team == clownTeam then
+					gameRunning = true
+					break
+				end
+			end
+		end
+	
+		if gameRunning then
+			textLabel.Text = "Game Running: Yes"
+		else
+			textLabel.Text = "Game Running: No"
+		end
+	
+		task.wait(1)
+	end
+end
+local function AKPMTZT_fake_script() -- Fake Script: Workspace.Scryn.Frame.Infos.It.LocalScript
+    local script = Instance.new("LocalScript")
+    script.Name = "LocalScript"
+    script.Parent = Converted["_It"]
+    local req = require
+    local require = function(obj)
+        local fake = fake_module_scripts[obj]
+        if fake then
+            return fake()
+        end
+        return req(obj)
+    end
+
+	local Teams = game:GetService("Teams")
+	local Players = game:GetService("Players")
+	
+	local textLabel = script.Parent
+	local clownTeam = Teams:FindFirstChild("Clown")
+	
+	while true do
+		local clownPlayerName = "?"
+		if clownTeam then
+			for _, player in pairs(Players:GetPlayers()) do
+				if player.Team == clownTeam then
+					clownPlayerName = player.Name
+					break
+				end
+			end
+		end
+	
+		textLabel.Text = "The Clown: " .. clownPlayerName
+		wait(1)
+	end
+end
+local function DMOMT_fake_script() -- Fake Script: Workspace.Scryn.Frame.Infos.Lol.LocalScript
+    local script = Instance.new("LocalScript")
+    script.Name = "LocalScript"
+    script.Parent = Converted["_Lol"]
+    local req = require
+    local require = function(obj)
+        local fake = fake_module_scripts[obj]
+        if fake then
+            return fake()
+        end
+        return req(obj)
+    end
+
+	script.Parent.Text = [[
+	These are the players that
+	have been blacklisted for teaming:
+	@GuardNoir,
+	@S4nd33er,
+	@vigilxntt,
+	@Xxadi123XD,
+	@htpp_kaczuszka,
+	@Pola_1b,
+	@Ghxstbbusta66,
+	@oskadsa1,
+	@XxJulyXx_Xx,
+	@Cinnamon_3520,
+	@Blue_pulll,
+	@faeriee4,
+	@UWEUWEUWE63,
+	@Akira07920,
+	@Ezraisrael2.]]
+end
+local function DSFIBH_fake_script() -- Fake Script: Workspace.Scryn.Frame.SmoothDragUI
+    local script = Instance.new("LocalScript")
+    script.Name = "SmoothDragUI"
+    script.Parent = Converted["_Frame"]
+    local req = require
+    local require = function(obj)
+        local fake = fake_module_scripts[obj]
+        if fake then
+            return fake()
+        end
+        return req(obj)
+    end
+
+	
+end
+local function JMNVZDE_fake_script() -- Fake Script: Workspace.Scryn.TextButton.LocalScript
+    local script = Instance.new("LocalScript")
+    script.Name = "LocalScript"
+    script.Parent = Converted["_TextButton"]
+    local req = require
+    local require = function(obj)
+        local fake = fake_module_scripts[obj]
+        if fake then
+            return fake()
+        end
+        return req(obj)
+    end
+
+	
+end
+local function YGOJQN_fake_script() -- Fake Script: Workspace.Scryn.SoundSystem
+    local script = Instance.new("LocalScript")
+    script.Name = "SoundSystem"
+    script.Parent = Converted["_Scryn"]
+    local req = require
+    local require = function(obj)
+        local fake = fake_module_scripts[obj]
+        if fake then
+            return fake()
+        end
+        return req(obj)
+    end
+
+	local function playSound(sound)
+		script.Parent[sound]:Play()
+	end
+	
+	for _, v in pairs(script.Parent:GetDescendants()) do
+		if v:IsA('TextButton') or v:IsA('ImageButton') then
+			v.MouseEnter:Connect(function()
+				playSound("hovers")
+			end)
+	
+			v.MouseButton1Click:Connect(function()
+				playSound("clicking")
+			end)
+		end
+	end
+end
+
+coroutine.wrap(AYDZX_fake_script)()
+coroutine.wrap(BAAALZ_fake_script)()
+coroutine.wrap(DKLBNX_fake_script)()
+coroutine.wrap(JNHP_fake_script)()
+coroutine.wrap(WWPHSC_fake_script)()
+coroutine.wrap(JTEOMK_fake_script)()
+coroutine.wrap(ASLI_fake_script)()
+coroutine.wrap(UAPRU_fake_script)()
+coroutine.wrap(VCLO_fake_script)()
+coroutine.wrap(MPDRTT_fake_script)()
+coroutine.wrap(ZYEYFS_fake_script)()
+coroutine.wrap(HOPU_fake_script)()
+coroutine.wrap(KBMIPK_fake_script)()
+coroutine.wrap(EIOOF_fake_script)()
+coroutine.wrap(XLQJCMV_fake_script)()
+coroutine.wrap(NAYEO_fake_script)()
+coroutine.wrap(KWALK_fake_script)()
+coroutine.wrap(CFVJMC_fake_script)()
+coroutine.wrap(KVVWQGO_fake_script)()
+coroutine.wrap(AKPMTZT_fake_script)()
+coroutine.wrap(DMOMT_fake_script)()
+coroutine.wrap(DSFIBH_fake_script)()
+coroutine.wrap(JMNVZDE_fake_script)()
+coroutine.wrap(YGOJQN_fake_script)()
