@@ -245,7 +245,7 @@ Converted["_UIPadding3"].PaddingRight = UDim.new(0, 10)
 Converted["_UIPadding3"].Parent = Converted["_FRLP"]
 
 Converted["_ImageLabel"].Image = "rbxassetid://10734898355"
-Converted["_ImageLabel"].ImageContent = Content
+
 Converted["_ImageLabel"].AnchorPoint = Vector2.new(1, 0.5)
 Converted["_ImageLabel"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Converted["_ImageLabel"].BackgroundTransparency = 1
@@ -276,7 +276,6 @@ Converted["_UIPadding4"].Parent = Converted["_HC"]
 
 Converted["_NotChecked"].Image = "rbxassetid://10709798174"
 Converted["_NotChecked"].ImageColor3 = Color3.fromRGB(255, 0, 0)
-Converted["_NotChecked"].ImageContent = Content
 Converted["_NotChecked"].AnchorPoint = Vector2.new(1, 0.5)
 Converted["_NotChecked"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Converted["_NotChecked"].BackgroundTransparency = 1
@@ -290,7 +289,6 @@ Converted["_NotChecked"].Parent = Converted["_HC"]
 
 Converted["_Checked"].Image = "rbxassetid://10709790387"
 Converted["_Checked"].ImageColor3 = Color3.fromRGB(0, 255, 0)
-Converted["_Checked"].ImageContent = Content
 Converted["_Checked"].AnchorPoint = Vector2.new(1, 0.5)
 Converted["_Checked"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Converted["_Checked"].BackgroundTransparency = 1
@@ -323,7 +321,6 @@ Converted["_UIPadding5"].Parent = Converted["_HV"]
 
 Converted["_NotChecked1"].Image = "rbxassetid://10709798174"
 Converted["_NotChecked1"].ImageColor3 = Color3.fromRGB(255, 0, 0)
-Converted["_NotChecked1"].ImageContent = Content
 Converted["_NotChecked1"].AnchorPoint = Vector2.new(1, 0.5)
 Converted["_NotChecked1"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Converted["_NotChecked1"].BackgroundTransparency = 1
@@ -337,7 +334,6 @@ Converted["_NotChecked1"].Parent = Converted["_HV"]
 
 Converted["_Checked1"].Image = "rbxassetid://10709790387"
 Converted["_Checked1"].ImageColor3 = Color3.fromRGB(0, 255, 0)
-Converted["_Checked1"].ImageContent = Content
 Converted["_Checked1"].AnchorPoint = Vector2.new(1, 0.5)
 Converted["_Checked1"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Converted["_Checked1"].BackgroundTransparency = 1
@@ -370,7 +366,6 @@ Converted["_UIPadding6"].Parent = Converted["_WITR"]
 
 Converted["_NotChecked2"].Image = "rbxassetid://10709798174"
 Converted["_NotChecked2"].ImageColor3 = Color3.fromRGB(255, 0, 0)
-Converted["_NotChecked2"].ImageContent = Content
 Converted["_NotChecked2"].AnchorPoint = Vector2.new(1, 0.5)
 Converted["_NotChecked2"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Converted["_NotChecked2"].BackgroundTransparency = 1
@@ -384,7 +379,6 @@ Converted["_NotChecked2"].Parent = Converted["_WITR"]
 
 Converted["_Checked2"].Image = "rbxassetid://10709790387"
 Converted["_Checked2"].ImageColor3 = Color3.fromRGB(0, 255, 0)
-Converted["_Checked2"].ImageContent = Content
 Converted["_Checked2"].AnchorPoint = Vector2.new(1, 0.5)
 Converted["_Checked2"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Converted["_Checked2"].BackgroundTransparency = 1
@@ -417,7 +411,6 @@ Converted["_UIPadding7"].Parent = Converted["_ASK"]
 
 Converted["_NotChecked3"].Image = "rbxassetid://10709798174"
 Converted["_NotChecked3"].ImageColor3 = Color3.fromRGB(255, 0, 0)
-Converted["_NotChecked3"].ImageContent = Content
 Converted["_NotChecked3"].AnchorPoint = Vector2.new(1, 0.5)
 Converted["_NotChecked3"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Converted["_NotChecked3"].BackgroundTransparency = 1
@@ -431,7 +424,6 @@ Converted["_NotChecked3"].Parent = Converted["_ASK"]
 
 Converted["_Checked3"].Image = "rbxassetid://10709790387"
 Converted["_Checked3"].ImageColor3 = Color3.fromRGB(0, 255, 0)
-Converted["_Checked3"].ImageContent = Content
 Converted["_Checked3"].AnchorPoint = Vector2.new(1, 0.5)
 Converted["_Checked3"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Converted["_Checked3"].BackgroundTransparency = 1
@@ -464,7 +456,6 @@ Converted["_UIPadding8"].Parent = Converted["_GNV"]
 
 Converted["_NotChecked4"].Image = "rbxassetid://10709798174"
 Converted["_NotChecked4"].ImageColor3 = Color3.fromRGB(255, 0, 0)
-Converted["_NotChecked4"].ImageContent = Content
 Converted["_NotChecked4"].AnchorPoint = Vector2.new(1, 0.5)
 Converted["_NotChecked4"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Converted["_NotChecked4"].BackgroundTransparency = 1
@@ -478,7 +469,6 @@ Converted["_NotChecked4"].Parent = Converted["_GNV"]
 
 Converted["_Checked4"].Image = "rbxassetid://10709790387"
 Converted["_Checked4"].ImageColor3 = Color3.fromRGB(0, 255, 0)
-Converted["_Checked4"].ImageContent = Content
 Converted["_Checked4"].AnchorPoint = Vector2.new(1, 0.5)
 Converted["_Checked4"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Converted["_Checked4"].BackgroundTransparency = 1
@@ -511,7 +501,6 @@ Converted["_UIPadding9"].Parent = Converted["_AOC"]
 
 Converted["_NotChecked5"].Image = "rbxassetid://10709798174"
 Converted["_NotChecked5"].ImageColor3 = Color3.fromRGB(255, 0, 0)
-Converted["_NotChecked5"].ImageContent = Content
 Converted["_NotChecked5"].AnchorPoint = Vector2.new(1, 0.5)
 Converted["_NotChecked5"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Converted["_NotChecked5"].BackgroundTransparency = 1
@@ -525,7 +514,6 @@ Converted["_NotChecked5"].Parent = Converted["_AOC"]
 
 Converted["_Checked5"].Image = "rbxassetid://10709790387"
 Converted["_Checked5"].ImageColor3 = Color3.fromRGB(0, 255, 0)
-Converted["_Checked5"].ImageContent = Content
 Converted["_Checked5"].AnchorPoint = Vector2.new(1, 0.5)
 Converted["_Checked5"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Converted["_Checked5"].BackgroundTransparency = 1
@@ -558,7 +546,6 @@ Converted["_UIPadding10"].Parent = Converted["_M"]
 
 Converted["_NotChecked6"].Image = "rbxassetid://10709798174"
 Converted["_NotChecked6"].ImageColor3 = Color3.fromRGB(255, 0, 0)
-Converted["_NotChecked6"].ImageContent = Content
 Converted["_NotChecked6"].AnchorPoint = Vector2.new(1, 0.5)
 Converted["_NotChecked6"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Converted["_NotChecked6"].BackgroundTransparency = 1
@@ -572,7 +559,6 @@ Converted["_NotChecked6"].Parent = Converted["_M"]
 
 Converted["_Checked6"].Image = "rbxassetid://10709790387"
 Converted["_Checked6"].ImageColor3 = Color3.fromRGB(0, 255, 0)
-Converted["_Checked6"].ImageContent = Content
 Converted["_Checked6"].AnchorPoint = Vector2.new(1, 0.5)
 Converted["_Checked6"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Converted["_Checked6"].BackgroundTransparency = 1
@@ -605,7 +591,6 @@ Converted["_UIPadding11"].Parent = Converted["_PP"]
 
 Converted["_NotChecked7"].Image = "rbxassetid://10709798174"
 Converted["_NotChecked7"].ImageColor3 = Color3.fromRGB(255, 0, 0)
-Converted["_NotChecked7"].ImageContent = Content
 Converted["_NotChecked7"].AnchorPoint = Vector2.new(1, 0.5)
 Converted["_NotChecked7"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Converted["_NotChecked7"].BackgroundTransparency = 1
@@ -619,7 +604,6 @@ Converted["_NotChecked7"].Parent = Converted["_PP"]
 
 Converted["_Checked7"].Image = "rbxassetid://10709790387"
 Converted["_Checked7"].ImageColor3 = Color3.fromRGB(0, 255, 0)
-Converted["_Checked7"].ImageContent = Content
 Converted["_Checked7"].AnchorPoint = Vector2.new(1, 0.5)
 Converted["_Checked7"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Converted["_Checked7"].BackgroundTransparency = 1
@@ -740,7 +724,6 @@ Converted["_UITextSizeConstraint"].MaxTextSize = 14
 Converted["_UITextSizeConstraint"].Parent = Converted["_ChangeWS"]
 
 Converted["_ImageLabel1"].Image = "rbxassetid://10734982395"
-Converted["_ImageLabel1"].ImageContent = Content
 Converted["_ImageLabel1"].AnchorPoint = Vector2.new(1, 0.5)
 Converted["_ImageLabel1"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Converted["_ImageLabel1"].BackgroundTransparency = 1
@@ -776,7 +759,6 @@ Converted["_UITextSizeConstraint1"].MaxTextSize = 14
 Converted["_UITextSizeConstraint1"].Parent = Converted["_ChangeJP"]
 
 Converted["_ImageLabel2"].Image = "rbxassetid://10734982395"
-Converted["_ImageLabel2"].ImageContent = Content
 Converted["_ImageLabel2"].AnchorPoint = Vector2.new(1, 0.5)
 Converted["_ImageLabel2"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Converted["_ImageLabel2"].BackgroundTransparency = 1
@@ -807,7 +789,6 @@ Converted["_UIPadding16"].Parent = Converted["_LD"]
 
 Converted["_NotChecked8"].Image = "rbxassetid://10709798174"
 Converted["_NotChecked8"].ImageColor3 = Color3.fromRGB(255, 0, 0)
-Converted["_NotChecked8"].ImageContent = Content
 Converted["_NotChecked8"].AnchorPoint = Vector2.new(1, 0.5)
 Converted["_NotChecked8"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Converted["_NotChecked8"].BackgroundTransparency = 1
@@ -821,7 +802,6 @@ Converted["_NotChecked8"].Parent = Converted["_LD"]
 
 Converted["_Checked8"].Image = "rbxassetid://10709790387"
 Converted["_Checked8"].ImageColor3 = Color3.fromRGB(0, 255, 0)
-Converted["_Checked8"].ImageContent = Content
 Converted["_Checked8"].AnchorPoint = Vector2.new(1, 0.5)
 Converted["_Checked8"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Converted["_Checked8"].BackgroundTransparency = 1
@@ -854,7 +834,6 @@ Converted["_UIPadding17"].Parent = Converted["_CIZD"]
 
 Converted["_NotChecked9"].Image = "rbxassetid://10709798174"
 Converted["_NotChecked9"].ImageColor3 = Color3.fromRGB(255, 0, 0)
-Converted["_NotChecked9"].ImageContent = Content
 Converted["_NotChecked9"].AnchorPoint = Vector2.new(1, 0.5)
 Converted["_NotChecked9"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Converted["_NotChecked9"].BackgroundTransparency = 1
@@ -868,7 +847,6 @@ Converted["_NotChecked9"].Parent = Converted["_CIZD"]
 
 Converted["_Checked9"].Image = "rbxassetid://10709790387"
 Converted["_Checked9"].ImageColor3 = Color3.fromRGB(0, 255, 0)
-Converted["_Checked9"].ImageContent = Content
 Converted["_Checked9"].AnchorPoint = Vector2.new(1, 0.5)
 Converted["_Checked9"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Converted["_Checked9"].BackgroundTransparency = 1
@@ -957,7 +935,6 @@ Converted["_DropShadowHolder"].Name = "DropShadowHolder"
 Converted["_DropShadowHolder"].Parent = Converted["_Frame"]
 
 Converted["_DropShadow"].Image = "rbxassetid://6015897843"
-Converted["_DropShadow"].ImageContent = Content
 Converted["_DropShadow"].ImageTransparency = 0.5
 Converted["_DropShadow"].ScaleType = Enum.ScaleType.Slice
 Converted["_DropShadow"].SliceCenter = Rect.new(49, 49, 450, 450)
@@ -994,7 +971,6 @@ Converted["_DropShadowHolder1"].Name = "DropShadowHolder"
 Converted["_DropShadowHolder1"].Parent = Converted["_TextButton"]
 
 Converted["_DropShadow1"].Image = "rbxassetid://6014261993"
-Converted["_DropShadow1"].ImageContent = Content
 Converted["_DropShadow1"].ImageTransparency = 0.5
 Converted["_DropShadow1"].ScaleType = Enum.ScaleType.Slice
 Converted["_DropShadow1"].SliceCenter = Rect.new(49, 49, 450, 450)
@@ -1007,13 +983,11 @@ Converted["_DropShadow1"].ZIndex = 0
 Converted["_DropShadow1"].Name = "DropShadow"
 Converted["_DropShadow1"].Parent = Converted["_DropShadowHolder1"]
 
-Converted["_hovers"].AudioContent = Content
 Converted["_hovers"].PlaybackSpeed = 3
 Converted["_hovers"].SoundId = "rbxassetid://86233475600567"
 Converted["_hovers"].Name = "hovers"
 Converted["_hovers"].Parent = Converted["_Scryn"]
 
-Converted["_clicking"].AudioContent = Content
 Converted["_clicking"].SoundId = "rbxassetid://3428115723"
 Converted["_clicking"].Name = "clicking"
 Converted["_clicking"].Parent = Converted["_Scryn"]
