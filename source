@@ -991,9 +991,14 @@ Converted["_clicking"].SoundId = "rbxassetid://3428115723"
 Converted["_clicking"].Name = "clicking"
 Converted["_clicking"].Parent = Converted["_Scryn"]
 
+-- Fake Module Scripts:
+
 local fake_module_scripts = {}
 
-local function OOOPSON_fake_script() -- Fake Script: Workspace.Scryn.Frame.Frame.Close.LocalScript
+
+-- Fake Local Scripts:
+
+local function VZHROB_fake_script() -- Fake Script: Workspace.Scryn.Frame.Frame.Close.LocalScript
     local script = Instance.new("LocalScript")
     script.Name = "LocalScript"
     script.Parent = Converted["_Close"]
@@ -1010,7 +1015,7 @@ local function OOOPSON_fake_script() -- Fake Script: Workspace.Scryn.Frame.Frame
 		script.Parent.Parent.Parent.Parent:Destroy()
 	end)
 end
-local function NPGGPS_fake_script() -- Fake Script: Workspace.Scryn.Frame.Frame.RestoreDown.LocalScript
+local function NOQTEEP_fake_script() -- Fake Script: Workspace.Scryn.Frame.Frame.RestoreDown.LocalScript
     local script = Instance.new("LocalScript")
     script.Name = "LocalScript"
     script.Parent = Converted["_RestoreDown"]
@@ -1028,7 +1033,7 @@ local function NPGGPS_fake_script() -- Fake Script: Workspace.Scryn.Frame.Frame.
 		script.Parent.Parent.Parent.Visible = false
 	end)
 end
-local function UQRYOE_fake_script() -- Fake Script: Workspace.Scryn.Frame.Cheats.FRLP.LocalScript
+local function OAMBMM_fake_script() -- Fake Script: Workspace.Scryn.Frame.Cheats.FRLP.LocalScript
     local script = Instance.new("LocalScript")
     script.Name = "LocalScript"
     script.Parent = Converted["_FRLP"]
@@ -1069,7 +1074,7 @@ local function UQRYOE_fake_script() -- Fake Script: Workspace.Scryn.Frame.Cheats
 		firetouchinterest(radioHitPart, hrp, 0)
 	end)
 end
-local function AYUVRPQ_fake_script() -- Fake Script: Workspace.Scryn.Frame.Cheats.HC.LocalScript
+local function MCGNSC_fake_script() -- Fake Script: Workspace.Scryn.Frame.Cheats.HC.LocalScript
     local script = Instance.new("LocalScript")
     script.Name = "LocalScript"
     script.Parent = Converted["_HC"]
@@ -1130,7 +1135,7 @@ local function AYUVRPQ_fake_script() -- Fake Script: Workspace.Scryn.Frame.Cheat
 		end
 	end)
 end
-local function NMXTJC_fake_script() -- Fake Script: Workspace.Scryn.Frame.Cheats.HV.LocalScript
+local function ZVPE_fake_script() -- Fake Script: Workspace.Scryn.Frame.Cheats.HV.LocalScript
     local script = Instance.new("LocalScript")
     script.Name = "LocalScript"
     script.Parent = Converted["_HV"]
@@ -1194,7 +1199,7 @@ local function NMXTJC_fake_script() -- Fake Script: Workspace.Scryn.Frame.Cheats
 		end
 	end)
 end
-local function TVMPQ_fake_script() -- Fake Script: Workspace.Scryn.Frame.Cheats.WITR.LocalScript
+local function KPWEN_fake_script() -- Fake Script: Workspace.Scryn.Frame.Cheats.WITR.LocalScript
     local script = Instance.new("LocalScript")
     script.Name = "LocalScript"
     script.Parent = Converted["_WITR"]
@@ -1313,7 +1318,7 @@ local function TVMPQ_fake_script() -- Fake Script: Workspace.Scryn.Frame.Cheats.
 		end
 	end)
 end
-local function QVRPLC_fake_script() -- Fake Script: Workspace.Scryn.Frame.Cheats.ASK.LocalScript
+local function ELVZ_fake_script() -- Fake Script: Workspace.Scryn.Frame.Cheats.ASK.LocalScript
     local script = Instance.new("LocalScript")
     script.Name = "LocalScript"
     script.Parent = Converted["_ASK"]
@@ -1387,7 +1392,7 @@ local function QVRPLC_fake_script() -- Fake Script: Workspace.Scryn.Frame.Cheats
 		end
 	end)
 end
-local function HFVNT_fake_script() -- Fake Script: Workspace.Scryn.Frame.Cheats.GNV.LocalScript
+local function NRNVU_fake_script() -- Fake Script: Workspace.Scryn.Frame.Cheats.GNV.LocalScript
     local script = Instance.new("LocalScript")
     script.Name = "LocalScript"
     script.Parent = Converted["_GNV"]
@@ -1481,7 +1486,7 @@ local function HFVNT_fake_script() -- Fake Script: Workspace.Scryn.Frame.Cheats.
 		end
 	end)
 end
-local function MWZPX_fake_script() -- Fake Script: Workspace.Scryn.Frame.Cheats.AOC.LocalScript
+local function ZMPCJD_fake_script() -- Fake Script: Workspace.Scryn.Frame.Cheats.AOC.LocalScript
     local script = Instance.new("LocalScript")
     script.Name = "LocalScript"
     script.Parent = Converted["_AOC"]
@@ -1557,7 +1562,7 @@ local function MWZPX_fake_script() -- Fake Script: Workspace.Scryn.Frame.Cheats.
 		end
 	end)
 end
-local function RIURG_fake_script() -- Fake Script: Workspace.Scryn.Frame.Cheats.M.LocalScript
+local function SNEX_fake_script() -- Fake Script: Workspace.Scryn.Frame.Cheats.M.LocalScript
     local script = Instance.new("LocalScript")
     script.Name = "LocalScript"
     script.Parent = Converted["_M"]
@@ -1653,7 +1658,7 @@ local function RIURG_fake_script() -- Fake Script: Workspace.Scryn.Frame.Cheats.
 		end
 	end)
 end
-local function HAEVTA_fake_script() -- Fake Script: Workspace.Scryn.Frame.Cheats.PP.LocalScript
+local function YRRH_fake_script() -- Fake Script: Workspace.Scryn.Frame.Cheats.PP.LocalScript
     local script = Instance.new("LocalScript")
     script.Name = "LocalScript"
     script.Parent = Converted["_PP"]
@@ -1724,7 +1729,7 @@ local function HAEVTA_fake_script() -- Fake Script: Workspace.Scryn.Frame.Cheats
 		toggleBaritone()
 	end)
 end
-local function ERFXTI_fake_script() -- Fake Script: Workspace.Scryn.Frame.Tabs.Adjust.LocalScript
+local function SNNED_fake_script() -- Fake Script: Workspace.Scryn.Frame.Tabs.Adjust.LocalScript
     local script = Instance.new("LocalScript")
     script.Name = "LocalScript"
     script.Parent = Converted["_Adjust"]
@@ -1737,9 +1742,13 @@ local function ERFXTI_fake_script() -- Fake Script: Workspace.Scryn.Frame.Tabs.A
         return req(obj)
     end
 
-	
+	script.Parent.MouseButton1Click:Connect(function()
+		script.Parent.Parent.Parent.Cheats.Visible = false
+		script.Parent.Parent.Parent.Adjusts.Visible = true
+		script.Parent.Parent.Parent.Infos.Visible = false
+	end)
 end
-local function RGMEYY_fake_script() -- Fake Script: Workspace.Scryn.Frame.Tabs.Cheats.LocalScript
+local function GTOIM_fake_script() -- Fake Script: Workspace.Scryn.Frame.Tabs.Cheats.LocalScript
     local script = Instance.new("LocalScript")
     script.Name = "LocalScript"
     script.Parent = Converted["_Cheats1"]
@@ -1752,9 +1761,13 @@ local function RGMEYY_fake_script() -- Fake Script: Workspace.Scryn.Frame.Tabs.C
         return req(obj)
     end
 
-	
+	script.Parent.MouseButton1Click:Connect(function()
+		script.Parent.Parent.Parent.Cheats.Visible = true
+		script.Parent.Parent.Parent.Adjusts.Visible = false
+		script.Parent.Parent.Parent.Infos.Visible = false
+	end)
 end
-local function UXYURRK_fake_script() -- Fake Script: Workspace.Scryn.Frame.Tabs.Info.LocalScript
+local function WKISAGQ_fake_script() -- Fake Script: Workspace.Scryn.Frame.Tabs.Info.LocalScript
     local script = Instance.new("LocalScript")
     script.Name = "LocalScript"
     script.Parent = Converted["_Info"]
@@ -1767,9 +1780,13 @@ local function UXYURRK_fake_script() -- Fake Script: Workspace.Scryn.Frame.Tabs.
         return req(obj)
     end
 
-	
+	script.Parent.MouseButton1Click:Connect(function()
+		script.Parent.Parent.Parent.Cheats.Visible = false
+		script.Parent.Parent.Parent.Adjusts.Visible = false
+		script.Parent.Parent.Parent.Infos.Visible = true
+	end)
 end
-local function XNZVBEN_fake_script() -- Fake Script: Workspace.Scryn.Frame.Adjusts.ChangeWS.LocalScript
+local function WHWBZPR_fake_script() -- Fake Script: Workspace.Scryn.Frame.Adjusts.ChangeWS.LocalScript
     local script = Instance.new("LocalScript")
     script.Name = "LocalScript"
     script.Parent = Converted["_ChangeWS"]
@@ -1824,7 +1841,7 @@ local function XNZVBEN_fake_script() -- Fake Script: Workspace.Scryn.Frame.Adjus
 	end)
 	
 end
-local function WDVG_fake_script() -- Fake Script: Workspace.Scryn.Frame.Adjusts.ChangeJP.LocalScript
+local function LWSMLXG_fake_script() -- Fake Script: Workspace.Scryn.Frame.Adjusts.ChangeJP.LocalScript
     local script = Instance.new("LocalScript")
     script.Name = "LocalScript"
     script.Parent = Converted["_ChangeJP"]
@@ -1879,7 +1896,7 @@ local function WDVG_fake_script() -- Fake Script: Workspace.Scryn.Frame.Adjusts.
 	end)
 	
 end
-local function HCANEV_fake_script() -- Fake Script: Workspace.Scryn.Frame.Adjusts.LD.LocalScript
+local function SEBMD_fake_script() -- Fake Script: Workspace.Scryn.Frame.Adjusts.LD.LocalScript
     local script = Instance.new("LocalScript")
     script.Name = "LocalScript"
     script.Parent = Converted["_LD"]
@@ -1932,7 +1949,7 @@ local function HCANEV_fake_script() -- Fake Script: Workspace.Scryn.Frame.Adjust
 		end
 	end)
 end
-local function VOKIBG_fake_script() -- Fake Script: Workspace.Scryn.Frame.Adjusts.CIZD.LocalScript
+local function JUGL_fake_script() -- Fake Script: Workspace.Scryn.Frame.Adjusts.CIZD.LocalScript
     local script = Instance.new("LocalScript")
     script.Name = "LocalScript"
     script.Parent = Converted["_CIZD"]
@@ -1968,7 +1985,7 @@ local function VOKIBG_fake_script() -- Fake Script: Workspace.Scryn.Frame.Adjust
 		end
 	end)
 end
-local function GRRS_fake_script() -- Fake Script: Workspace.Scryn.Frame.Infos.GameRunning.LocalScript
+local function WADXN_fake_script() -- Fake Script: Workspace.Scryn.Frame.Infos.GameRunning.LocalScript
     local script = Instance.new("LocalScript")
     script.Name = "LocalScript"
     script.Parent = Converted["_GameRunning"]
@@ -2007,7 +2024,7 @@ local function GRRS_fake_script() -- Fake Script: Workspace.Scryn.Frame.Infos.Ga
 		task.wait(1)
 	end
 end
-local function SEZIXV_fake_script() -- Fake Script: Workspace.Scryn.Frame.Infos.It.LocalScript
+local function MDEBDMN_fake_script() -- Fake Script: Workspace.Scryn.Frame.Infos.It.LocalScript
     local script = Instance.new("LocalScript")
     script.Name = "LocalScript"
     script.Parent = Converted["_It"]
@@ -2041,7 +2058,7 @@ local function SEZIXV_fake_script() -- Fake Script: Workspace.Scryn.Frame.Infos.
 		wait(1)
 	end
 end
-local function WFMO_fake_script() -- Fake Script: Workspace.Scryn.Frame.Infos.Lol.LocalScript
+local function RSUZIZ_fake_script() -- Fake Script: Workspace.Scryn.Frame.Infos.Lol.LocalScript
     local script = Instance.new("LocalScript")
     script.Name = "LocalScript"
     script.Parent = Converted["_Lol"]
@@ -2073,7 +2090,7 @@ local function WFMO_fake_script() -- Fake Script: Workspace.Scryn.Frame.Infos.Lo
 	@Akira07920,
 	@Ezraisrael2.]]
 end
-local function GKMV_fake_script() -- Fake Script: Workspace.Scryn.Frame.SmoothDragUI
+local function FWZB_fake_script() -- Fake Script: Workspace.Scryn.Frame.SmoothDragUI
     local script = Instance.new("LocalScript")
     script.Name = "SmoothDragUI"
     script.Parent = Converted["_Frame"]
@@ -2130,7 +2147,7 @@ local function GKMV_fake_script() -- Fake Script: Workspace.Scryn.Frame.SmoothDr
 	
 	dragify(sesomething)
 end
-local function KBYEU_fake_script() -- Fake Script: Workspace.Scryn.TextButton.LocalScript
+local function XKBIS_fake_script() -- Fake Script: Workspace.Scryn.TextButton.LocalScript
     local script = Instance.new("LocalScript")
     script.Name = "LocalScript"
     script.Parent = Converted["_TextButton"]
@@ -2148,7 +2165,7 @@ local function KBYEU_fake_script() -- Fake Script: Workspace.Scryn.TextButton.Lo
 		script.Parent.Visible = false
 	end)
 end
-local function ESIO_fake_script() -- Fake Script: Workspace.Scryn.SoundSystem
+local function PLZHXUX_fake_script() -- Fake Script: Workspace.Scryn.SoundSystem
     local script = Instance.new("LocalScript")
     script.Name = "SoundSystem"
     script.Parent = Converted["_Scryn"]
@@ -2178,27 +2195,27 @@ local function ESIO_fake_script() -- Fake Script: Workspace.Scryn.SoundSystem
 	end
 end
 
-coroutine.wrap(OOOPSON_fake_script)()
-coroutine.wrap(NPGGPS_fake_script)()
-coroutine.wrap(UQRYOE_fake_script)()
-coroutine.wrap(AYUVRPQ_fake_script)()
-coroutine.wrap(NMXTJC_fake_script)()
-coroutine.wrap(TVMPQ_fake_script)()
-coroutine.wrap(QVRPLC_fake_script)()
-coroutine.wrap(HFVNT_fake_script)()
-coroutine.wrap(MWZPX_fake_script)()
-coroutine.wrap(RIURG_fake_script)()
-coroutine.wrap(HAEVTA_fake_script)()
-coroutine.wrap(ERFXTI_fake_script)()
-coroutine.wrap(RGMEYY_fake_script)()
-coroutine.wrap(UXYURRK_fake_script)()
-coroutine.wrap(XNZVBEN_fake_script)()
-coroutine.wrap(WDVG_fake_script)()
-coroutine.wrap(HCANEV_fake_script)()
-coroutine.wrap(VOKIBG_fake_script)()
-coroutine.wrap(GRRS_fake_script)()
-coroutine.wrap(SEZIXV_fake_script)()
-coroutine.wrap(WFMO_fake_script)()
-coroutine.wrap(GKMV_fake_script)()
-coroutine.wrap(KBYEU_fake_script)()
-coroutine.wrap(ESIO_fake_script)()
+coroutine.wrap(VZHROB_fake_script)()
+coroutine.wrap(NOQTEEP_fake_script)()
+coroutine.wrap(OAMBMM_fake_script)()
+coroutine.wrap(MCGNSC_fake_script)()
+coroutine.wrap(ZVPE_fake_script)()
+coroutine.wrap(KPWEN_fake_script)()
+coroutine.wrap(ELVZ_fake_script)()
+coroutine.wrap(NRNVU_fake_script)()
+coroutine.wrap(ZMPCJD_fake_script)()
+coroutine.wrap(SNEX_fake_script)()
+coroutine.wrap(YRRH_fake_script)()
+coroutine.wrap(SNNED_fake_script)()
+coroutine.wrap(GTOIM_fake_script)()
+coroutine.wrap(WKISAGQ_fake_script)()
+coroutine.wrap(WHWBZPR_fake_script)()
+coroutine.wrap(LWSMLXG_fake_script)()
+coroutine.wrap(SEBMD_fake_script)()
+coroutine.wrap(JUGL_fake_script)()
+coroutine.wrap(WADXN_fake_script)()
+coroutine.wrap(MDEBDMN_fake_script)()
+coroutine.wrap(RSUZIZ_fake_script)()
+coroutine.wrap(FWZB_fake_script)()
+coroutine.wrap(XKBIS_fake_script)()
+coroutine.wrap(PLZHXUX_fake_script)()
